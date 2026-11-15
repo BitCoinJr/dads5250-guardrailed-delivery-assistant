@@ -1,4 +1,6 @@
 {
   "repository_url": "https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant",
-  "request_sheet_url": "https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit"
+  "request_sheet_url": "https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit#gid=20261115",
+  "request_sheet_id": "1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY",
+  "request_backlog_range": "Request backlog!A3:T200"
 }

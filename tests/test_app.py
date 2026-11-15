@@ -11,6 +11,7 @@ def app(monkeypatch, tmp_path):
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     instance = AppTest.from_file(str(ROOT / "app.py"), default_timeout=90).run()
     assert not instance.exception
+    instance.get_by_key("view").set_value("1  Request").run()  # ty: ignore[missing-union-attribute]
     return instance
 
 

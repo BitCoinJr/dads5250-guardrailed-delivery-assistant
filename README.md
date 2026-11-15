@@ -2,16 +2,18 @@
 
 DADS5250 Final Project — **Satoshi Nakamura, Solo**
 
-This local demonstration turns a spreadsheet request into a structured ticket, repository impact analysis, a proposed patch, automated validation, and a recorded human decision. Business users can keep using Google Sheets: export the request sheet as CSV and import it into the review screen.
+Business users record BI, data-extraction and reporting requests in a familiar Google Sheet. They discuss the need with a Business Analyst (BA) in meetings, Slack or other channels, then agree on business impact, priority and desired timing. This demo supports that intake process and helps a human choose which request should proceed.
+
+The app estimates **business impact versus change volume**, shows the supporting business and dbt repository evidence, and records a separate human BA **Go / Hold / Clarify** decision. A valid Go creates a frozen Jira-style handoff inside the demo. The Data Engineer can then prepare a structured ticket, proposed changes and automated validation results, followed by a second human approval before patch export.
 
 - [Project repository](https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant)
-- [Google Sheets request intake](https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit) — six synthetic requests with the exact CSV headers used by this app. The owner controls access to the sheet.
+- [Google Sheets business request backlog](https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit#gid=20261115)
+- [Google connection setup in Japanese](docs/GOOGLE_SHEETS_SETUP_JA.md)
+- [OpenAI setup in Japanese](docs/OPENAI_SETUP_JA.md)
 
-In Google Sheets, open the **Requests** tab, fill or edit a request, and select **File → Download → Comma-separated values (.csv)**. In the app, choose **Upload CSV** and select that file. The **Instructions** tab explains the supported scope. The app also links to the live sheet. `project_resources.json` holds the project links so a clone can point to its own sheet.
+The normal workflow reads the private sheet directly; it does not require a CSV download and upload. The sheet remains read-only to the app. BA decisions are recorded locally, without changing sheet cells or sharing settings. A clearly separated synthetic **Demo backlog** is available before Google authentication is configured. Legacy CSV import remains an advanced fallback.
 
-The MVP supports one bounded change: excluding named order statuses from the revenue metric in the included synthetic dbt project. It proposes changes to SQL, a dbt policy test, documentation, and one dashboard definition stored in Git as BI-as-Code. An approved package is a review artifact. The app does not merge code or deploy to production.
-
-## Start the prepared demonstration
+## Start the demonstration
 
 On the prepared Windows machine, double-click **Run_Demo.cmd**, or run:
 
@@ -19,17 +21,121 @@ On the prepared Windows machine, double-click **Run_Demo.cmd**, or run:
 .\Start_Demo.ps1
 ```
 
-Open the local address printed by Streamlit. Keep the launcher running while using the app. Start in **sample mode** to explore the complete interaction without an API key. Sample mode uses a deterministic request parser and bounded patch templates. Its output is explicitly labeled and must not be presented as live generative-AI output.
+Open the local Streamlit address and start in **0 BA intake**. The two settings have different meanings:
+
+| Setting | Choices | Meaning |
+| --- | --- | --- |
+| Backlog source | Demo backlog / Google Sheets | Synthetic local requests or a direct read of the configured private sheet |
+| Generation mode | Sample walkthrough / OpenAI API | Deterministic sample rules and templates, or actual API generation |
+
+Demo backlog with Sample walkthrough needs no credentials. Selecting Google Sheets requires Google OAuth setup. Selecting OpenAI API requires a local API key and model. The app labels the source and generation mode so a sample preview cannot be mistaken for a live read or an AI-generated result.
+
+## Realistic intake and two human decisions
+
+1. The business user records a request and discusses its purpose with the BA.
+2. The user and BA refine acceptance criteria, business impact, priority, timing and readiness in the sheet.
+3. In **BA intake**, refresh the source, choose up to 30 requests, and select a planning date.
+4. Select **Estimate impact and change volume**. Inspect the matrix, recommendation reasons, confidence and retrieved dbt evidence.
+5. The BA chooses a request, enters a decision rationale and explicitly records **Go**, **Hold** or **Clarify**. A recommendation does not start development.
+6. For a valid Go, **1 Request** displays the frozen handoff. Select **Prepare and validate** to create the structured delivery ticket, evidence, plan, proposed patch and validation report.
+7. Inspect **2 Evidence and plan** and **3 Changes and checks**. A Data Engineer then reviews the evidence and records the final decision in **4 Human review**.
+8. Only an approved, unchanged validation result can be exported as an approved patch package.
+
+The BA Go decides whether a request is ready to start. The later Data Engineer approval decides whether the prepared patch is acceptable. Neither action executes a production merge or release. A real Jira service is not required for the demo; the handoff and ticket are Jira-style local records.
+
+### What the matrix means
+
+| Estimated business impact | Estimated change volume | Discussion to have |
+| --- | --- | --- |
+| High | Small | Consider starting after confirming readiness and timing |
+| High | Large | Scope the work or split it into phases |
+| Low | Small | Batch it when capacity is available |
+| Low | Large | Defer or revisit the business case |
+
+Requests with insufficient information stay outside the four quadrants under **Needs estimation**. A missing BA impact rating is not silently filled with a neutral number. Draft rows can keep impact blank, priority Unassigned, effort Unknown, BA status New and decision Pending until the discussion is complete.
+
+The change-volume estimate uses retrieved dbt assets and dependency context. For the supported existing revenue policy, the app compares the canonical proposed templates with the source and can show the number of changed SQL models, affected files and added/removed text lines. Those are **provisional template-based scope estimates**, not actual generated-patch measurements or working hours. Broad new dashboards, new sources or extraction requests may have unknown counts and low-confidence assumptions until they are scoped.
+
+BA priority, desired date and initial effort remain visible as secondary planning inputs. The optional rubric is transparent guidance, not financial ROI, an objective business-value score or an automatic Go rule.
+
+### Frozen Go and freshness
+
+Before recording a decision, the app rereads the selected source and checks that the reviewed queue has not changed. A Go receipt binds the reviewed request, its business fields and repository estimate. The delivery screen verifies the receipt and keeps those request fields fixed. To change the requirement, update the source and repeat BA intake rather than editing the frozen ticket. A later sheet edit does not silently rewrite an existing ticket. Changes to the inspected repository assets invalidate the old estimate and handoff.
+
+## Delivery scope
+
+The backlog can represent BI changes, data extraction, new dashboards and other real requests. Automatic delivery remains intentionally narrow: an explicit English request to exclude named order statuses from the existing `revenue` metric in the supplied synthetic dbt project. Supported statuses are `canceled`, `refunded`, `pending` and `completed`.
+
+The proposed patch changes four allowlisted files together:
+
+- `models/marts/fct_revenue.sql`
+- `tests/revenue_policy.sql`
+- `docs/revenue.md`
+- `bi/revenue_dashboard.yml`
+
+Only clarified, supported requests with the required BA readiness and business assessment can receive Go for this delivery path. Broader work stays visible with **Scope review**, **Hold** or **Clarify** guidance; ranking it does not make it implementable. Production merge/release, actual Jira integration and real BI deployment remain future work.
+
+## Workflow and architecture
+
+Standalone diagrams: [request to release](docs/figures/01_Request_to_Release.svg) and [system architecture](docs/figures/02_MVP_Architecture.svg).
+
+```mermaid
+flowchart TD
+    A[User records a request in Google Sheets] --> B[User and BA clarify need and timing]
+    B --> C[Refresh the private backlog in the app]
+    C --> D[Estimate impact and change volume using repository evidence]
+    D --> E{Human BA decision}
+    E -->|Clarify| B
+    E -->|Hold| F[Keep the request in the backlog]
+    E -->|Go| G[Freeze a Jira-style delivery handoff]
+    G --> H[Propose SQL tests documentation and BI changes]
+    H --> I[Validate in a separate workspace]
+    I --> J{Human Data Engineer review}
+    J -->|Revise requirement| B
+    J -->|Approve| K[Export reviewed patch and audit records]
+    K -. Future approval-controlled steps .-> L[Merge and release]
+```
+
+```mermaid
+flowchart TD
+    S[Private Google Sheet] -->|Read-only OAuth| R[Allowlisted backlog reader]
+    D[Synthetic demo backlog] --> T[BA triage service]
+    R --> T
+    P[Read-only dbt repository] -->|RAG evidence| T
+    M[OpenAI structured outputs] -. Actual AI mode .-> T
+    T --> B[Human BA Go and frozen receipt]
+    B --> G[LangGraph delivery workflow]
+    P -->|RAG evidence| G
+    M -. Actual AI mode .-> G
+    G --> V[Isolated dbt DuckDB and pytest validation]
+    V --> H[Human Data Engineer approval]
+    H --> X[Approved patch package]
+    T -. Events .-> A[Local audit records]
+    B -. Decision .-> A
+    G -. Events .-> A
+    H -. Decision .-> A
+```
+
+The three course techniques have separate responsibilities:
+
+| Technique | Role |
+| --- | --- |
+| Structured Output | Pydantic schemas define AI triage recommendations, requirement extraction and implementation proposals; business checks run after schema validation |
+| RAG | A local TF-IDF vector index and dependency expansion retrieve allowlisted dbt/repository evidence for scope estimates and delivery plans; citations must match retrieved paths |
+| Agents / LangGraph | Explicit delivery stages coordinate parsing, retrieval, planning/generation and validation, with clarification and safety branches |
+
+Role-specific prompts support the AI stages. Human BA decisions and final approvals are explicit service operations outside model generation.
 
 ## Reproduce on another machine
 
-Use Python 3.12 and a separate virtual environment. From this repository directory:
+Use Python 3.12 and a separate environment. From this repository:
 
 ```powershell
 .\Setup.ps1
+.\Start_Demo.ps1
 ```
 
-The setup script uses an installed `uv` when available, or the Python launcher. For manual setup:
+The setup script uses installed `uv` when available, or the Python launcher. Manual setup is also supported:
 
 ```powershell
 py -3.12 -m venv .venv
@@ -37,162 +143,96 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-The lock file pins the tested environment; `requirements.txt` lists direct dependencies. For macOS/Linux, use `python3` and `.venv/bin/python` in place of the Windows Python commands. A fresh machine also needs network access to download the dependencies.
+`requirements.lock.txt` pins the environment; `requirements.txt` lists direct dependencies. On macOS/Linux, use `python3` and `.venv/bin/python`. Installing dependencies requires network access.
 
-## Enable live OpenAI generation
+### Connect the private Google Sheet
 
-Copy `.env.example` to `.env` and set your own values locally:
+Follow [the Google setup guide](docs/GOOGLE_SHEETS_SETUP_JA.md). Create a Google Desktop OAuth client, keep its JSON in the ignored `.secrets` folder, then run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\connect_google.py
+```
+
+Complete the Google login and consent yourself. The scope is `spreadsheets.readonly`; Google grants that read scope at account level, while this app restricts its reads to the configured sheet ID and `Request backlog!A3:T200`. The app does not use public CSV endpoints, browser cookies, a service-account key or a write scope. It does not open a login window automatically when the page loads.
+
+Google authorization is independent of the OpenAI API key. The credentialed private-sheet connection must be tested after local OAuth setup; the included synthetic or mocked tests do not prove a successful live Google read.
+
+### Enable actual OpenAI generation
+
+Copy `.env.example` to `.env` and set values locally:
 
 ```dotenv
-OPENAI_API_KEY=your_private_api_key
+OPENAI_API_KEY=your_api_key_here
 OPENAI_MODEL=gpt-6.1-sol
 ```
 
-The prepared example recommends `gpt-6.1-sol`, which supports the Responses API and structured outputs. The model remains configurable in `.env` and in the app; account availability must be confirmed with a real call. Select **OpenAI API** in the app and rerun the request. This mode sends the request and selected synthetic repository evidence to OpenAI; usage may incur API charges. API failures remain visible as failed runs and never silently fall back to sample output. See [the model specification](https://developers.openai.com/api/docs/models/gpt-6.1-sol) and [the Japanese setup guide](docs/OPENAI_SETUP_JA.md).
+The prepared recommendation is `gpt-6.1-sol`; a model available to the account can be selected in the app. Actual AI mode sends the selected request data and allowlisted repository excerpts to OpenAI and may incur API charges. Failed API runs remain failures and never silently fall back to sample output. See [the model specification](https://developers.openai.com/api/docs/models/gpt-6.1-sol) and [the Japanese setup guide](docs/OPENAI_SETUP_JA.md).
 
-Keep `.env` out of Git and submission archives. The app reads the key from the local environment, never from spreadsheet content. Live AI behavior must be tested with valid credentials before claiming that the live integration works. Offline fixture tests alone do not establish AI quality.
-
-## Walk through the workflow
-
-1. Import a Google Sheets CSV, or select a supplied example.
-2. Select a request and check its title, description, metric and acceptance criteria.
-3. Generate the structured ticket, cited repository evidence and impact plan.
-4. Inspect the proposed SQL, test, documentation and dashboard changes as a diff.
-5. Review the automated checks and the expected versus proposed revenue totals.
-6. Enter a reviewer name and decision. Approval is enabled only after passing validation; rejection and revision requests are also recorded.
-7. Export the approved package. A revised request starts a new run and must be checked and approved again.
-
-For an ambiguous request, answer the clarification questions by editing the request before starting a new run. Do not assume that a generated ticket has the correct business meaning merely because it passes JSON schema validation.
-
-### CSV format
-
-Export one sheet as UTF-8 CSV. The supplied templates use these columns:
-
-| Column | Purpose |
-| --- | --- |
-| `request_id` | A stable business request identifier |
-| `title` | Short summary of the requested change |
-| `description` | The requested revenue policy, including statuses to exclude |
-| `acceptance_criteria` | Observable requirements used during review |
-| `target_metric` | `revenue` for this MVP |
-
-Example description: `Exclude canceled and refunded orders from revenue. Update the revenue model and its downstream test documentation and dashboard definition.`
-
-The demonstration policies use explicit English exclusion clauses and the status values `canceled`, `refunded`, `pending` and `completed`. Broader business rules and multilingual policy interpretation are outside the evaluated scope.
-
-The parser accepts UTF-8 with an optional byte-order mark and applies file, row and text limits. Spreadsheet rows are untrusted input; a CSV is not permission to run commands.
-
-### Included examples
-
-| File | Use |
-| --- | --- |
-| `inputs/sample_request.csv` | One successful request for a short demonstration |
-| `inputs/requests.csv` | Six manually labeled revenue-policy cases |
-| `inputs/ambiguous_request.csv` | Clarification path |
-| `inputs/adversarial_requests.csv` | Three synthetic attacks that should be blocked |
-
-## Architecture and course techniques
-
-```text
-Google Sheets CSV
-        |
-        v
-Structured ticket -> repository retrieval -> impact plan and proposed patch
-        |                 |                              |
-        |            read-only sources                   v
-        |                                      isolated dbt/DuckDB checks
-        |                                                |
-        +---------------- audit events ------------------+
-                                                         v
-                                                 human approval gate
-                                                         |
-                                                         v
-                                                 approved export package
-```
-
-The submitted proposal's three techniques have distinct responsibilities:
-
-| Technique | Role in the implementation |
-| --- | --- |
-| **Structured Output** | The OpenAI Responses API returns Pydantic schemas for requirement extraction and a proposal; business and safety checks run after schema validation. |
-| **RAG** | A local TF-IDF cosine vector index retrieves allowlisted repository evidence. Dependency expansion supplies downstream model, test, documentation and BI context. The proposal cites source paths. No embedding API is required for this small repository. |
-| **Agents / LangGraph** | Explicit workflow stages coordinate parsing, retrieval, planning/generation and validation, with conditional clarification, blocking and review states. Human approval is an explicit service action outside the generation call. |
-
-Role-specific instructions support the AI stages. A model is never given an unrestricted shell or repository write tool.
-
-### Workflow and architecture figures
-
-The workflow shows clarification, revision and approval paths. Dashed steps are future delivery integrations.
-
-![Request to release workflow with the MVP boundary](docs/figures/01_Request_to_Release.svg)
-
-The architecture shows the three course techniques, read-only evidence, isolated validation and the human decision.
-
-![MVP architecture and safety controls](docs/figures/02_MVP_Architecture.svg)
+Credentialed live OpenAI generation remains a separate verification step after key setup. Sample-mode estimates and successful local validation are not evidence of live model quality. Keep live and sample results separate in the report.
 
 ## Validation and safety boundaries
 
-- Only the four intended repository paths can change: `models/marts/fct_revenue.sql`, `tests/revenue_policy.sql`, `docs/revenue.md`, and `bi/revenue_dashboard.yml`.
-- Proposed SQL and test content must match the supported canonical grammar before dbt execution. Dashboard YAML is schema-checked. This deliberately limits the demo's change space.
-- Validation copies the source project into a run-specific workspace. Trusted Python code parses the seed CSV and inserts its values into DuckDB; predefined dbt checks then run with external file access disabled. Expected revenue is also computed independently from the source CSV and extracted policy.
-- File path containment, secret exclusion, redaction and deterministic allowlists are enforced by application code. Suspicious instruction overrides, secret requests and unsafe commands are blocked before model calls.
-- An audit log records workflow events and reviewer decisions. Approval is tied to the checked artifact state; changing a patch requires a new validation and approval.
+- Spreadsheet cells, retrieved text and model output remain untrusted data. The model cannot access an unrestricted shell, change sharing or write to the source repository.
+- The Google reader uses a fixed file/range allowlist and read-only authorization. BA decisions are local records rather than spreadsheet writes.
+- Generated SQL and policy tests must match the bounded revenue-policy grammar before execution. BI YAML and documentation must agree with the reviewed policy.
+- Validation stages changes only in a run-specific workspace. Trusted Python parses synthetic seed data into DuckDB; fixed dbt commands run with external file access disabled. Independent pytest checks compare daily results with the CSV-derived acceptance oracle.
+- A BA Go is bound to its reviewed input and scope estimate. Final patch approval is bound to the checked proposal and workspace; changing either requires another review.
+- Secret-shaped inputs, prohibited instructions and unsafe paths are blocked or redacted. `.env`, `.secrets`, token files, virtual environments and generated runtime artifacts are excluded from Git and submission archives.
 
-The workspace is a file-level isolation boundary, **not an operating-system security sandbox**. Prompt-injection filtering is a mitigation, not a proof of safety; broad filters can also reject benign text. Synthetic attacks only test the included patterns. Do not use this local demo with production repositories, sensitive business data or production credentials.
-
-Reviewer names are self-entered for the demonstration. They are not authenticated identities or signatures. Audit records are local files, not a tamper-proof external audit service. The MVP has no Google Sheets/Jira live API integration, production merge, release, or real BI deployment.
+This is a local demonstration with file-level isolation, not an operating-system security sandbox. Pattern filters are mitigations and can both miss attacks and reject benign text. Reviewer names are self-entered, not authenticated identities; local audit files are not a tamper-proof external audit service. Use the synthetic repository and examples rather than production data or credentials.
 
 ## Tests and evaluation
 
-Run the tests from the repository root:
-
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests -q
-```
-
-Run the labeled sample evaluation:
-
-```powershell
 .\.venv\Scripts\python.exe -m evaluation.run_evaluation --mode sample
 ```
 
-For the organized Final Project folder, save an evaluation report under the evaluation area:
+The existing labeled evaluation runner covers the bounded delivery component: ticket schema, extracted policy, affected-file precision/recall, automated validation, revenue against manual gold labels, and synthetic attack blocking. It does not by itself benchmark the new backlog-ranking or two-axis estimation quality. Separate tests cover triage eligibility, missing estimates, asset citations, stale inputs and frozen Go receipts.
+
+For the organized Final Project folder, save the delivery evaluation in its evaluation area:
 
 ```powershell
 .\.venv\Scripts\python.exe -m evaluation.run_evaluation --mode sample --output "..\..\03_Evaluation\sample_evaluation.json"
 ```
 
-After configuring the API key and model, repeat with `--mode openai` and a different output filename. The runner records the provider mode, dependency versions, per-case outcomes and metrics. It does not approve, merge or release a change.
-
-The gold labels in `evaluation/cases.json` define the intended policy and affected files. The evaluation checks ticket schema validity, policy extraction accuracy, micro-averaged impact precision/recall, automated check outcomes, expected revenue against the **manual** policy label, and blocked attack rate. This catches a wrong extracted policy even if the generated code agrees with that wrong policy.
-
-All six normal cases concern the same small metric and repository; all three attacks are synthetic. These results are regression evidence for this MVP, not a general reliability or security benchmark. Sample-mode metrics measure the deterministic fixtures. Report live and sample measurements separately, including failures.
+After configuring OpenAI, repeat with `--mode openai` and a separate output file. Record the actual commands, provider/source mode, dependency versions, failures and measured results. The small synthetic fixture set is regression evidence, not a general reliability or security benchmark. Do not reuse earlier counts or planned results as measurements of a changed system.
 
 ## Repository layout
 
 ```text
-app.py                         Interactive local review screen
-delivery_assistant/            Schemas, intake, providers, graph and repository tools
-sample_repo/                   Read-only synthetic dbt repository and BI definition
-inputs/                        Spreadsheet-compatible CSV examples
-evaluation/                    Manual labels and evaluation runner
-tests/                         Workflow, safety and interface checks
-docs/DEMO_GUIDE.md              Suggested nine-minute recording sequence
-.runs/                         Local run artifacts and evaluation outputs (ignored by Git)
-.env                           Local credentials (ignored by Git; never submit)
+app.py                         Local delivery review interface
+delivery_assistant/backlog_ui.py  BA intake and matrix screen
+delivery_assistant/triage.py    Evidence-based estimates and human Go receipts
+delivery_assistant/google_sheets.py  Restricted private-sheet reader
+delivery_assistant/            Schemas, AI provider, LangGraph and validation tools
+scripts/connect_google.py      Explicit one-time Google sign-in command
+sample_repo/                   Read-only synthetic dbt project and BI definition
+inputs/backlog_demo.json       Synthetic realistic request queue
+inputs/*.csv                   Advanced fallback and delivery regression fixtures
+evaluation/                    Manual labels and delivery evaluation runner
+tests/                         Intake, safety, workflow and interface checks
+docs/                          Google/OpenAI setup and recording guide
+project_resources.json         Project and sheet links
+.runs/                         Ignored local runtime data when installed standalone
+.secrets/                      Ignored local Google OAuth configuration and token
+.env                           Ignored local OpenAI configuration
 ```
 
-Each run retains its ticket, evidence, proposal, checks and approval information. When installed as `Final_Project/02_Development/MVP`, the interface stores runs in `Final_Project/03_Evaluation/runs`; otherwise it uses the local `.runs` folder. `DELIVERY_RUNS_DIR` can override the interface's run location. The evaluation command uses its specified output directory and a sibling `runs` folder. The original sample repository remains unchanged. Generated runtime files, virtual environments and secrets do not belong in the source repository or final ZIP.
+When installed in `Final_Project/02_Development/MVP`, the app stores run and triage artifacts under `Final_Project/03_Evaluation/runs`; otherwise it uses local `.runs`. `DELIVERY_RUNS_DIR` can override storage. Runtime data stays outside source control. Each record retains the input snapshot, evidence, recommendation, decision or validation appropriate to its stage.
 
-## Final submission preparation
+The `Request backlog` sheet uses grouped business-request, BA-review and delivery-tracking columns. `Instructions` explains the process. Original `Requests` CSV examples remain available for compatibility; they are not the normal intake path. Advanced CSV import expects `request_id`, `title`, `description`, `acceptance_criteria`, and `target_metric` headers, rather than the formatted backlog's title bands and human-readable headers.
 
-The course requires a working system, an 8–10 minute MP4/MPEG demonstration, a 4–6 page technical report, and a reproducible GitHub repository. Submit one ZIP containing the requested material. Include the repository URL and a clean source snapshot with this README and setup instructions. Exclude `.env`, `.venv`, caches, and incidental runtime files; include selected redacted evidence when it supports the report.
+## Final submission
 
-List **Satoshi Nakamura — Solo** on the report title page. The planned report uses six pages total: title page, problem/scope and workflow, architecture/AI techniques, decisions/guardrails, measured evaluation results, and limitations/reproducibility. Use actual measured results and explain remaining limitations. Review the assignment's detailed rubric before final packaging.
+The course requires a functional system, an 8–10 minute MP4/MPEG recording, a 4–6 page technical report and a reproducible GitHub repository. Submit the requested material in one ZIP with the repository URL and a clean source snapshot. Include selected redacted evidence when it supports the report; exclude `.env`, `.secrets`, `.venv`, caches, tokens and incidental runtime files.
+
+List **Satoshi Nakamura — Solo** on the report title page. Explain both human decisions, the evidence behind change-volume estimates, actual evaluation results, unresolved limitations and future approval-controlled release integration. The planned six-page structure is title page, problem/workflow, architecture/techniques, decisions/guardrails, measured results, and limitations/reproducibility. Review the detailed rubric before packaging.
 
 ## Reference documentation
 
+- [Google Sheets Python quickstart](https://developers.google.com/workspace/sheets/api/quickstart/python)
+- [Google Sheets read API](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/get)
 - [OpenAI structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)
 - [LangGraph Graph API](https://docs.langchain.com/oss/python/langgraph/graph-api)
 - [Streamlit app testing](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest)
-

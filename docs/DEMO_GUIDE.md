@@ -1,44 +1,59 @@
 # Recorded demonstration guide
 
-Target: **nine minutes**, within the course's 8–10 minute requirement. Presenter: **Satoshi Nakamura, Solo**.
+Target **nine minutes**, within the course's 8–10 minute requirement. Presenter: **Satoshi Nakamura, Solo**.
 
-Use a functioning local app and show the actual interactions. Keep workflow figures brief so the recording gives enough time to CSV import, evidence, changes, validation and a human decision. Prepare the app and dependency environment before starting the screen recording.
+The main story is a business request becoming a reviewed data change. Show the user's familiar sheet, the BA's discussion and selection work, the frozen delivery handoff, and the Data Engineer's final review. The normal recording does not need a CSV download/upload step.
 
-## Before recording
+## Prepare before recording
 
-1. Start `Run_Demo.cmd` and open the local Streamlit page.
-2. Select the mode you will demonstrate. If you use sample mode, explicitly call it a deterministic demonstration and show its label. A claim about live AI generation requires a successful run in OpenAI mode.
-3. Keep `inputs/sample_request.csv`, `inputs/ambiguous_request.csv` and `inputs/adversarial_requests.csv` ready. Use only the supplied synthetic data.
-4. Keep the workflow and architecture figures from `../Design` available. Hide terminals or files that could reveal credentials, and never open `.env` on screen.
-5. Run tests and the evaluation suite before recording. Keep the real output for the report; do not substitute planned or assumed numbers.
+1. Start `Run_Demo.cmd` and open **0 BA intake**.
+2. Decide which source you can honestly demonstrate. **Google Sheets** is a direct private read and requires completed local OAuth setup. **Demo backlog** is an explicitly labeled synthetic local queue. Never describe the latter as a fresh live read.
+3. Decide which generation mode you can demonstrate. **Sample walkthrough** uses explicit rules and templates. A claim about AI-generated estimates or proposals requires a successful **OpenAI API** run with real credentials.
+4. If using the real private-sheet connection, follow `GOOGLE_SHEETS_SETUP_JA.md` and test **Refresh Google Sheets** before recording. The credentialed connection is not established by a mocked reader test.
+5. Keep the Google Sheet's `Request backlog` tab ready. Use synthetic data only. The original `Requests` tab and CSV examples are advanced fallback material, not the main story.
+6. Run the relevant tests and evaluation beforehand. Keep actual output and dependency versions for the report; do not substitute planned values or old counts.
+7. Keep `.env`, `.secrets`, OAuth JSON and token files closed. Do not display credentials, authorization codes or account-setup details in the recording.
 
 ## Suggested sequence
 
-| Time | What to show | Explanation |
+| Time | Show | Explain |
 | --- | --- | --- |
-| 0:00–0:45 | Problem and one revenue request | Users already know Google Sheets. The assistant helps turn a request into a consistent, reviewable data change. |
-| 0:45–1:30 | Workflow figure | Trace spreadsheet input to an approved patch. Point out the clarification loop, validation loop and future merge/release boundary. |
-| 1:30–2:15 | Architecture figure | Explain Structured Output, repository RAG, LangGraph and controls enforced outside the model. |
-| 2:15–3:00 | Import `sample_request.csv` | Show the actual upload or selection and the requested canceled-order policy. Confirm the acceptance criteria. |
-| 3:00–4:00 | Generate and inspect evidence | Show the structured ticket, cited source paths, affected files and proposed plan. Explain why downstream tests/docs/BI must change together. |
-| 4:00–5:15 | Diff and automated validation | Inspect the four proposed files and the validation outcomes. Explain expected revenue versus proposed revenue using the synthetic orders. |
-| 5:15–6:00 | Clarification example | Import the ambiguous request. Show the pause and missing information. Add an explicit excluded status and acceptance criteria, then start a new run. |
-| 6:00–6:30 | One adversarial request | Show a supplied instruction-override or secret-extraction request being blocked. Explain that this is one tested mitigation, not guaranteed prevention. |
-| 6:30–7:30 | Human decision | Return to a validated run, inspect its diff/checks, enter a reviewer name, and approve it. Show the recorded decision and approved export. Explain rejection or revision without releasing anything. |
-| 7:30–8:30 | Actual evaluation results and limits | Separate sample-mode measurements from live AI results. Discuss wrong or unclear requests, the small dataset, and the bounded change grammar. |
-| 8:30–9:00 | Repository and reproducibility | Show README/setup instructions and the clean repository structure. End with the implemented MVP boundary and remaining stretch goals. |
+| 0:00–0:45 | The business problem | Marketing, EC and other users raise BI or data requests. A BA discusses the need, priority and desired timing before development starts. |
+| 0:45–1:30 | The actual request backlog | Show the grouped columns, business requirement, BA notes, impact, priority, desired date and readiness. Explain that new requests can remain unestimated. |
+| 1:30–2:45 | Refresh the source and estimate | Choose Google Sheets if OAuth is working, otherwise label Demo backlog clearly. Select **Estimate impact and change volume** and explain the four quadrants plus Needs estimation. |
+| 2:45–3:30 | Repository evidence and BA Go | Open a ready revenue-policy request, inspect the estimate and cited dbt files, enter a BA rationale, confirm the review and select **Record BA decision** with Go. |
+| 3:30–5:00 | Frozen handoff and delivery preparation | Show the immutable Jira-style request and BA decision ID. Select **Prepare and validate**, then inspect the structured ticket, repository evidence and affected-file plan. |
+| 5:00–6:15 | Proposed diff and actual checks | Inspect SQL, test, documentation and BI changes. Show dbt/pytest results and expected versus proposed revenue derived from the synthetic order data. |
+| 6:15–7:00 | Data Engineer approval and export | Review the evidence and checks, record the second human decision, and show the approved package becoming available. No production release is executed. |
+| 7:00–8:00 | One realistic exception | Show an unready or unestimated request remaining Clarify/Hold, an out-of-scope request requiring scope review, or a changed source invalidating an old review. Explain how it returns to BA discussion. |
+| 8:00–9:00 | Results, limitations and reproduction | Separate actual live results from sample results. Show setup instructions, test/evaluation evidence and the repository. State the current delivery boundary and remaining integrations. |
 
-The order of selecting runs depends on the interface. If the app shows one active run, reload the successful request for the approval portion rather than implying that a blocked or ambiguous request was approved.
+Keep the recording focused on one successful request and one exception. Avoid spending the entire time on diagrams or attempting every example. The current README contains concise workflow and architecture diagrams that can introduce the process before the actual interaction.
 
-## What to explain at the approval gate
+## Explain the two-axis estimate accurately
 
-- Tests provide evidence for a decision; passing checks does not execute a merge or release.
-- The source repository is read-only. Proposed changes are applied only to the isolated run workspace for validation.
-- The exported patch corresponds to the checked files and recorded decision. A changed request or requested revision creates a new run.
-- Reviewer names are self-entered in this local demo. Production identity and permission controls are future work.
+- **Business impact** comes from the business requirement, BA assessment and notes. A missing BA rating is unknown, not an invented middle score.
+- **Change volume** is informed by the existing dbt assets and dependencies. For the bounded revenue policy, the app can compare canonical templates and count proposed SQL models, files and added/removed text lines.
+- These are provisional scope estimates. A line delta is not a measured developer duration, a final generated patch or a promise of delivery effort.
+- A new dashboard, source or extraction request can have low confidence or unknown file/model/line counts. Keep that uncertainty visible rather than inventing an estimate.
+- Priority, desired timing and initial effort are secondary planning inputs. The rubric and AI ranking support the BA's discussion; they do not record Go automatically.
 
-## Evidence for the technical report
+## Distinguish the two human gates
 
-Save a redacted successful run and a paused/blocked or failed run. Include the evaluation report's actual metrics and dependency versions. Discuss both the role of the model and the deterministic controls around it. A successful sample run proves the UI/workflow and validation path; it does not by itself prove the quality of the live OpenAI integration.
+**BA Go** confirms that the request is ready and appropriate to start. The app rereads the source before the decision and freezes the reviewed requirement in a local receipt. The receipt is a Jira-style handoff, not a real Jira API call. The app does not write the decision back to the sheet.
 
-Use the workflow figure on the report's problem/scope page and the architecture figure on the following architecture page. Keep results separate from planned features. Before submission, check the ZIP includes the 8–10 minute recording, 4–6 page report, repository URL and clean reproducible source.
+**Data Engineer approval** reviews the prepared code, evidence and validation results. Passing tests makes review possible; it does not execute a merge or release. The exported package must match the checked proposal and the recorded decision.
+
+If the requirement changes after Go, update the source and repeat BA intake. Do not imply that an edited field, a blocked request or an old Go authorized a different change. Reviewer names are self-entered local demonstration identities, not production authentication.
+
+## Optional safety segment
+
+If time permits, show one supplied synthetic attack through the advanced CSV fallback or a controlled test result. Explain that a pattern filter is one mitigation, not guaranteed prompt-injection prevention. Keep the normal business intake and two human decisions as the main story.
+
+## Evidence for the report
+
+Save a redacted triage review and BA receipt, a successful delivery review, and one paused/blocked/failed case. Explain which source and generation mode produced each record. Use measured evaluation outputs and dependency versions, not assumed success rates.
+
+The existing labeled delivery evaluation checks its small set of revenue-policy cases and synthetic attacks. It does not by itself measure the quality of the new backlog ranking, the two-axis estimates or the live private Google connection. A successful synthetic workflow is useful engineering evidence but does not establish live AI quality.
+
+Place the business workflow on the report's problem/scope page and the architecture on the following page. Discuss source-grounded estimates, the two separate human decisions, current limitations and reproducibility. Before submission, check the ZIP contains the 8–10 minute recording, 4–6 page report, repository URL and clean source snapshot, while excluding credentials and runtime clutter.
