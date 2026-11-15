@@ -1,0 +1,42 @@
+DADS5250 final project preparation checklist
+Satoshi Nakamura (Solo)
+
+Prepared deliverables
+[x] Working interactive system with synthetic credential-free walkthrough
+[x] Actual Google read and one-request OpenAI integration verified separately
+[x] Six-page technical report, including title page and Solo author
+[x] Editable Word report and PDF version
+[x] Workflow and system architecture diagrams
+[x] Timed nine-minute English narration and Japanese recording checklist
+[x] Clean source snapshot with setup instructions and pinned dependencies
+[x] Curated evaluation evidence distinguishing deterministic and live results
+[x] Draft ZIP with file hashes and content exclusion checks
+
+Required before final submission
+[ ] Record and review the actual 8-10 minute functional MP4 or MPEG
+[ ] Confirm the visible run and both presenter decisions match the narration
+[ ] Review the detailed attached Canvas rubric, not only its overview
+[ ] At submission time, explicitly request Public visibility or confirm grader access
+[ ] Rebuild the ZIP with the reviewed recording; verify its 480-600 second duration
+[ ] Inspect the final archive and upload the requested ZIP to Canvas manually
+
+Five equally weighted dimensions described in the assignment overview
+Technical complexity: architecture, stateful workflow, isolated execution
+Code quality: modular services, schemas, pinned environment, regression checks
+AI integration depth: Structured Output, RAG, LangGraph and explicit safety controls
+Presentation: live interactions, two decisions, success and exception, 8-10 minutes
+Documentation: six-page report, README, setup, measured results and limitations
+These mappings are preparation aids, not a prediction of the grade.
+
+Recording path
+Use the synthetic DADS5250 sheet and sample repository only. Show the actual
+source and generation mode. Show REQ-001 and an unready request such as REQ-009.
+The presenter performs BA Go and the separate DE review after inspecting results.
+Do not relabel deterministic fixtures or test-only approvals as actual AI results
+or authenticated human decisions. Production merge, release and BI deployment
+remain outside this prototype.
+
+Repository
+https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant
+Visibility remains PRIVATE during preparation. The source snapshot can run in
+Demo backlog + Sample walkthrough without the author's Google or OpenAI access.

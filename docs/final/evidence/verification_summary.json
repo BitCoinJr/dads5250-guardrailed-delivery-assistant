@@ -1,0 +1,99 @@
+{
+  "curated_at_utc": "2026-11-15T16:47:12.002655+00:00",
+  "author": "Satoshi Nakamura",
+  "participation": "Solo",
+  "verification_scope": "Latest isolated pytest run plus previously recorded deterministic delivery, live Google read and one-request OpenAI evidence; no paid API call was made for document preparation.",
+  "source_files": [
+    "backlog_mvp_verification.json",
+    "sample_evaluation.json",
+    "openai_live_verification.json",
+    "google_openai_setup_secret_audit.json"
+  ],
+  "automated_tests": {
+    "passed": 103,
+    "failed": 0,
+    "duration_seconds": 67.717,
+    "interpretation": "Latest automated suite; no live API test is claimed. Mocked and synthetic integration results are distinct from the separately recorded paid API verification.",
+    "errors": 0,
+    "skipped": 0,
+    "recorded_at_utc": "2026-11-15T17:00:30.301814+00:00",
+    "command": ".venv/Scripts/python.exe -m pytest tests -q",
+    "execution_directory": "MVP repository root",
+    "credential_isolation": "tests/conftest.py disables dotenv loading and removes inherited OpenAI settings within each test process only"
+  },
+  "deterministic_sample_evaluation": {
+    "mode": "sample",
+    "model": null,
+    "normal_cases_passed": 6,
+    "normal_cases_total": 6,
+    "adversarial_cases_blocked": 3,
+    "adversarial_cases_total": 3,
+    "clarification_cases_correctly_paused": 1,
+    "clarification_cases_total": 1,
+    "affected_file_true_positives": 24,
+    "affected_file_false_positives": 0,
+    "affected_file_false_negatives": 0,
+    "six_checks_passed_for_each_normal_case": true,
+    "all_normal_cases_await_human_approval": true,
+    "model_quality_benchmark": false
+  },
+  "credentialed_google_read": {
+    "source": "Private synthetic demonstration backlog",
+    "rows_read": 10,
+    "scope": "Sheets read-only OAuth; app restricts reads to its fixed sheet and range",
+    "range": "Request backlog!A3:T200",
+    "connection_script_result": "Exited successfully and read ten request rows",
+    "running_app_result": "Refresh Google Sheets displayed ten requests",
+    "sheet_values_or_sharing_modified": false,
+    "combined_with_live_openai_in_one_end_to_end_run": false
+  },
+  "credentialed_openai_integration": {
+    "mode": "openai",
+    "model": "gpt-6.1-sol",
+    "request_id": "REQ-001",
+    "source": "Synthetic inputs/backlog_demo.json, not a live Google Sheets read.",
+    "test_cases": 1,
+    "nominal_api_operations_attempted": 3,
+    "sdk_max_retries_per_operation": 1,
+    "validation_checks_passed": 6,
+    "validation_checks_total": 6,
+    "baseline_revenue": 920.0,
+    "expected_revenue": 770.0,
+    "proposed_revenue": 770.0,
+    "human_ba_go_recorded": false,
+    "human_de_approval_recorded": false,
+    "patch_exported": false,
+    "merge_or_release_executed": false,
+    "source_snapshot_before_sha256": "06a88c566e2c741a5a605f6b0626da5a1197cf47f11666b488be2a11071ad56d",
+    "source_snapshot_after_sha256": "06a88c566e2c741a5a605f6b0626da5a1197cf47f11666b488be2a11071ad56d",
+    "source_repository_unchanged": true
+  },
+  "limits_of_the_evidence": [
+    "Six closely related delivery cases, three synthetic attacks and one clarification case concern one synthetic revenue repository.",
+    "The deterministic sample evaluation is regression evidence, not live model accuracy.",
+    "The one live OpenAI case establishes a successful integration example, not general reliability or repeatability.",
+    "The Google read and live OpenAI example were verified separately; this evidence does not assert a single recorded combined live Google-to-OpenAI-to-approval run.",
+    "The business-impact/change-volume ranking has no independently labeled accuracy benchmark.",
+    "Safety patterns and bounded validation mitigate risk but do not prove general prompt-injection resistance.",
+    "Reviewer names are self-entered, audits are local, and file-level workspace isolation is not an operating-system sandbox.",
+    "Automated delivery covers named-status exclusion from one existing revenue metric; broad new dashboards and data sources require scope review.",
+    "The BI artifact is a versioned YAML definition, not an automatically deployed BI dashboard."
+  ],
+  "submission_status": {
+    "actual_8_to_10_minute_recording_included": false,
+    "repository_visibility": "PRIVATE during preparation",
+    "repository_url": "https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant",
+    "ready_for_final_submission": false,
+    "remaining_actions": [
+      "Record and review the actual 8-10 minute functional demonstration",
+      "Review the detailed attached grading rubric",
+      "At final submission, make the repository public or confirm instructor access",
+      "Include the final recording, report and code in a validated ZIP"
+    ]
+  },
+  "included_case_files": [
+    "sample_evaluation.json",
+    "openai_live_verification.json",
+    "secret_audit_summary.json"
+  ]
+}

@@ -1,5 +1,7 @@
 # Recorded demonstration guide
 
+The completed [timed English narration and Japanese recording checklist](final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.pdf) accompanies the [six-page technical report](final/DADS5250_Final_Report_Satoshi_Nakamura_Solo.pdf). The actual MP4/MPEG recording remains to be produced.
+
 Target **nine minutes**, within the course's 8–10 minute requirement. Presenter: **Satoshi Nakamura, Solo**.
 
 The main story is a business request becoming a reviewed data change. Show the user's familiar sheet, the BA's discussion and selection work, the frozen delivery handoff, and the Data Engineer's final review. The normal recording does not need a CSV download/upload step.

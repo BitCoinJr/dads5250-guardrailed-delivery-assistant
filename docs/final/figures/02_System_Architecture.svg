@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780">
+<title>Local application architecture and bounded external connections</title>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12Z" fill="#235A78"/></marker><marker id="audit" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758A96"/></marker></defs>
+<rect width="1600" height="780" fill="white"/>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#172B3A}.title{font-size:38px;font-weight:700}.head{font-size:31px;font-weight:700}.body{font-size:28px}.note{font-size:28px}.arrow{stroke:#235A78;stroke-width:3;fill:none;marker-end:url(#arrow)}.audit{stroke:#758A96;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#audit)}</style>
+<text x="40" y="52" class="title" text-anchor="start">Local application architecture</text>
+<text x="40" y="94" class="note" text-anchor="start">External connections provide input and AI output. Approval and validation remain local.</text>
+<rect x="40" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="255.0" y="158" class="head" text-anchor="middle">Private Google Sheet</text>
+<text x="255.0" y="200" class="body" text-anchor="middle">Read-only OAuth</text>
+<text x="255.0" y="235" class="body" text-anchor="middle">Fixed sheet and range</text>
+<text x="255.0" y="270" class="body" text-anchor="middle">Connected with 10 rows</text>
+<rect x="585" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="800.0" y="158" class="head" text-anchor="middle">OpenAI Responses API</text>
+<text x="800.0" y="200" class="body" text-anchor="middle">Structured outputs</text>
+<text x="800.0" y="235" class="body" text-anchor="middle">Triage ticket and proposal</text>
+<text x="800.0" y="270" class="body" text-anchor="middle">No model execution tools</text>
+<rect x="1130" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1345.0" y="158" class="head" text-anchor="middle">Read-only sample repo</text>
+<text x="1345.0" y="200" class="body" text-anchor="middle">dbt SQL tests docs BI</text>
+<text x="1345.0" y="235" class="body" text-anchor="middle">TF-IDF and known paths</text>
+<text x="1345.0" y="270" class="body" text-anchor="middle">Evidence for both stages</text>
+<rect x="40" y="325" width="1520" height="250" rx="15" fill="#FCFDFE" stroke="#A5B8C5" stroke-width="2"/>
+<text x="65" y="361" class="head" text-anchor="start">Local review app</text>
+<rect x="70" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="230.0" y="425" class="head" text-anchor="middle">Intake and triage</text>
+<text x="230.0" y="467" class="body" text-anchor="middle">Impact × change volume</text>
+<text x="230.0" y="502" class="body" text-anchor="middle">Cited evidence</text>
+<text x="230.0" y="537" class="body" text-anchor="middle">Unknowns preserved</text>
+<rect x="450" y="382" width="320" height="175" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="610.0" y="425" class="head" text-anchor="middle">Human BA Go</text>
+<text x="610.0" y="467" class="body" text-anchor="middle">Reread source</text>
+<text x="610.0" y="502" class="body" text-anchor="middle">Frozen requirement</text>
+<text x="610.0" y="537" class="body" text-anchor="middle">Local handoff receipt</text>
+<rect x="830" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="990.0" y="425" class="head" text-anchor="middle">LangGraph delivery</text>
+<text x="990.0" y="467" class="body" text-anchor="middle">Parse and retrieve</text>
+<text x="990.0" y="502" class="body" text-anchor="middle">Plan and propose</text>
+<text x="990.0" y="537" class="body" text-anchor="middle">Four-file allowlist</text>
+<rect x="1210" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1370.0" y="425" class="head" text-anchor="middle">Validation</text>
+<text x="1370.0" y="467" class="body" text-anchor="middle">Separate run workspace</text>
+<text x="1370.0" y="502" class="body" text-anchor="middle">dbt DuckDB pytest</text>
+<text x="1370.0" y="537" class="body" text-anchor="middle">CSV-derived oracle</text>
+<path d="M 390 470 H 442" class="arrow"/>
+<path d="M 770 470 H 822" class="arrow"/>
+<path d="M 1150 470 H 1202" class="arrow"/>
+<path d="M 255 290 V 310 H 20 V 470 H 62" class="arrow"/>
+<path d="M 800 290 V 310 H 990 V 374" class="arrow"/>
+<path d="M 800 290 V 300 H 410 V 440 H 398" class="arrow"/>
+<path d="M 1345 290 V 310 H 1167 V 420 H 1158" class="arrow"/>
+<rect x="40" y="648" width="480" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="280.0" y="691" class="head" text-anchor="middle">Local audit and integrity</text>
+<text x="280.0" y="733" class="body" text-anchor="middle">JSONL events and SHA manifests</text>
+<rect x="620" y="648" width="360" height="106" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="800.0" y="691" class="head" text-anchor="middle">Human DE approval</text>
+<text x="800.0" y="733" class="body" text-anchor="middle">Diff evidence and checks</text>
+<rect x="1130" y="648" width="430" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1345.0" y="691" class="head" text-anchor="middle">Approved patch ZIP</text>
+<text x="1345.0" y="733" class="body" text-anchor="middle">Files evidence and receipts</text>
+<path d="M230 557 V640" class="audit"/>
+<path d="M610 557 V600 H400 V640" class="audit"/>
+<path d="M 1370 557 V 608 H 800 V 640" class="arrow"/>
+<path d="M 980 701 H 1122" class="arrow"/>
+</svg>

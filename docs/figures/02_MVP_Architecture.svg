@@ -1,38 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1010" viewBox="0 0 1200 1010" role="img" aria-labelledby="title desc">
-<title id="title">MVP system architecture</title><desc id="desc">Streamlit reads a private Google Sheet through read-only OAuth or a local fixture. Repository RAG and optional OpenAI calls support provisional triage. A human BA decision creates a frozen handoff receipt. LangGraph produces bounded sample-repository changes, dbt and pytest validate them, and a separate Data Engineer approves export. Local audits and enforced guardrails cover the workflow. Live Sheet authentication is pending.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#587286"/></marker><style>
-text{font-family:Arial,Helvetica,sans-serif;fill:#183449}.title{font-size:32px;font-weight:700}.subtitle{font-size:17px;fill:#526779}.heading{font-size:21px;font-weight:700}.body{font-size:17px}.small{font-size:15px;fill:#526779}.kicker{font-size:14px;font-weight:700;letter-spacing:1px;fill:#3d6578}.link{fill:none;stroke:#587286;stroke-width:2.5;marker-end:url(#arrow)}.future{stroke-dasharray:7 5}
-</style></defs>
-<rect width="1200" height="1010" fill="#fff"/>
-<text x="40" y="52" class="title" >How the assistant works</text><text x="40" y="82" class="subtitle" >Streamlit review interface · Structured Output + RAG + LangGraph · Satoshi Nakamura · Solo</text><text x="40" y="112" class="kicker" >INPUTS AND EVIDENCE</text><text x="400" y="112" class="kicker" >LOCAL APPLICATION</text><text x="850" y="112" class="kicker" >SERVICES AND RECORDS</text><rect x="40" y="140" width="280" height="155" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="171" class="heading" >Request sources</text><text x="60" y="197" class="body" >Private Google Sheet</text>
-<text x="60" y="220" class="body" >Read-only OAuth connection</text>
-<text x="60" y="243" class="body" >First login setup is pending.</text>
-<text x="60" y="266" class="body" >Alternative: synthetic fixture</text><rect x="400" y="140" width="360" height="155" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="420" y="171" class="heading" >Streamlit interface</text><text x="420" y="197" class="body" >Read backlog; inspect recommendations.</text>
-<text x="420" y="220" class="body" >Record BA Go, then review delivery.</text>
-<text x="420" y="243" class="body" >Sample mode works without API keys.</text>
-<text x="420" y="266" class="body" >OpenAI mode uses local credentials.</text><rect x="850" y="140" width="310" height="155" rx="12" fill="#f8f5ed" stroke="#d4c49e" stroke-width="1.5" /><text x="870" y="171" class="heading" >Optional OpenAI API</text><text x="870" y="197" class="body" >Structured JSON via Pydantic</text>
-<text x="870" y="220" class="body" >Analysis and generation</text>
-<text x="870" y="243" class="body" >Retrieved text stays untrusted.</text>
-<text x="870" y="266" class="body" >Credentials stay outside Git.</text><rect x="40" y="335" width="280" height="130" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="366" class="heading" >Read-only sample repo</text><text x="60" y="392" class="body" >dbt models, tests and schema</text>
-<text x="60" y="415" class="body" >Docs, dependencies, BI YAML</text>
-<text x="60" y="438" class="body" >Synthetic data only</text><rect x="400" y="335" width="360" height="130" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="420" y="366" class="heading" >Triage + repository RAG</text><text x="420" y="392" class="body" >Retrieve cited assets for each request.</text>
-<text x="420" y="415" class="body" >Estimate impact × change volume.</text>
-<text x="420" y="438" class="body" >Show evidence, uncertainty and confidence.</text><rect x="850" y="335" width="310" height="130" rx="12" fill="#f5f7f9" stroke="#c3cfd8" stroke-width="1.5" /><text x="870" y="366" class="heading" >Estimate boundaries</text><text x="870" y="392" class="body" >BA ratings are initial estimates.</text>
-<text x="870" y="415" class="body" >Absent assets: unknown counts.</text>
-<text x="870" y="438" class="body" >Broad work needs further scoping.</text><rect x="400" y="505" width="360" height="90" rx="12" fill="#ddf3eb" stroke="#62a98c" stroke-width="1.5" /><text x="420" y="536" class="heading" >Human BA decision</text><text x="420" y="562" class="body" >Go / Hold / Clarify + a reason.</text>
-<text x="420" y="585" class="body" >Only ready, supported work proceeds.</text><rect x="850" y="505" width="310" height="90" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="870" y="536" class="heading" >Frozen handoff receipt</text><text x="870" y="562" class="body" >Selected request + snapshot</text>
-<text x="870" y="585" class="body" >BA decision + repository identity</text><rect x="400" y="640" width="360" height="115" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="420" y="671" class="heading" >LangGraph delivery workflow</text><text x="420" y="697" class="body" >Structured ticket → RAG impact → plan</text>
-<text x="420" y="720" class="body" >SQL / tests / docs / dashboard YAML</text>
-<text x="420" y="743" class="body" >Bounded revenue-exclusion policy only.</text><rect x="400" y="785" width="360" height="90" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="420" y="816" class="heading" >Validation workspace</text><text x="420" y="842" class="body" >dbt + DuckDB + pytest; synthetic data</text>
-<text x="420" y="865" class="body" >Retain diff and checks for review.</text><rect x="850" y="785" width="310" height="90" rx="12" fill="#ddf3eb" stroke="#62a98c" stroke-width="1.5" /><text x="870" y="816" class="heading" >Human DE approval</text><text x="870" y="842" class="body" >Review the actual diff and checks.</text>
-<text x="870" y="865" class="body" >Export decision, patch and results.</text><rect x="40" y="505" width="280" height="135" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="536" class="heading" >Local audit records</text><text x="60" y="562" class="body" >Inputs, citations and estimates</text>
-<text x="60" y="585" class="body" >BA Go and handoff receipt</text>
-<text x="60" y="608" class="body" >Validation and DE decisions</text>
-<text x="60" y="631" class="body" >No automatic Sheet writeback.</text><rect x="40" y="680" width="280" height="195" rx="12" fill="#f5f7f9" stroke="#c3cfd8" stroke-width="1.5" /><text x="60" y="711" class="heading" >Enforced guardrails</text><text x="60" y="737" class="small" >Input and retrieved text are data.</text>
-<text x="60" y="760" class="small" >Check JSON schemas and secrets.</text>
-<text x="60" y="783" class="small" >Allowlist tools, paths and commands.</text>
-<text x="60" y="806" class="small" >Write in isolated workspaces only.</text>
-<text x="60" y="829" class="small" >Block unsafe / unsupported work.</text>
-<text x="60" y="852" class="small" >Keep the source repo unchanged.</text><path d="M320 215H400" class="link"/><path d="M850 215H760" class="link future"/><path d="M580 295V335" class="link"/><path d="M320 400H400" class="link"/><path d="M580 465V505" class="link"/><path d="M760 550H850" class="link"/><path d="M1005 595V619H580V640" class="link"/><path d="M320 425H355V692H400" class="link"/><path d="M580 755V785" class="link"/><path d="M760 830H850" class="link"/><text x="850" y="690" class="body" >Approval requires passing checks.</text><text x="850" y="716" class="body" >Merge and release are future work.</text><rect x="40" y="915" width="1120" height="48" rx="12" fill="#132f45" stroke="#132f45" stroke-width="1.5" /><text x="60" y="945" class="body" style="fill:#fff">RAG grounds suggestions in repository evidence. BA Go and delivery approval remain separate gates.</text><text x="40" y="988" class="small" >Current readiness: local sample flow verified; private Google Sheets direct-read support awaits initial OAuth setup.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780">
+<title>Local application architecture and bounded external connections</title>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12Z" fill="#235A78"/></marker><marker id="audit" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758A96"/></marker></defs>
+<rect width="1600" height="780" fill="white"/>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#172B3A}.title{font-size:38px;font-weight:700}.head{font-size:31px;font-weight:700}.body{font-size:28px}.note{font-size:28px}.arrow{stroke:#235A78;stroke-width:3;fill:none;marker-end:url(#arrow)}.audit{stroke:#758A96;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#audit)}</style>
+<text x="40" y="52" class="title" text-anchor="start">Local application architecture</text>
+<text x="40" y="94" class="note" text-anchor="start">External connections provide input and AI output. Approval and validation remain local.</text>
+<rect x="40" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="255.0" y="158" class="head" text-anchor="middle">Private Google Sheet</text>
+<text x="255.0" y="200" class="body" text-anchor="middle">Read-only OAuth</text>
+<text x="255.0" y="235" class="body" text-anchor="middle">Fixed sheet and range</text>
+<text x="255.0" y="270" class="body" text-anchor="middle">Connected with 10 rows</text>
+<rect x="585" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="800.0" y="158" class="head" text-anchor="middle">OpenAI Responses API</text>
+<text x="800.0" y="200" class="body" text-anchor="middle">Structured outputs</text>
+<text x="800.0" y="235" class="body" text-anchor="middle">Triage ticket and proposal</text>
+<text x="800.0" y="270" class="body" text-anchor="middle">No model execution tools</text>
+<rect x="1130" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1345.0" y="158" class="head" text-anchor="middle">Read-only sample repo</text>
+<text x="1345.0" y="200" class="body" text-anchor="middle">dbt SQL tests docs BI</text>
+<text x="1345.0" y="235" class="body" text-anchor="middle">TF-IDF and known paths</text>
+<text x="1345.0" y="270" class="body" text-anchor="middle">Evidence for both stages</text>
+<rect x="40" y="325" width="1520" height="250" rx="15" fill="#FCFDFE" stroke="#A5B8C5" stroke-width="2"/>
+<text x="65" y="361" class="head" text-anchor="start">Local review app</text>
+<rect x="70" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="230.0" y="425" class="head" text-anchor="middle">Intake and triage</text>
+<text x="230.0" y="467" class="body" text-anchor="middle">Impact × change volume</text>
+<text x="230.0" y="502" class="body" text-anchor="middle">Cited evidence</text>
+<text x="230.0" y="537" class="body" text-anchor="middle">Unknowns preserved</text>
+<rect x="450" y="382" width="320" height="175" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="610.0" y="425" class="head" text-anchor="middle">Human BA Go</text>
+<text x="610.0" y="467" class="body" text-anchor="middle">Reread source</text>
+<text x="610.0" y="502" class="body" text-anchor="middle">Frozen requirement</text>
+<text x="610.0" y="537" class="body" text-anchor="middle">Local handoff receipt</text>
+<rect x="830" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="990.0" y="425" class="head" text-anchor="middle">LangGraph delivery</text>
+<text x="990.0" y="467" class="body" text-anchor="middle">Parse and retrieve</text>
+<text x="990.0" y="502" class="body" text-anchor="middle">Plan and propose</text>
+<text x="990.0" y="537" class="body" text-anchor="middle">Four-file allowlist</text>
+<rect x="1210" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1370.0" y="425" class="head" text-anchor="middle">Validation</text>
+<text x="1370.0" y="467" class="body" text-anchor="middle">Separate run workspace</text>
+<text x="1370.0" y="502" class="body" text-anchor="middle">dbt DuckDB pytest</text>
+<text x="1370.0" y="537" class="body" text-anchor="middle">CSV-derived oracle</text>
+<path d="M 390 470 H 442" class="arrow"/>
+<path d="M 770 470 H 822" class="arrow"/>
+<path d="M 1150 470 H 1202" class="arrow"/>
+<path d="M 255 290 V 310 H 20 V 470 H 62" class="arrow"/>
+<path d="M 800 290 V 310 H 990 V 374" class="arrow"/>
+<path d="M 800 290 V 300 H 410 V 440 H 398" class="arrow"/>
+<path d="M 1345 290 V 310 H 1167 V 420 H 1158" class="arrow"/>
+<rect x="40" y="648" width="480" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="280.0" y="691" class="head" text-anchor="middle">Local audit and integrity</text>
+<text x="280.0" y="733" class="body" text-anchor="middle">JSONL events and SHA manifests</text>
+<rect x="620" y="648" width="360" height="106" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="800.0" y="691" class="head" text-anchor="middle">Human DE approval</text>
+<text x="800.0" y="733" class="body" text-anchor="middle">Diff evidence and checks</text>
+<rect x="1130" y="648" width="430" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1345.0" y="691" class="head" text-anchor="middle">Approved patch ZIP</text>
+<text x="1345.0" y="733" class="body" text-anchor="middle">Files evidence and receipts</text>
+<path d="M230 557 V640" class="audit"/>
+<path d="M610 557 V600 H400 V640" class="audit"/>
+<path d="M 1370 557 V 608 H 800 V 640" class="arrow"/>
+<path d="M 980 701 H 1122" class="arrow"/>
 </svg>

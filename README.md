@@ -30,6 +30,33 @@ Open the local Streamlit address and start in **0 BA intake**. The two settings 
 
 Demo backlog with Sample walkthrough needs no credentials. Selecting Google Sheets requires Google OAuth setup. Selecting OpenAI API requires a local API key and model. The app labels the source and generation mode so a sample preview cannot be mistaken for a live read or an AI-generated result.
 
+## Recorded verification and submission status
+
+The following results were recorded on the prepared demonstration machine by November 16, 2026. Their scopes differ and must not be combined into a general AI accuracy claim.
+
+| Verification | Recorded result | What it establishes |
+| --- | --- | --- |
+| Automated regression tests | 103 passed, 0 failed | Intake, safety, workflow and interface checks with synthetic or mocked integrations |
+| Deterministic delivery evaluation | 6/6 normal cases validated; 3/3 synthetic attacks blocked; 1/1 ambiguous request paused | Bounded sample regression, with no live model quality measurement |
+| Private Google Sheets read | 10 synthetic requests read by the connection script and running app refresh | Actual read-only connection; separate from the OpenAI example |
+| Live OpenAI integration | One REQ-001 example with `gpt-6.1-sol`; 3 nominal API operations; 6/6 delivery validation checks passed | Actual API integration using the local synthetic fixture, not a live Google source in this run |
+| Human decisions in the live API check | No BA Go, DE approval, export, merge or release recorded | The live check stopped awaiting actual human review |
+| Recorded source and history secret audit | 0 credential findings; 13/13 exclusion checks passed | Source-publication check at that time; review again after changes |
+
+The live example produced the expected synthetic revenue total of **770**, compared with a baseline of **920**. The independent acceptance oracle and source snapshots are preserved in the selected evidence. The four-file scope and small fixture set do not establish general reliability, broad prompt-injection resistance or accurate ranking across real business requests.
+
+Final deliverables:
+
+- [Technical report PDF](docs/final/DADS5250_Final_Report_Satoshi_Nakamura_Solo.pdf)
+- [Editable technical report](docs/final/DADS5250_Final_Report_Satoshi_Nakamura_Solo.docx)
+- [Demo recording guide PDF](docs/final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.pdf)
+- [Editable demo recording guide](docs/final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.docx)
+- [Selected verification summary](docs/final/evidence/verification_summary.json)
+
+**Preparation status:** the required actual 8-10 minute MP4/MPEG screen recording has not yet been included. The repository remains private during preparation. Before final submission, record and review the functional demonstration, check the attached course rubric, and make the repository public or confirm instructor access. Documentation and a draft ZIP do not replace the recorded demo.
+
+Reviewers can reproduce the synthetic workflow with **Demo backlog + Sample walkthrough** without credentials. Publishing the source does not share the author's private Google Sheet or OAuth access. Actual Google mode needs separately permitted access to the fixed demonstration sheet, or a deliberate adaptation of the sheet allowlist; actual OpenAI mode needs the reviewer's own local API configuration.
+
 ## Realistic intake and two human decisions
 
 1. The business user records a request and discusses its purpose with the BA.
@@ -155,7 +182,7 @@ Follow [the Google setup guide](docs/GOOGLE_SHEETS_SETUP_JA.md). Create a Google
 
 Complete the Google login and consent yourself. The scope is `spreadsheets.readonly`; Google grants that read scope at account level, while this app restricts its reads to the configured sheet ID and `Request backlog!A3:T200`. The app does not use public CSV endpoints, browser cookies, a service-account key or a write scope. It does not open a login window automatically when the page loads.
 
-Google authorization is independent of the OpenAI API key. The credentialed private-sheet connection must be tested after local OAuth setup; the included synthetic or mocked tests do not prove a successful live Google read.
+Google authorization is independent of the OpenAI API key. On the author's prepared machine, the connection script and running app each successfully read the ten synthetic backlog rows. On another machine, verify the credentialed private-sheet connection after local OAuth setup; synthetic or mocked tests alone do not prove a successful live Google read.
 
 ### Enable actual OpenAI generation
 
@@ -168,7 +195,7 @@ OPENAI_MODEL=gpt-6.1-sol
 
 The prepared recommendation is `gpt-6.1-sol`; a model available to the account can be selected in the app. Actual AI mode sends the selected request data and allowlisted repository excerpts to OpenAI and may incur API charges. Failed API runs remain failures and never silently fall back to sample output. See [the model specification](https://developers.openai.com/api/docs/models/gpt-6.1-sol) and [the Japanese setup guide](docs/OPENAI_SETUP_JA.md).
 
-Credentialed live OpenAI generation remains a separate verification step after key setup. Sample-mode estimates and successful local validation are not evidence of live model quality. Keep live and sample results separate in the report.
+A credentialed one-request live integration has been recorded with `gpt-6.1-sol`: three nominal API operations, all six delivery validation checks passed, and the result remained awaiting human review. That example used the synthetic local backlog fixture; it was separate from the live Google read. On another machine, verify API generation after local setup. Sample-mode estimates and successful local validation are not evidence of live model quality.
 
 ## Validation and safety boundaries
 
@@ -188,6 +215,8 @@ This is a local demonstration with file-level isolation, not an operating-system
 .\.venv\Scripts\python.exe -m evaluation.run_evaluation --mode sample
 ```
 
+The automated pytest suite disables local dotenv loading and clears inherited OpenAI credentials and routing for each test. Tests supply synthetic or mocked integrations explicitly; live API verification is a separate operation.
+
 The existing labeled evaluation runner covers the bounded delivery component: ticket schema, extracted policy, affected-file precision/recall, automated validation, revenue against manual gold labels, and synthetic attack blocking. It does not by itself benchmark the new backlog-ranking or two-axis estimation quality. Separate tests cover triage eligibility, missing estimates, asset citations, stale inputs and frozen Go receipts.
 
 For the organized Final Project folder, save the delivery evaluation in its evaluation area:
@@ -196,7 +225,7 @@ For the organized Final Project folder, save the delivery evaluation in its eval
 .\.venv\Scripts\python.exe -m evaluation.run_evaluation --mode sample --output "..\..\03_Evaluation\sample_evaluation.json"
 ```
 
-After configuring OpenAI, repeat with `--mode openai` and a separate output file. Record the actual commands, provider/source mode, dependency versions, failures and measured results. The small synthetic fixture set is regression evidence, not a general reliability or security benchmark. Do not reuse earlier counts or planned results as measurements of a changed system.
+For a broader live evaluation, use `--mode openai` and a separate output file after local setup; this makes additional API requests and may incur charges. The recorded one-request integration is not a full live benchmark. Record the actual commands, provider/source mode, dependency versions, failures and measured results. The small synthetic fixture set is regression evidence, not a general reliability or security benchmark. Do not reuse earlier counts or planned results as measurements of a changed system.
 
 ## Repository layout
 
@@ -227,7 +256,7 @@ The `Request backlog` sheet uses grouped business-request, BA-review and deliver
 
 The course requires a functional system, an 8–10 minute MP4/MPEG recording, a 4–6 page technical report and a reproducible GitHub repository. Submit the requested material in one ZIP with the repository URL and a clean source snapshot. Include selected redacted evidence when it supports the report; exclude `.env`, `.secrets`, `.venv`, caches, tokens and incidental runtime files.
 
-List **Satoshi Nakamura — Solo** on the report title page. Explain both human decisions, the evidence behind change-volume estimates, actual evaluation results, unresolved limitations and future approval-controlled release integration. The planned six-page structure is title page, problem/workflow, architecture/techniques, decisions/guardrails, measured results, and limitations/reproducibility. Review the detailed rubric before packaging.
+The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The recording guide provides a timed explanation and actual UI path; it is preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
 
 ## Reference documentation
 

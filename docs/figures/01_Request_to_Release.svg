@@ -1,19 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="956" viewBox="0 0 1200 956" role="img" aria-labelledby="title desc">
-<title id="title">From request to release</title><desc id="desc">Google Sheets and BA discussion feed read-only intake, repository-grounded impact and change estimates, and a human BA decision. A frozen handoff enters LangGraph, validation, separate Data Engineer approval and export. Live Google authentication is pending; production merge and release are future integrations.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#587286"/></marker><style>
-text{font-family:Arial,Helvetica,sans-serif;fill:#183449}.title{font-size:32px;font-weight:700}.subtitle{font-size:17px;fill:#526779}.heading{font-size:21px;font-weight:700}.body{font-size:17px}.small{font-size:15px;fill:#526779}.kicker{font-size:14px;font-weight:700;letter-spacing:1px;fill:#3d6578}.link{fill:none;stroke:#587286;stroke-width:2.5;marker-end:url(#arrow)}.future{stroke-dasharray:7 5}
-</style></defs>
-<rect width="1200" height="956" fill="#fff"/>
-<text x="40" y="52" class="title" >From request to release</text><text x="40" y="82" class="subtitle" >A realistic BA-to-Data-Engineer workflow · Satoshi Nakamura · Solo</text><text x="40" y="112" class="kicker" >INTAKE AND BUSINESS DECISION</text><text x="650" y="112" class="kicker" >BOUNDED DELIVERY DEMO</text><rect x="40" y="130" width="505" height="94" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="161" class="heading" >1  User request + BA discussion</text><text x="60" y="187" class="body" >Google Sheet, meetings and Slack retain context.</text>
-<text x="60" y="210" class="body" >Agree the objective, desired date and acceptance criteria.</text><rect x="40" y="240" width="505" height="94" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="271" class="heading" >2  Read the private backlog</text><text x="60" y="297" class="body" >Read-only Google connection; first OAuth setup pending.</text>
-<text x="60" y="320" class="body" >Local synthetic snapshot is available without login.</text><rect x="40" y="350" width="505" height="228" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="60" y="381" class="heading" >3  Compare impact × change volume</text><text x="60" y="407" class="small" >Repository/dbt evidence → provisional estimates + confidence</text><rect x="60" y="424" width="222" height="63" rx="12" fill="#ddf3eb" stroke="#9bc7b5" stroke-width="1.5" /><text x="72" y="448" class="small" >High impact / small change</text><text x="72" y="471" class="body" >Candidate to start</text><rect x="298" y="424" width="227" height="63" rx="12" fill="#e5edf8" stroke="#b2c6e0" stroke-width="1.5" /><text x="310" y="448" class="small" >High impact / large change</text><text x="310" y="471" class="body" >Plan or split</text><rect x="60" y="499" width="222" height="63" rx="12" fill="#f0f3f6" stroke="#c7d1da" stroke-width="1.5" /><text x="72" y="523" class="small" >Low impact / small change</text><text x="72" y="546" class="body" >Batch when useful</text><rect x="298" y="499" width="227" height="63" rx="12" fill="#f8ede7" stroke="#ddc3b4" stroke-width="1.5" /><text x="310" y="523" class="small" >Low impact / large change</text><text x="310" y="546" class="body" >Consider deferring</text><rect x="40" y="604" width="505" height="94" rx="12" fill="#ddf3eb" stroke="#62a98c" stroke-width="1.5" /><text x="60" y="635" class="heading" >4  Human BA Go / Hold / Clarify</text><text x="60" y="661" class="body" >BA reviews the recommendation and records a reason.</text>
-<text x="60" y="684" class="body" >Go selects a ready, supported request for delivery.</text><rect x="650" y="130" width="510" height="94" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="670" y="161" class="heading" >5  Freeze a Jira-like handoff</text><text x="670" y="187" class="body" >Save the selected request, evidence and BA decision.</text>
-<text x="670" y="210" class="body" >Snapshot and receipt identify what was authorized.</text><rect x="650" y="240" width="510" height="115" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="670" y="271" class="heading" >6  LangGraph coordinates AI steps</text><text x="670" y="297" class="body" >Structured Output → repository RAG → change plan.</text>
-<text x="670" y="320" class="body" >Generate SQL, tests, docs and BI-as-Code proposals.</text>
-<text x="670" y="343" class="body" >Use sample mode or optional OpenAI API calls.</text><rect x="650" y="371" width="510" height="94" rx="12" fill="#f1f6f9" stroke="#afc3d0" stroke-width="1.5" /><text x="670" y="402" class="heading" >7  Validate the proposed changes</text><text x="670" y="428" class="body" >Run dbt + DuckDB + pytest in an isolated workspace.</text>
-<text x="670" y="451" class="body" >Failed checks require revision before approval.</text><rect x="650" y="481" width="510" height="94" rx="12" fill="#ddf3eb" stroke="#62a98c" stroke-width="1.5" /><text x="670" y="512" class="heading" >8  Separate human DE approval</text><text x="670" y="538" class="body" >Data Engineer reviews evidence, diff and test results.</text>
-<text x="670" y="561" class="body" >Approve, reject or request a revision.</text><rect x="650" y="604" width="510" height="94" rx="12" fill="#e8f4f0" stroke="#91b7a8" stroke-width="1.5" /><text x="670" y="635" class="heading" >9  Export the review package</text><text x="670" y="661" class="body" >Patch, validation results and recorded decisions.</text>
-<text x="670" y="684" class="body" >Approval records readiness; it does not deploy code.</text><rect x="650" y="748" width="510" height="77" rx="12" fill="#fff" stroke="#8296a6" stroke-width="1.5" stroke-dasharray="7 5"/><text x="670" y="780" class="heading" >Future: merge → release → monitoring</text><text x="670" y="806" class="body" >Requires real integrations and release controls.</text><path d="M292 224V240" class="link"/><path d="M292 334V350" class="link"/><path d="M292 578V604" class="link"/><path d="M545 651H597V177H650" class="link"/><text x="574" y="718" class="small" text-anchor="middle">Selected request</text><path d="M905 224V240" class="link"/><path d="M905 355V371" class="link"/><path d="M905 465V481" class="link"/><path d="M905 575V604" class="link"/><text x="923" y="594" class="small" >checks pass + approval</text><path d="M905 698V748" class="link future"/><rect x="40" y="748" width="505" height="77" rx="12" fill="#f5f7f9" stroke="#c3cfd8" stroke-width="1.5" /><text x="60" y="777" class="heading" >MVP boundary</text><text x="60" y="800" class="small" >Triage covers broad requests; code generation supports</text>
-<text x="60" y="819" class="small" >only revenue status-exclusion changes in the sample repo.</text><rect x="40" y="861" width="1120" height="47" rx="12" fill="#132f45" stroke="#132f45" stroke-width="1.5" /><text x="60" y="891" class="body" style="fill:#fff">Two human gates: BA authorizes the request; DE approves the validated change.</text><text x="40" y="932" class="small" >Solid arrows: local MVP flow   ·   Dashed step: future work   ·   Sheet decisions are logged locally, not written back.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
+<title>Business request to reviewed patch and future release</title>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12Z" fill="#235A78"/></marker><marker id="audit" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758A96"/></marker></defs>
+<rect width="1600" height="700" fill="white"/>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#172B3A}.title{font-size:38px;font-weight:700}.head{font-size:31px;font-weight:700}.body{font-size:28px}.note{font-size:28px}.arrow{stroke:#235A78;stroke-width:3;fill:none;marker-end:url(#arrow)}.audit{stroke:#758A96;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#audit)}</style>
+<text x="40" y="52" class="title" text-anchor="start">Business request to reviewed data change</text>
+<text x="40" y="96" class="note" text-anchor="start">Solid arrows show the demo workflow. Green cards are human decisions.</text>
+<rect x="40" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="180.0" y="168" class="head" text-anchor="middle">User request</text>
+<text x="180.0" y="210" class="body" text-anchor="middle">Google Sheets</text>
+<text x="180.0" y="245" class="body" text-anchor="middle">BI or data need</text>
+<text x="180.0" y="280" class="body" text-anchor="middle">Private input</text>
+<rect x="350" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="490.0" y="168" class="head" text-anchor="middle">BA discussion</text>
+<text x="490.0" y="210" class="body" text-anchor="middle">Impact and timing</text>
+<text x="490.0" y="245" class="body" text-anchor="middle">Priority and</text>
+<text x="490.0" y="280" class="body" text-anchor="middle">acceptance criteria</text>
+<rect x="660" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="800.0" y="168" class="head" text-anchor="middle">AI triage</text>
+<text x="800.0" y="210" class="body" text-anchor="middle">Impact × volume</text>
+<text x="800.0" y="245" class="body" text-anchor="middle">Repository evidence</text>
+<text x="800.0" y="280" class="body" text-anchor="middle">Uncertainty visible</text>
+<rect x="970" y="125" width="280" height="185" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="1110.0" y="168" class="head" text-anchor="middle">BA decision</text>
+<text x="1110.0" y="210" class="body" text-anchor="middle">Go  Hold  Clarify</text>
+<text x="1110.0" y="245" class="body" text-anchor="middle">Human confirmation</text>
+<text x="1110.0" y="280" class="body" text-anchor="middle">Source freshness</text>
+<rect x="1280" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1420.0" y="168" class="head" text-anchor="middle">Frozen ticket</text>
+<text x="1420.0" y="210" class="body" text-anchor="middle">Jira-style record</text>
+<text x="1420.0" y="245" class="body" text-anchor="middle">Agreed requirement</text>
+<text x="1420.0" y="280" class="body" text-anchor="middle">Local receipt</text>
+<rect x="40" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="180.0" y="463" class="head" text-anchor="middle">Prepare change</text>
+<text x="180.0" y="505" class="body" text-anchor="middle">LangGraph stages</text>
+<text x="180.0" y="540" class="body" text-anchor="middle">Structured ticket</text>
+<text x="180.0" y="575" class="body" text-anchor="middle">Cited change plan</text>
+<rect x="350" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="490.0" y="463" class="head" text-anchor="middle">Propose patch</text>
+<text x="490.0" y="505" class="body" text-anchor="middle">SQL and dbt test</text>
+<text x="490.0" y="540" class="body" text-anchor="middle">Docs and BI YAML</text>
+<text x="490.0" y="575" class="body" text-anchor="middle">Four files only</text>
+<rect x="660" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="800.0" y="463" class="head" text-anchor="middle">Validate</text>
+<text x="800.0" y="505" class="body" text-anchor="middle">dbt and pytest</text>
+<text x="800.0" y="540" class="body" text-anchor="middle">CSV-derived oracle</text>
+<text x="800.0" y="575" class="body" text-anchor="middle">Separate workspace</text>
+<rect x="970" y="420" width="280" height="185" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
+<text x="1110.0" y="463" class="head" text-anchor="middle">DE review</text>
+<text x="1110.0" y="505" class="body" text-anchor="middle">Inspect diff/checks</text>
+<text x="1110.0" y="540" class="body" text-anchor="middle">Approve or revise</text>
+<text x="1110.0" y="575" class="body" text-anchor="middle">Human decision</text>
+<rect x="1280" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
+<text x="1420.0" y="463" class="head" text-anchor="middle">Export package</text>
+<text x="1420.0" y="505" class="body" text-anchor="middle">Reviewed patch</text>
+<text x="1420.0" y="540" class="body" text-anchor="middle">Audit and receipts</text>
+<text x="1420.0" y="575" class="body" text-anchor="middle">No production write</text>
+<path d="M 320 218 H 342" class="arrow"/>
+<path d="M 320 513 H 342" class="arrow"/>
+<path d="M 630 218 H 652" class="arrow"/>
+<path d="M 630 513 H 652" class="arrow"/>
+<path d="M 940 218 H 962" class="arrow"/>
+<path d="M 940 513 H 962" class="arrow"/>
+<path d="M 1250 218 H 1272" class="arrow"/>
+<path d="M 1250 513 H 1272" class="arrow"/>
+<path d="M 1420 310 V 355 H 180 V 412" class="arrow"/>
+<text x="800" y="390" class="note" text-anchor="middle">Only Go enters delivery. Hold and Clarify return to BA discussion.</text>
+<rect x="790" y="633" width="770" height="50" rx="10" fill="#FAFAFA" stroke="#758A96" stroke-width="2" stroke-dasharray="9 7"/>
+<path d="M1420 605 V625" class="arrow" stroke-dasharray="7 5"/>
+<text x="1175" y="667" class="note" text-anchor="middle">Future connections   Jira   approved merge and release</text>
+<text x="40" y="667" class="note" text-anchor="start">The MVP stops after approved patch export</text>
 </svg>

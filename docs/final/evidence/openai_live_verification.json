@@ -1,0 +1,179 @@
+{
+  "verification_version": 1,
+  "started_at": "2026-11-16T01:01:46+09:00",
+  "mode": "openai",
+  "model": "gpt-6.1-sol",
+  "request_id": "REQ-001",
+  "status": "passed",
+  "stage": "complete_awaiting_actual_human_review",
+  "scope": "One-request standalone live integration; not a BA Go or human approval.",
+  "source": "Synthetic inputs/backlog_demo.json, not a live Google Sheets read.",
+  "api_budget": {
+    "nominal_operation_limit": 3,
+    "operations_attempted": 3,
+    "sdk_max_retries_per_operation": 1
+  },
+  "human_ba_go_recorded": false,
+  "human_de_approval_recorded": false,
+  "patch_exported": false,
+  "merge_or_release_executed": false,
+  "checks": [
+    {
+      "name": "exactly_one_req001_fixture",
+      "passed": true
+    },
+    {
+      "name": "triage_awaits_human_ba_decision",
+      "passed": true
+    },
+    {
+      "name": "triage_used_openai_mode",
+      "passed": true
+    },
+    {
+      "name": "one_req001_recommendation",
+      "passed": true
+    },
+    {
+      "name": "triage_rank_one",
+      "passed": true
+    },
+    {
+      "name": "req001_is_deterministically_eligible",
+      "passed": true
+    },
+    {
+      "name": "triage_has_no_ba_decision",
+      "passed": true
+    },
+    {
+      "name": "triage_bounded_scope_four_files",
+      "passed": true
+    },
+    {
+      "name": "triage_provisional_counts",
+      "passed": true
+    },
+    {
+      "name": "triage_one_api_operation",
+      "passed": true
+    },
+    {
+      "name": "delivery_awaits_human_approval",
+      "passed": true
+    },
+    {
+      "name": "delivery_used_openai_mode",
+      "passed": true
+    },
+    {
+      "name": "ticket_preserves_req001",
+      "passed": true
+    },
+    {
+      "name": "ticket_policy_canceled_only",
+      "passed": true
+    },
+    {
+      "name": "delivery_exactly_four_allowlisted_files",
+      "passed": true
+    },
+    {
+      "name": "all_required_validation_checks_ran",
+      "passed": true
+    },
+    {
+      "name": "all_validation_checks_passed",
+      "passed": true
+    },
+    {
+      "name": "revenue_totals_match_req001_oracle",
+      "passed": true
+    },
+    {
+      "name": "no_human_de_decision_recorded",
+      "passed": true
+    },
+    {
+      "name": "three_nominal_api_operations_only",
+      "passed": true
+    },
+    {
+      "name": "source_repository_unchanged",
+      "passed": true
+    }
+  ],
+  "session_id": "e798c9b8-7916-430c-a988-063ed06de2eb",
+  "source_snapshot_before_sha256": "06a88c566e2c741a5a605f6b0626da5a1197cf47f11666b488be2a11071ad56d",
+  "triage": {
+    "review_id": "d360ab0e-f23a-430b-9a43-21ba028060c8",
+    "status": "awaiting_ba_decision",
+    "mode": "openai",
+    "model": "gpt-6.1-sol",
+    "decision_count": 0,
+    "estimated_impact": "High",
+    "estimated_change_volume": "Small",
+    "confidence": "High",
+    "can_deliver": true,
+    "estimated_model_count": 1,
+    "estimated_file_count": 4,
+    "estimated_line_delta": 11,
+    "scope_estimate_note": "Provisional canonical-template counts, not hours or final generated-patch measurements."
+  },
+  "delivery": {
+    "run_id": "c3afd5dd-ff9d-4606-92a1-82d75bd98ecc",
+    "status": "awaiting_approval",
+    "mode": "openai",
+    "model": "gpt-6.1-sol",
+    "baseline_total": 920.0,
+    "expected_total": 770.0,
+    "proposed_total": 770.0,
+    "validation_passed": true,
+    "checks": [
+      {
+        "name": "Patch safety and scope",
+        "passed": true
+      },
+      {
+        "name": "Isolated workspace",
+        "passed": true
+      },
+      {
+        "name": "Trusted synthetic seed ingestion",
+        "passed": true
+      },
+      {
+        "name": "dbt build and data tests",
+        "passed": true
+      },
+      {
+        "name": "Independent revenue total",
+        "passed": true
+      },
+      {
+        "name": "Trusted pytest acceptance tests",
+        "passed": true
+      }
+    ],
+    "decision_recorded": false
+  },
+  "source_snapshot_after_sha256": "06a88c566e2c741a5a605f6b0626da5a1197cf47f11666b488be2a11071ad56d",
+  "source_repository_unchanged": true,
+  "finished_at": "2026-11-16T01:02:29+09:00",
+  "curation": {
+    "source_artifact": "openai_live_verification.json",
+    "removed_information": [
+      "Absolute local runtime directory",
+      "Credential storage metadata",
+      "Local environment and credential presence preflight details"
+    ],
+    "preserved_information": [
+      "Request and model provenance",
+      "Business and validation checks",
+      "Run identifiers",
+      "Source snapshot hashes",
+      "Actual human-decision and export flags"
+    ],
+    "live_google_and_openai_combined_in_this_run": false
+  }
+}
