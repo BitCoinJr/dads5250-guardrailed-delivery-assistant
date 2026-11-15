@@ -1,0 +1,8 @@
+dashboard:
+  id: revenue_overview
+  title: Revenue overview
+  source_model: fct_revenue
+  metric: revenue
+  group_by: revenue_date
+  excluded_statuses: []
+  chart: daily_revenue

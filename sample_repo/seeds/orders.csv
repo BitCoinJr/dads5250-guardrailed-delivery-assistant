@@ -1,0 +1,9 @@
+order_id,order_date,status,amount
+1,2026-10-01,completed,100.00
+2,2026-10-01,canceled,80.00
+3,2026-10-01,completed,200.00
+4,2026-10-02,refunded,50.00
+5,2026-10-02,pending,120.00
+6,2026-10-02,completed,150.00
+7,2026-10-03,canceled,70.00
+8,2026-10-03,refunded,150.00

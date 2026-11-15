@@ -1,0 +1,11 @@
+delivery_demo:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: validation.duckdb
+      threads: 1
+      settings:
+        enable_external_access: false
+        autoinstall_known_extensions: false
+        autoload_known_extensions: false

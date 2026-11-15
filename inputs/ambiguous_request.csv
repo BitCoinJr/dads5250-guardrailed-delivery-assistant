@@ -1,0 +1,2 @@
+request_id,title,description,acceptance_criteria,target_metric
+REQ-CLARIFY,Fix the revenue numbers,Please fix revenue because the dashboard numbers do not look right.,,revenue

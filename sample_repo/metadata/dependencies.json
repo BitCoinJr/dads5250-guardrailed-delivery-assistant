@@ -1,0 +1,7 @@
+{
+  "metric": "revenue",
+  "upstream": ["seeds/orders.csv", "models/staging/stg_orders.sql"],
+  "model": "models/marts/fct_revenue.sql",
+  "downstream": ["tests/revenue_policy.sql", "docs/revenue.md", "bi/revenue_dashboard.yml"],
+  "note": "A revenue status-policy change affects SQL, tests, documentation and one BI-as-Code definition."
+}

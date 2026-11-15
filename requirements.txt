@@ -1,0 +1,10 @@
+streamlit==1.67.0
+langgraph==1.2.22
+openai==2.54.0
+pydantic==2.14.3
+dbt-core==1.11.17
+dbt-duckdb==1.11.1
+duckdb==2.0.0
+pytest==9.2.0
+PyYAML==6.0.3
+python-dotenv==1.2.4

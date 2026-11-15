@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_orders
+    description: Typed synthetic orders from a local seed.
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+  - name: fct_revenue
+    description: Daily revenue using the reviewed order-status policy.
+    columns:
+      - name: revenue_date
+        data_tests: [not_null, unique]
+      - name: revenue
+        data_tests: [not_null]
+      - name: order_count
+        data_tests: [not_null]

@@ -1,0 +1,8 @@
+[project]
+name = "guardrailed-delivery-assistant"
+version = "0.1.0"
+description = "DADS5250 solo final project MVP by Satoshi Nakamura"
+requires-python = ">=3.12,<3.13"
+
+[tool.ty.environment]
+python = ".venv"

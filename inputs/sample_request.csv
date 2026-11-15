@@ -1,0 +1,2 @@
+request_id,title,description,acceptance_criteria,target_metric
+REQ-001,Exclude canceled orders from revenue,Exclude canceled orders from revenue. Update the revenue model and its downstream test documentation and dashboard definition.,Revenue excludes canceled orders; SQL tests documentation and dashboard agree.,revenue
