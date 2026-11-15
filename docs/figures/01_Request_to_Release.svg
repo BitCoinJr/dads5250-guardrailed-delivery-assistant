@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="612" height="792" preserveAspectRatio="xMinYMin meet" viewBox="0 0 612 792" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Request to release workflow</title>
+	<desc>Proposed DADS5250 solo project design by Satoshi Nakamura. The MVP prepares validated changes for human approval; live integration and production release are stretch goals.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="612" height="792"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-792)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="612" height="792" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="42" y="746" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 24px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1492) scale(1,-1)">From request to release</text>
+			<text x="42" y="725" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,1450) scale(1,-1)">Planned business workflow | One revenue metric request in one sample repository</text>
+			<text x="42" y="700" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1400) scale(1,-1)">MVP: manual CSV intake, proposed changes, validation and a human decision.</text>
+			<rect x="134" y="610" width="344" height="48" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="146" y="640" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1280) scale(1,-1)">1  User enters a request in Google Sheets</text>
+			<text x="146" y="625" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1250) scale(1,-1)">Keep the spreadsheet workflow users already know.</text>
+			<rect x="134" y="546" width="344" height="48" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="146" y="576" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1152) scale(1,-1)">2  Import CSV and build the ticket</text>
+			<text x="146" y="561" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1122) scale(1,-1)">Structured JSON ticket, ready for a Jira integration.</text>
+			<rect x="134" y="482" width="344" height="48" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="146" y="512" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1024) scale(1,-1)">3  Retrieve evidence and plan the change</text>
+			<text x="146" y="497" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,994) scale(1,-1)">Identify affected models and downstream assets.</text>
+			<rect x="134" y="418" width="344" height="48" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="146" y="448" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,896) scale(1,-1)">4  Generate proposed changes</text>
+			<text x="146" y="433" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,866) scale(1,-1)">SQL, tests, documentation and one dashboard YAML.</text>
+			<rect x="134" y="354" width="344" height="48" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="146" y="384" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,768) scale(1,-1)">5  Validate in an isolated workspace</text>
+			<text x="146" y="369" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,738) scale(1,-1)">Use synthetic data and predefined test commands.</text>
+			<rect x="134" y="290" width="344" height="48" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="146" y="320" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,640) scale(1,-1)">6  Human reviews the proposed change</text>
+			<text x="146" y="305" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,610) scale(1,-1)">Inspect the ticket, evidence, diff and test results.</text>
+			<rect x="134" y="226" width="344" height="48" rx="5" ry="5" style="stroke: rgb(21%,45%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,94%); fill-rule: evenodd;"/>
+			<text x="146" y="256" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,512) scale(1,-1)">7  Approved patch and recorded decision</text>
+			<text x="146" y="241" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,482) scale(1,-1)">MVP deliverable with validation and approval records.</text>
+			<path d="M 306,610 L 306,594 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 594, 308.3864 598.9553, 303.6136 598.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 306,546 L 306,530 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 530, 308.3864 534.9553, 303.6136 534.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 306,482 L 306,466 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 466, 308.3864 470.9553, 303.6136 470.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 306,418 L 306,402 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 402, 308.3864 406.9553, 303.6136 406.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 306,354 L 306,338 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 338, 308.3864 342.9553, 303.6136 342.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 306,290 L 306,274 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="306 274, 308.3864 278.9553, 303.6136 278.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<text x="317" y="280" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,560) scale(1,-1)">Approve</text>
+			<text x="317" y="344" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,688) scale(1,-1)">Checks pass</text>
+			<text x="42" y="632" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,1264) scale(1,-1)">USER / BA</text>
+			<text x="42" y="312" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,624) scale(1,-1)">REVIEWER</text>
+			<path d="M 478,570 L 525,570 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 525,570 L 525,634 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 525,634 L 478,634 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="478 634, 482.9553 631.6136, 482.9553 636.3864" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<g transform=" matrix(0,1,-1,0,541,575)">
+				<text x="0" y="0" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,0) scale(1,-1)">Clarify missing details</text>
+			</g>
+			<path d="M 134,378 L 91,378 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 91,378 L 91,442 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 91,442 L 134,442 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="134 442, 129.0447 444.3864, 129.0447 439.6136" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<g transform=" matrix(0,1,-1,0,67,381)">
+				<text x="0" y="0" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,0) scale(1,-1)">Revise and re-test</text>
+			</g>
+			<path d="M 478,314 L 525,314 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 525,314 L 525,442 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 525,442 L 478,442 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="478 442, 482.9553 439.6136, 482.9553 444.3864" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<g transform=" matrix(0,1,-1,0,541,325)">
+				<text x="0" y="0" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,0) scale(1,-1)">Revision requested</text>
+			</g>
+			<rect x="134" y="138" width="160" height="54" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd; stroke-dasharray: 4, 3;"/>
+			<text x="146" y="174" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 10.8px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,348) scale(1,-1)">8  Merge after approval</text>
+			<text x="146" y="159" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,318) scale(1,-1)">New approval and CI</text>
+			<rect x="318" y="138" width="160" height="54" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd; stroke-dasharray: 4, 3;"/>
+			<text x="330" y="174" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,348) scale(1,-1)">9  Release</text>
+			<text x="330" y="159" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,318) scale(1,-1)">Deploy and monitor</text>
+			<path d="M 306,226 L 306,216 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1; stroke-dasharray: 4, 3;"/>
+			<path d="M 306,216 L 214,216 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1; stroke-dasharray: 4, 3;"/>
+			<path d="M 214,216 L 214,192 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1; stroke-dasharray: 4, 3;"/>
+			<polygon points="214 192, 216.3864 196.9553, 211.6136 196.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 294,165 L 318,165 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1; stroke-dasharray: 4, 3;"/>
+			<polygon points="318 165, 313.0447 167.3864, 313.0447 162.6136" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<text x="334" y="208" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,416) scale(1,-1)">Stretch goals</text>
+			<text x="42" y="100" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,200) scale(1,-1)">Solid steps: MVP workflow   |   Dashed steps: future integration</text>
+			<text x="42" y="79" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,158) scale(1,-1)">Live Google Sheets and Jira APIs are also stretch goals.</text>
+			<text x="42" y="58" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,116) scale(1,-1)">BI-as-Code = dashboard definitions stored and reviewed in Git.</text>
+			<text x="42" y="24" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,48) scale(1,-1)">DADS5250 | Proposed design and delivery plan | Satoshi Nakamura | Solo</text>
+			<text x="565" y="24" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,48) scale(1,-1)">1</text>
+		</g>
+	</g>
+</svg>

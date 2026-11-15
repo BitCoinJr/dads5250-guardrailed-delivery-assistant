@@ -4,6 +4,11 @@ DADS5250 Final Project — **Satoshi Nakamura, Solo**
 
 This local demonstration turns a spreadsheet request into a structured ticket, repository impact analysis, a proposed patch, automated validation, and a recorded human decision. Business users can keep using Google Sheets: export the request sheet as CSV and import it into the review screen.
 
+- [Project repository](https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant)
+- [Google Sheets request intake](https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit) — six synthetic requests with the exact CSV headers used by this app. The owner controls access to the sheet.
+
+In Google Sheets, open the **Requests** tab, fill or edit a request, and select **File → Download → Comma-separated values (.csv)**. In the app, choose **Upload CSV** and select that file. The **Instructions** tab explains the supported scope. The app also links to the live sheet. `project_resources.json` holds the project links so a clone can point to its own sheet.
+
 The MVP supports one bounded change: excluding named order statuses from the revenue metric in the included synthetic dbt project. It proposes changes to SQL, a dbt policy test, documentation, and one dashboard definition stored in Git as BI-as-Code. An approved package is a review artifact. The app does not merge code or deploy to production.
 
 ## Start the prepared demonstration
@@ -113,7 +118,17 @@ The submitted proposal's three techniques have distinct responsibilities:
 | **RAG** | A local TF-IDF cosine vector index retrieves allowlisted repository evidence. Dependency expansion supplies downstream model, test, documentation and BI context. The proposal cites source paths. No embedding API is required for this small repository. |
 | **Agents / LangGraph** | Explicit workflow stages coordinate parsing, retrieval, planning/generation and validation, with conditional clarification, blocking and review states. Human approval is an explicit service action outside the generation call. |
 
-Role-specific instructions support the AI stages. A model is never given an unrestricted shell or repository write tool. The readable workflow and architecture figures are stored alongside the code in `../Design` in the organized Final Project folder.
+Role-specific instructions support the AI stages. A model is never given an unrestricted shell or repository write tool.
+
+### Workflow and architecture figures
+
+The workflow shows clarification, revision and approval paths. Dashed steps are future delivery integrations.
+
+![Request to release workflow with the MVP boundary](docs/figures/01_Request_to_Release.svg)
+
+The architecture shows the three course techniques, read-only evidence, isolated validation and the human decision.
+
+![MVP architecture and safety controls](docs/figures/02_MVP_Architecture.svg)
 
 ## Validation and safety boundaries
 

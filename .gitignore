@@ -1,5 +1,15 @@
 .venv/
 .env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+client_secret*.json
+*service_account*.json
 .streamlit/secrets.toml
 .runs/
 __pycache__/

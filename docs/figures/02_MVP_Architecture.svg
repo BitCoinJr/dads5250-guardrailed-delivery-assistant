@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="612" height="792" preserveAspectRatio="xMinYMin meet" viewBox="0 0 612 792" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>MVP system architecture</title>
+	<desc>Proposed DADS5250 solo project design by Satoshi Nakamura. The MVP prepares validated changes for human approval; live integration and production release are stretch goals.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="612" height="792"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-792)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="612" height="792" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="42" y="746" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 24px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1492) scale(1,-1)">How the assistant works</text>
+			<text x="42" y="725" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,1450) scale(1,-1)">Proposed MVP architecture | Structured Output + RAG + Agents / LangGraph</text>
+			<text x="42" y="700" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1400) scale(1,-1)">Local review interface: upload CSV, inspect the ticket and evidence, review the diff, and approve or reject.</text>
+			<text x="210" y="668" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1336) scale(1,-1)">LangGraph coordinates the workflow</text>
+			<rect x="210" y="600" width="360" height="56" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="222" y="638" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1276) scale(1,-1)">Structured Output</text>
+			<text x="222" y="623" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1246) scale(1,-1)">LLM extracts the requirement; Pydantic checks JSON.</text>
+			<rect x="210" y="522" width="360" height="56" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="222" y="560" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1120) scale(1,-1)">Repository RAG</text>
+			<text x="222" y="545" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1090) scale(1,-1)">Search the local index; return cited repository evidence.</text>
+			<rect x="210" y="424" width="360" height="78" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="222" y="484" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,968) scale(1,-1)">Agent workflow</text>
+			<text x="222" y="469" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,938) scale(1,-1)">Analyze dependencies -&gt; plan -&gt; generate patches.</text>
+			<text x="222" y="457" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,914) scale(1,-1)">LLM API supports analysis and patch generation.</text>
+			<rect x="210" y="342" width="360" height="62" rx="5" ry="5" style="stroke: rgb(24%,39%,53%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,98%); fill-rule: evenodd;"/>
+			<text x="222" y="386" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,772) scale(1,-1)">Automated validation</text>
+			<text x="222" y="371" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,742) scale(1,-1)">Apply patches only inside an isolated workspace.</text>
+			<text x="222" y="359" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,718) scale(1,-1)">dbt + DuckDB + pytest; synthetic test data.</text>
+			<rect x="210" y="260" width="360" height="62" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="222" y="304" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,608) scale(1,-1)">Human approval gate</text>
+			<text x="222" y="289" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,578) scale(1,-1)">Inspect the evidence, diff and validation results.</text>
+			<text x="222" y="277" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,554) scale(1,-1)">Approve, reject or request a revision.</text>
+			<rect x="210" y="186" width="360" height="54" rx="5" ry="5" style="stroke: rgb(21%,45%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,96%,94%); fill-rule: evenodd;"/>
+			<text x="222" y="222" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,444) scale(1,-1)">Approved patch package</text>
+			<text x="222" y="207" style="font-family: Arial, sans-serif; font-size: 10.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,414) scale(1,-1)">Diff, check results and the recorded approval decision.</text>
+			<path d="M 390,600 L 390,578 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="390 578, 392.3864 582.9553, 387.6136 582.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 390,522 L 390,502 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="390 502, 392.3864 506.9553, 387.6136 506.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 390,424 L 390,404 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="390 404, 392.3864 408.9553, 387.6136 408.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 390,342 L 390,322 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="390 322, 392.3864 326.9553, 387.6136 326.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 390,260 L 390,240 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="390 240, 392.3864 244.9553, 387.6136 244.9553" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<text x="401" y="328" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,656) scale(1,-1)">Checks pass</text>
+			<text x="401" y="247" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,494) scale(1,-1)">Approved</text>
+			<rect x="42" y="600" width="140" height="56" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="54" y="638" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1276) scale(1,-1)">CSV request</text>
+			<text x="54" y="623" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1246) scale(1,-1)">From Google Sheets</text>
+			<text x="54" y="611" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1222) scale(1,-1)">Untrusted user text</text>
+			<rect x="42" y="510" width="140" height="78" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="54" y="570" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 10.6px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1140) scale(1,-1)">Read-only repository</text>
+			<text x="54" y="555" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1110) scale(1,-1)">Models and schema</text>
+			<text x="54" y="543" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1086) scale(1,-1)">Docs and dependencies</text>
+			<text x="54" y="531" style="font-family: Arial, sans-serif; font-size: 10px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1062) scale(1,-1)">BI dashboard YAML</text>
+			<path d="M 182,628 L 210,628 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="210 628, 205.0447 630.3864, 205.0447 625.6136" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<path d="M 182,550 L 210,550 Z" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="210 550, 205.0447 552.3864, 205.0447 547.6136" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(50%,56%,62%); fill-rule: evenodd;"/>
+			<rect x="42" y="366" width="140" height="118" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="54" y="466" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,932) scale(1,-1)">Safety controls</text>
+			<text x="54" y="451" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,902) scale(1,-1)">Applied to all stages</text>
+			<text x="54" y="439" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,878) scale(1,-1)">Tool and path allowlists</text>
+			<text x="54" y="427" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,854) scale(1,-1)">Predefined commands</text>
+			<text x="54" y="415" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,830) scale(1,-1)">Secrets excluded</text>
+			<text x="54" y="403" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,806) scale(1,-1)">Sensitive logs redacted</text>
+			<text x="54" y="391" style="font-family: Arial, sans-serif; font-size: 9.4px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,782) scale(1,-1)">Injection mitigations</text>
+			<rect x="42" y="252" width="140" height="94" rx="5" ry="5" style="stroke: rgb(50%,56%,62%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,97%); fill-rule: evenodd;"/>
+			<text x="54" y="328" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 11px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,656) scale(1,-1)">Audit log</text>
+			<text x="54" y="313" style="font-family: Arial, sans-serif; font-size: 9.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,626) scale(1,-1)">Events from every stage</text>
+			<text x="54" y="301" style="font-family: Arial, sans-serif; font-size: 9.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,602) scale(1,-1)">Request and evidence</text>
+			<text x="54" y="289" style="font-family: Arial, sans-serif; font-size: 9.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,578) scale(1,-1)">Generated changes</text>
+			<text x="54" y="277" style="font-family: Arial, sans-serif; font-size: 9.7px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,554) scale(1,-1)">Checks and decisions</text>
+			<text x="42" y="149" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,298) scale(1,-1)">Controls are enforced by code; model output and retrieved text remain untrusted.</text>
+			<text x="42" y="125" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,250) scale(1,-1)">RAG: retrieve repository evidence to ground the AI's proposed changes.</text>
+			<text x="42" y="105" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,210) scale(1,-1)">Agent workflow: coordinated AI steps with explicit inputs, outputs and review.</text>
+			<text x="42" y="85" style="font-family: Arial, sans-serif; font-size: 10.5px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,170) scale(1,-1)">BI-as-Code: one existing dashboard definition stored and reviewed in Git.</text>
+			<text x="42" y="58" style="font-family: Arial, sans-serif; font-size: 10.2px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,116) scale(1,-1)">The source repository stays read-only; production merge and release are stretch goals.</text>
+			<text x="42" y="24" style="font-family: Arial, sans-serif; font-size: 8.5px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,48) scale(1,-1)">DADS5250 | Proposed design and delivery plan | Satoshi Nakamura | Solo</text>
+			<text x="565" y="24" style="font-family: Arial, sans-serif; font-size: 9px;fill: rgb(32%,38%,45%); stroke:none;" transform="translate(0,48) scale(1,-1)">2</text>
+		</g>
+	</g>
+</svg>

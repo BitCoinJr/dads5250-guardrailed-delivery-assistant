@@ -24,6 +24,8 @@ load_dotenv(ROOT / ".env", override=False)
 project_evaluation = ROOT.parent.parent / "03_Evaluation"
 default_runs = project_evaluation / "runs" if ROOT.parent.name == "02_Development" and project_evaluation.is_dir() else ROOT / ".runs"
 RUNS = Path(os.environ.get("DELIVERY_RUNS_DIR", str(default_runs))).resolve()
+resources_path = ROOT / "project_resources.json"
+resources = json.loads(resources_path.read_text(encoding="utf-8")) if resources_path.is_file() else {}
 
 st.set_page_config(page_title="Request to review", page_icon=":material/account_tree:", layout="wide")
 st.session_state.setdefault("active_run", None)
@@ -87,6 +89,8 @@ with st.sidebar:
             st.session_state["next_view"] = "2  Evidence and plan"
             st.rerun()
     st.caption("DADS5250 | Satoshi Nakamura | Solo")
+    if resources.get("repository_url"):
+        st.link_button("View code on GitHub", resources["repository_url"])
 
 service = DeliveryService(ROOT / "sample_repo", RUNS, mode=mode, model=model)
 st.title("Request to review")
@@ -107,6 +111,9 @@ if st.session_state.get("active_run"):
 
 if view == "1  Request":
     st.subheader("Start with a spreadsheet request")
+    if resources.get("request_sheet_url"):
+        st.link_button("Open Google Sheets request intake", resources["request_sheet_url"])
+        st.caption("In the Requests tab, choose File → Download → Comma-separated values (.csv). Then choose Upload CSV below.")
     source = st.segmented_control("Input source", ["Sample CSV", "Upload CSV"], default="Sample CSV", key="input_source")
     data = None
     if source == "Sample CSV":
