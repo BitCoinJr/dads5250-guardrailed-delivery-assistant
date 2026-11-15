@@ -65,3 +65,19 @@ def test_openai_requires_key_and_does_not_fall_back(monkeypatch, tmp_path):
     assert not at.exception
     assert at.session_state["active_run"] is None
     assert any("OPENAI_API_KEY" in error.value for error in at.error)
+
+
+def test_empty_startup_key_can_be_loaded_on_a_later_rerun(monkeypatch, tmp_path):
+    import dotenv
+    import os
+    at = app(monkeypatch, tmp_path)
+    monkeypatch.setenv("OPENAI_API_KEY", "")
+    def first_time_local_config(*args, **kwargs):
+        os.environ.setdefault("OPENAI_API_KEY", "test-only-no-api-call")
+        return True
+    monkeypatch.setattr(dotenv, "load_dotenv", first_time_local_config)
+    at.run()
+    assert not at.exception
+    assert os.environ["OPENAI_API_KEY"] == "test-only-no-api-call"
+    # Never select or run the live provider in this configuration test.
+    assert at.selectbox(key="generation_mode").value == "Sample walkthrough"

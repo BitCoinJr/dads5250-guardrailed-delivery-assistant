@@ -15,6 +15,11 @@ from delivery_assistant.models import ChangeRequest
 from delivery_assistant.workflow import DeliveryService
 
 ROOT = Path(__file__).resolve().parent
+# A first-time key saved after startup becomes available on the next rerun.
+# Existing non-empty environment values keep precedence over the local file.
+for setting in ("OPENAI_API_KEY", "OPENAI_MODEL"):
+    if not os.environ.get(setting):
+        os.environ.pop(setting, None)
 load_dotenv(ROOT / ".env", override=False)
 project_evaluation = ROOT.parent.parent / "03_Evaluation"
 default_runs = project_evaluation / "runs" if ROOT.parent.name == "02_Development" and project_evaluation.is_dir() else ROOT / ".runs"
