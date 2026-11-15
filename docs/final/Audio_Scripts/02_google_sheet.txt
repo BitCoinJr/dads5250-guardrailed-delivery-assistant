@@ -1,0 +1,12 @@
+This is our private demo sheet.
+All requests use made-up business data.
+Users write the need and the expected result.
+The BA adds notes about impact, priority, and dates.
+These fields keep the discussion together.
+A new row does not start development on its own.
+I select Google Sheets and click Refresh in the app.
+The app reads the private sheet through my Google login.
+This path needs no CSV download or upload.
+The app has read-only access.
+It does not change the sheet or its sharing settings.
+The screen shows the rows and refresh time.

@@ -6,7 +6,12 @@ Target **nine minutes**, within the course's 8–10 minute requirement. Presente
 
 The main story is a business request becoming a reviewed data change. Show the user's familiar sheet, the BA's discussion and selection work, the frozen delivery handoff, and the Data Engineer's final review. The normal recording does not need a CSV download/upload step.
 
-## Prepare before recording
+
+## Section audio recording
+
+Use the version 2 PDF or Word script linked above. Its nine recording sections use short sentences and bold main verbs. Record your own voice with Sound Recorder and start with `01_intro` so speaking pace can be checked before the remaining clips. Keep the original audio format. [Plain text scripts, pronunciation notes and instructions](final/Audio_Scripts/00_START_HERE_JA.txt) accompany the reading copy. Screen footage and English captions will be aligned to the actual supplied recordings; no final subtitle timestamps are claimed yet. The timeline below is a planning aid. Actual recorded speech determines the edit.
+
+## Prepare before capturing the screen
 
 1. Start `Run_Demo.cmd` and open **0 BA intake**.
 2. Decide which source you can honestly demonstrate. **Google Sheets** is a direct private read and requires completed local OAuth setup. **Demo backlog** is an explicitly labeled synthetic local queue. Never describe the latter as a fresh live read.

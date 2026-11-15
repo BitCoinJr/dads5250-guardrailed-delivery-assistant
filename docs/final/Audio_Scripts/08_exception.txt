@@ -1,0 +1,12 @@
+Now I show a request that is not ready.
+This mobile-push request has an urgent date.
+But the BA still needs example events and an agreed time rule.
+An urgent date does not fill those gaps.
+The app keeps the missing facts visible.
+The BA can choose Hold or Clarify.
+A high rank does not make the request ready.
+A new dashboard or data source also needs more scope work.
+This demo only prepares changes to the existing revenue rule.
+The safety checks also have limits.
+They block known unsafe patterns.
+They may miss new attacks.

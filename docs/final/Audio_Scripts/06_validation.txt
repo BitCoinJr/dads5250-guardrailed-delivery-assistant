@@ -1,0 +1,13 @@
+The screen shows the changes and test results.
+The original total is nine hundred twenty in this checked example.
+The expected total is seven hundred seventy.
+The proposed total is also seven hundred seventy.
+The app runs real checks, not an AI opinion about the code.
+It checks file scope and the separate work folder.
+It loads trusted sample data and runs dbt tests.
+An independent check calculates the expected revenue.
+Python tests compare the daily results with the sample orders.
+The four files contain SQL, a test, project notes, and dashboard rules.
+The dashboard rules stay in a text file.
+They do not update Looker Studio.
+A failed check blocks approval.

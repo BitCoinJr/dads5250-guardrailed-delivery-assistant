@@ -1,0 +1,14 @@
+The results cover different kinds of tests.
+The automated suite passed one hundred and three tests.
+The fixed sample tests covered six normal requests.
+They blocked three attack examples and paused one unclear request.
+These sample results do not measure general AI accuracy.
+One separate live OpenAI check passed all six delivery checks.
+It covered one request and stopped before human approval.
+A separate Google check read ten request rows.
+Those connection checks were separate tests.
+The source code includes setup steps, sample data, and tests.
+It includes no API keys or Google tokens.
+Future work includes more data models, stronger user roles, and Jira.
+The goal is a useful change that people can check.
+Thank you for watching.

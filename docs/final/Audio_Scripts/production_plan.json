@@ -1,0 +1,179 @@
+{
+  "project": "DADS5250 Final Project",
+  "presenter": "Satoshi Nakamura",
+  "participation": "Solo",
+  "version": 2,
+  "status": "Ready for section audio collection; no audio or final video exists in this plan",
+  "language": {
+    "narration": "English",
+    "captions": "English",
+    "operator_instructions": "Japanese"
+  },
+  "target_final_duration_seconds": {
+    "minimum": 480,
+    "preferred": 540,
+    "maximum": 600,
+    "timing_basis": "Measure supplied audio and actual screen interaction; do not treat estimated script timings as final"
+  },
+  "accepted_audio_extensions": [
+    ".m4a",
+    ".wav"
+  ],
+  "sections": [
+    {
+      "id": "01",
+      "file_stem": "01_intro",
+      "topic": "Introduction and problem",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "02",
+      "file_stem": "02_google_sheet",
+      "topic": "Request sheet and private direct read",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "03",
+      "file_stem": "03_triage",
+      "topic": "Business impact and change volume",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "04",
+      "file_stem": "04_ba_go",
+      "topic": "Actual BA decision and frozen handoff",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "05",
+      "file_stem": "05_ai_workflow",
+      "topic": "Structured Output RAG and LangGraph",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "06",
+      "file_stem": "06_validation",
+      "topic": "Diff and executed validation",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "07",
+      "file_stem": "07_de_review",
+      "topic": "Actual engineering review and approved package",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "08",
+      "file_stem": "08_exception",
+      "topic": "Unready request and clarification",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    },
+    {
+      "id": "09",
+      "file_stem": "09_results",
+      "topic": "Recorded results limitations and reproduction",
+      "audio": "pending",
+      "video": "pending",
+      "caption_alignment": "pending"
+    }
+  ],
+  "audio_collection": {
+    "first_pass": "Review 01_intro before the presenter records every section",
+    "one_file_per_section": true,
+    "lead_and_tail_silence_seconds": "1 to 2",
+    "read_only_narration_body": true,
+    "headings_timestamps_stage_cues_spoken": false,
+    "retake_method": "Leave about two seconds, then repeat the full sentence; or supply a new take for that section",
+    "format_conversion_required_from_user": false,
+    "voice_source": "Presenter supplied own voice",
+    "original_recordings_preserved": true
+  },
+  "editing_sequence": [
+    "Inventory supplied recordings and identify the selected take for each section",
+    "Measure actual durations and assess voice level, noise and speech clarity",
+    "Review the first clip and provide short actionable feedback before remaining recording",
+    "Trim unintended silence and false starts while preserving natural pauses and meaning",
+    "Use light audio correction and consistent level where needed; avoid aggressive speed changes",
+    "Capture or select actual functional app interactions with source and generation mode visible",
+    "Capture the presenter making the actual BA and DE decisions after inspecting current results",
+    "Fit screen holds, pointer movements and section transitions to the reviewed narration",
+    "Align captions to the supplied speech and manually check technical terms and numbers",
+    "Render a captioned MP4, export the reviewed SRT, check playback and duration, then rebuild the submission ZIP"
+  ],
+  "caption_plan": {
+    "burned_into_video": true,
+    "sidecar_format": "SRT",
+    "maximum_lines": 2,
+    "target_characters_per_line": "38 to 42 English characters where practical",
+    "segmentation": "Short spoken phrases and sentence boundaries; avoid splitting names, numbers or tightly linked phrases",
+    "timing_source": "Actual supplied speech, reviewed against playback",
+    "final_timestamps_available": false,
+    "check_terms": [
+      "Satoshi Nakamura",
+      "DADS5250",
+      "Google Sheets",
+      "OpenAI",
+      "Structured Output",
+      "RAG",
+      "LangGraph",
+      "dbt",
+      "DuckDB",
+      "pytest",
+      "Jira",
+      "BA",
+      "DE",
+      "SQL",
+      "BI",
+      "920",
+      "770",
+      "103"
+    ],
+    "readability": "High contrast captions with a consistent lower-screen position that does not hide the active control or validation result"
+  },
+  "screen_capture_constraints": {
+    "allowed_content": "Synthetic DADS5250 sheet, dedicated local app, reviewed diagrams, report and project README",
+    "hide": [
+      "Credential files and setup screens",
+      "Authorization codes",
+      "Unrelated work-project tabs",
+      "Private messages and email",
+      "Account dashboards not needed for the demo"
+    ],
+    "source_and_mode_must_remain_honest": true,
+    "actual_human_ba_and_de_decisions_required_for_human_approval_claim": true,
+    "automated_test_approvals_may_be_called_human_approvals": false,
+    "removed_api_waits": "Label any editing of waiting time clearly and retain actual start and completion states",
+    "unexpected_results": "Match narration and captions to the actual observed result; revise or rerecord affected lines if necessary"
+  },
+  "planned_outputs": [
+    "DADS5250_Final_Demo_Satoshi_Nakamura_Solo.mp4",
+    "DADS5250_Final_Demo_Satoshi_Nakamura_Solo.en.srt"
+  ],
+  "completion_gate": {
+    "all_selected_audio_received": false,
+    "actual_screen_interactions_recorded": false,
+    "actual_human_decisions_recorded": false,
+    "captions_timed_and_reviewed": false,
+    "duration_480_to_600_seconds_verified": false,
+    "complete_playback_review_passed": false,
+    "submission_zip_rebuilt_with_video": false
+  },
+  "script_word_count": 994,
+  "script_sentences": 122
+}

@@ -1,0 +1,18 @@
+BA  |  B A  |  Business Analyst。1文字ずつ読む。
+BI  |  B I  |  Business Intelligence。1文字ずつ読む。
+AI  |  A I  |  1文字ずつ読む。
+API  |  A P I  |  1文字ずつ読む。
+SQL  |  S Q L  |  この台本では1文字ずつでよい。
+dbt  |  D B T  |  1文字ずつ読む。
+RAG  |  rag  |  1語として短く読む。
+LangGraph  |  Lang Graph  |  2つのまとまりとして読む。
+CSV  |  C S V  |  1文字ずつ読む。
+DADS5250  |  DADS five two five zero  |  コース番号は数字を1つずつ読む。
+OpenAI  |  Open A I  |  AIを1文字ずつ読む。
+Structured Output  |  STRUK cherd  OUT put  |  太い大文字の音節を少し強く読む目安。
+retrieval  |  ri TREE vuhl  |  RAGの正式名称で1度だけ使う。
+augmented  |  awg MEN tid  |  retrievalの後でひと呼吸してもよい。
+generation  |  jen uh RAY shun  |  RAYを少し強く読む。
+revenue  |  REV uh noo  |  売上。数字の前後をゆっくり読む。
+evidence  |  EV ih dens  |  根拠。EVを少し強く読む。
+untrusted  |  un TRUS tid  |  入力を、そのまま指示として信用しないという意味。

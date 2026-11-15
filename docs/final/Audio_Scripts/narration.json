@@ -1,0 +1,958 @@
+{
+  "version": 2,
+  "title": "DADS5250 Section Recording Script",
+  "presenter": "Satoshi Nakamura",
+  "participation": "Solo",
+  "spoken_language": "English",
+  "recording_plan": "Record the nine sections separately in Sound Recorder using your own voice. Keep a short quiet lead and tail on each clip. Do not read the headings, bold-format explanation or Japanese screen cues.",
+  "style": "Short sentences. Main verbs are marked separately for a bold reading copy. Each sentence is on its own line. Use a natural short pause after each sentence.",
+  "target_speech_rate_wpm": [
+    110,
+    120
+  ],
+  "total_word_count": 994,
+  "editing_note": "Final timing must use the actual supplied audio. Keep natural pauses and screen interaction time. Do not force an eight-to-ten-minute result by unnatural voice speed changes or fabricate approval footage.",
+  "formats": [
+    "wav",
+    "m4a"
+  ],
+  "sections": [
+    {
+      "id": "01",
+      "file_stem": "01_intro",
+      "title": "The problem and the project",
+      "screen_cue_ja": "氏名とSoloを表示し、業務フロー図からアプリへ切り替える。",
+      "lines": [
+        {
+          "text": "Hello, I am Satoshi Nakamura.",
+          "verb_phrase": "am",
+          "verb_start": 9,
+          "verb_end": 11
+        },
+        {
+          "text": "This is my solo final project for DADS five two five zero.",
+          "verb_phrase": "is",
+          "verb_start": 5,
+          "verb_end": 7
+        },
+        {
+          "text": "I built an AI assistant for data engineering requests.",
+          "verb_phrase": "built",
+          "verb_start": 2,
+          "verb_end": 7
+        },
+        {
+          "text": "Business users often prefer a spreadsheet.",
+          "verb_phrase": "prefer",
+          "verb_start": 21,
+          "verb_end": 27
+        },
+        {
+          "text": "They ask for a report, a data extract, or a BI change.",
+          "verb_phrase": "ask",
+          "verb_start": 5,
+          "verb_end": 8
+        },
+        {
+          "text": "A business analyst checks the need, value, and timing.",
+          "verb_phrase": "checks",
+          "verb_start": 19,
+          "verb_end": 25
+        },
+        {
+          "text": "BA means business analyst.",
+          "verb_phrase": "means",
+          "verb_start": 3,
+          "verb_end": 8
+        },
+        {
+          "text": "A data engineer then plans and tests the change.",
+          "verb_phrase": "plans",
+          "verb_start": 21,
+          "verb_end": 26
+        },
+        {
+          "text": "My app supports this flow, with two human decisions.",
+          "verb_phrase": "supports",
+          "verb_start": 7,
+          "verb_end": 15
+        },
+        {
+          "text": "The demo ends with a reviewed patch package.",
+          "verb_phrase": "ends",
+          "verb_start": 9,
+          "verb_end": 13
+        },
+        {
+          "text": "It does not merge code or release a production change.",
+          "verb_phrase": "does not merge",
+          "verb_start": 3,
+          "verb_end": 17
+        }
+      ],
+      "word_count": 93,
+      "rough_voice_seconds_at_115_wpm": 48.5
+    },
+    {
+      "id": "02",
+      "file_stem": "02_google_sheet",
+      "title": "The request sheet",
+      "screen_cue_ja": "合成データのGoogle Sheetを見せた後、Google Sheetsを選びRefresh Google Sheetsを押す。",
+      "lines": [
+        {
+          "text": "This is our private demo sheet.",
+          "verb_phrase": "is",
+          "verb_start": 5,
+          "verb_end": 7
+        },
+        {
+          "text": "All requests use made-up business data.",
+          "verb_phrase": "use",
+          "verb_start": 13,
+          "verb_end": 16
+        },
+        {
+          "text": "Users write the need and the expected result.",
+          "verb_phrase": "write",
+          "verb_start": 6,
+          "verb_end": 11
+        },
+        {
+          "text": "The BA adds notes about impact, priority, and dates.",
+          "verb_phrase": "adds",
+          "verb_start": 7,
+          "verb_end": 11
+        },
+        {
+          "text": "These fields keep the discussion together.",
+          "verb_phrase": "keep",
+          "verb_start": 13,
+          "verb_end": 17
+        },
+        {
+          "text": "A new row does not start development on its own.",
+          "verb_phrase": "does not start",
+          "verb_start": 10,
+          "verb_end": 24
+        },
+        {
+          "text": "I select Google Sheets and click Refresh in the app.",
+          "verb_phrase": "select",
+          "verb_start": 2,
+          "verb_end": 8
+        },
+        {
+          "text": "The app reads the private sheet through my Google login.",
+          "verb_phrase": "reads",
+          "verb_start": 8,
+          "verb_end": 13
+        },
+        {
+          "text": "This path needs no CSV download or upload.",
+          "verb_phrase": "needs",
+          "verb_start": 10,
+          "verb_end": 15
+        },
+        {
+          "text": "The app has read-only access.",
+          "verb_phrase": "has",
+          "verb_start": 8,
+          "verb_end": 11
+        },
+        {
+          "text": "It does not change the sheet or its sharing settings.",
+          "verb_phrase": "does not change",
+          "verb_start": 3,
+          "verb_end": 18
+        },
+        {
+          "text": "The screen shows the rows and refresh time.",
+          "verb_phrase": "shows",
+          "verb_start": 11,
+          "verb_end": 16
+        }
+      ],
+      "word_count": 96,
+      "rough_voice_seconds_at_115_wpm": 50.1
+    },
+    {
+      "id": "03",
+      "file_stem": "03_triage",
+      "title": "Impact and change size",
+      "screen_cue_ja": "OpenAI APIを選択し、対象リストと推定結果のマトリクスを映す。数値は実際の画面に合わせる。",
+      "lines": [
+        {
+          "text": "I select OpenAI API mode for real AI estimates.",
+          "verb_phrase": "select",
+          "verb_start": 2,
+          "verb_end": 8
+        },
+        {
+          "text": "The other mode uses fixed sample rules.",
+          "verb_phrase": "uses",
+          "verb_start": 15,
+          "verb_end": 19
+        },
+        {
+          "text": "The screen labels each mode.",
+          "verb_phrase": "labels",
+          "verb_start": 11,
+          "verb_end": 17
+        },
+        {
+          "text": "I choose the review list and ask for estimates.",
+          "verb_phrase": "choose",
+          "verb_start": 2,
+          "verb_end": 8
+        },
+        {
+          "text": "The app compares business impact with change size.",
+          "verb_phrase": "compares",
+          "verb_start": 8,
+          "verb_end": 16
+        },
+        {
+          "text": "Impact comes from the request and the BA notes.",
+          "verb_phrase": "comes",
+          "verb_start": 7,
+          "verb_end": 12
+        },
+        {
+          "text": "Change size comes from the sample project files.",
+          "verb_phrase": "comes",
+          "verb_start": 12,
+          "verb_end": 17
+        },
+        {
+          "text": "A high-impact, small change can come first.",
+          "verb_phrase": "can come",
+          "verb_start": 28,
+          "verb_end": 36
+        },
+        {
+          "text": "A larger change may need smaller phases.",
+          "verb_phrase": "may need",
+          "verb_start": 16,
+          "verb_end": 24
+        },
+        {
+          "text": "Missing facts stay visible as unknowns.",
+          "verb_phrase": "stay",
+          "verb_start": 14,
+          "verb_end": 18
+        },
+        {
+          "text": "The app compares fixed templates with current project files.",
+          "verb_phrase": "compares",
+          "verb_start": 8,
+          "verb_end": 16
+        },
+        {
+          "text": "For a supported revenue rule, the app counts files and changed lines.",
+          "verb_phrase": "counts",
+          "verb_start": 38,
+          "verb_end": 44
+        },
+        {
+          "text": "These counts give a rough scope.",
+          "verb_phrase": "give",
+          "verb_start": 13,
+          "verb_end": 17
+        },
+        {
+          "text": "They do not show exact working hours.",
+          "verb_phrase": "do not show",
+          "verb_start": 5,
+          "verb_end": 16
+        },
+        {
+          "text": "The BA still checks readiness, priority, and timing.",
+          "verb_phrase": "checks",
+          "verb_start": 13,
+          "verb_end": 19
+        },
+        {
+          "text": "The AI suggests a choice.",
+          "verb_phrase": "suggests",
+          "verb_start": 7,
+          "verb_end": 15
+        },
+        {
+          "text": "A person makes the decision.",
+          "verb_phrase": "makes",
+          "verb_start": 9,
+          "verb_end": 14
+        }
+      ],
+      "word_count": 127,
+      "rough_voice_seconds_at_115_wpm": 66.3
+    },
+    {
+      "id": "04",
+      "file_stem": "04_ba_go",
+      "title": "The first human decision",
+      "screen_cue_ja": "REQ-001の要件と根拠を読み、本人がBAの理由と確認を入力する。Goの成立は実際の画面で確認する。",
+      "lines": [
+        {
+          "text": "I choose the campaign revenue request.",
+          "verb_phrase": "choose",
+          "verb_start": 2,
+          "verb_end": 8
+        },
+        {
+          "text": "The agreed rule excludes canceled orders from revenue.",
+          "verb_phrase": "excludes",
+          "verb_start": 16,
+          "verb_end": 24
+        },
+        {
+          "text": "Here, revenue means the sum of order amounts.",
+          "verb_phrase": "means",
+          "verb_start": 14,
+          "verb_end": 19
+        },
+        {
+          "text": "The BA notes explain why the change matters.",
+          "verb_phrase": "explain",
+          "verb_start": 13,
+          "verb_end": 20
+        },
+        {
+          "text": "I check those notes and the project evidence.",
+          "verb_phrase": "check",
+          "verb_start": 2,
+          "verb_end": 7
+        },
+        {
+          "text": "Then I enter a reason for the BA decision.",
+          "verb_phrase": "enter",
+          "verb_start": 7,
+          "verb_end": 12
+        },
+        {
+          "text": "The BA can choose Go, Hold, or Clarify.",
+          "verb_phrase": "can choose",
+          "verb_start": 7,
+          "verb_end": 17
+        },
+        {
+          "text": "The app checks the latest source again before Go.",
+          "verb_phrase": "checks",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "It rejects a review if the source has changed.",
+          "verb_phrase": "rejects",
+          "verb_start": 3,
+          "verb_end": 10
+        },
+        {
+          "text": "A valid Go saves the agreed request as a fixed ticket.",
+          "verb_phrase": "saves",
+          "verb_start": 11,
+          "verb_end": 16
+        },
+        {
+          "text": "The ticket follows a Jira-style flow.",
+          "verb_phrase": "follows",
+          "verb_start": 11,
+          "verb_end": 18
+        },
+        {
+          "text": "The app does not create a real Jira issue.",
+          "verb_phrase": "does not create",
+          "verb_start": 8,
+          "verb_end": 23
+        }
+      ],
+      "word_count": 99,
+      "rough_voice_seconds_at_115_wpm": 51.7
+    },
+    {
+      "id": "05",
+      "file_stem": "05_ai_workflow",
+      "title": "The three course techniques",
+      "screen_cue_ja": "Prepare and validate、Ticket JSON、根拠ファイル、変更計画を見せる。待ち時間にはアーキテクチャ図を使える。",
+      "lines": [
+        {
+          "text": "Next, I prepare and check the change.",
+          "verb_phrase": "prepare",
+          "verb_start": 8,
+          "verb_end": 15
+        },
+        {
+          "text": "The app combines three course techniques.",
+          "verb_phrase": "combines",
+          "verb_start": 8,
+          "verb_end": 16
+        },
+        {
+          "text": "The first technique is Structured Output.",
+          "verb_phrase": "is",
+          "verb_start": 20,
+          "verb_end": 22
+        },
+        {
+          "text": "The model creates a ticket with a fixed format.",
+          "verb_phrase": "creates",
+          "verb_start": 10,
+          "verb_end": 17
+        },
+        {
+          "text": "The app checks that format and the business rule.",
+          "verb_phrase": "checks",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "The app pauses when the rule is unclear.",
+          "verb_phrase": "pauses",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "The second technique is RAG.",
+          "verb_phrase": "is",
+          "verb_start": 21,
+          "verb_end": 23
+        },
+        {
+          "text": "RAG means retrieval augmented generation.",
+          "verb_phrase": "means",
+          "verb_start": 4,
+          "verb_end": 9
+        },
+        {
+          "text": "The app searches approved project files for useful text.",
+          "verb_phrase": "searches",
+          "verb_start": 8,
+          "verb_end": 16
+        },
+        {
+          "text": "It uses word matches and known revenue links.",
+          "verb_phrase": "uses",
+          "verb_start": 3,
+          "verb_end": 7
+        },
+        {
+          "text": "The screen shows the source file paths.",
+          "verb_phrase": "shows",
+          "verb_start": 11,
+          "verb_end": 16
+        },
+        {
+          "text": "I can compare the plan with that evidence.",
+          "verb_phrase": "can compare",
+          "verb_start": 2,
+          "verb_end": 13
+        },
+        {
+          "text": "The third technique is an agent workflow with LangGraph.",
+          "verb_phrase": "is",
+          "verb_start": 20,
+          "verb_end": 22
+        },
+        {
+          "text": "LangGraph controls the ticket, plan, and check stages.",
+          "verb_phrase": "controls",
+          "verb_start": 10,
+          "verb_end": 18
+        },
+        {
+          "text": "The app treats request text as untrusted data.",
+          "verb_phrase": "treats",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "The model proposes changes within a small, fixed scope.",
+          "verb_phrase": "proposes",
+          "verb_start": 10,
+          "verb_end": 18
+        },
+        {
+          "text": "The app allows changes to four files only.",
+          "verb_phrase": "allows",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "A request cannot add a new file or a new command.",
+          "verb_phrase": "cannot add",
+          "verb_start": 10,
+          "verb_end": 20
+        },
+        {
+          "text": "The model cannot run its own commands.",
+          "verb_phrase": "cannot run",
+          "verb_start": 10,
+          "verb_end": 20
+        }
+      ],
+      "word_count": 147,
+      "rough_voice_seconds_at_115_wpm": 76.7
+    },
+    {
+      "id": "06",
+      "file_stem": "06_validation",
+      "title": "The changes and real checks",
+      "screen_cue_ja": "実際の6検証、差分、元の合計と期待値を見せる。920と770の行はREQ-001が実際に通った場合のみ使用する。",
+      "requires_matching_video": "Use the primary numbered-result lines only when REQ-001 actually shows original 920 and expected/proposed 770 with passing checks. Otherwise record the alternative section after reviewing the real outcome.",
+      "lines": [
+        {
+          "text": "The screen shows the changes and test results.",
+          "verb_phrase": "shows",
+          "verb_start": 11,
+          "verb_end": 16
+        },
+        {
+          "text": "The original total is nine hundred twenty in this checked example.",
+          "verb_phrase": "is",
+          "verb_start": 19,
+          "verb_end": 21
+        },
+        {
+          "text": "The expected total is seven hundred seventy.",
+          "verb_phrase": "is",
+          "verb_start": 19,
+          "verb_end": 21
+        },
+        {
+          "text": "The proposed total is also seven hundred seventy.",
+          "verb_phrase": "is",
+          "verb_start": 19,
+          "verb_end": 21
+        },
+        {
+          "text": "The app runs real checks, not an AI opinion about the code.",
+          "verb_phrase": "runs",
+          "verb_start": 8,
+          "verb_end": 12
+        },
+        {
+          "text": "It checks file scope and the separate work folder.",
+          "verb_phrase": "checks",
+          "verb_start": 3,
+          "verb_end": 9
+        },
+        {
+          "text": "It loads trusted sample data and runs dbt tests.",
+          "verb_phrase": "loads",
+          "verb_start": 3,
+          "verb_end": 8
+        },
+        {
+          "text": "An independent check calculates the expected revenue.",
+          "verb_phrase": "calculates",
+          "verb_start": 21,
+          "verb_end": 31
+        },
+        {
+          "text": "Python tests compare the daily results with the sample orders.",
+          "verb_phrase": "compare",
+          "verb_start": 13,
+          "verb_end": 20
+        },
+        {
+          "text": "The four files contain SQL, a test, project notes, and dashboard rules.",
+          "verb_phrase": "contain",
+          "verb_start": 15,
+          "verb_end": 22
+        },
+        {
+          "text": "The dashboard rules stay in a text file.",
+          "verb_phrase": "stay",
+          "verb_start": 20,
+          "verb_end": 24
+        },
+        {
+          "text": "They do not update Looker Studio.",
+          "verb_phrase": "do not update",
+          "verb_start": 5,
+          "verb_end": 18
+        },
+        {
+          "text": "A failed check blocks approval.",
+          "verb_phrase": "blocks",
+          "verb_start": 15,
+          "verb_end": 21
+        }
+      ],
+      "alternative_if_failed": [
+        "The review screen shows a failed check.",
+        "The app blocks approval for this result.",
+        "I need to review the issue and request a revision.",
+        "I will not treat this result as an approved change.",
+        "The report also includes one earlier live example with six passing checks.",
+        "That example is separate from the result on this screen."
+      ],
+      "word_count": 112,
+      "rough_voice_seconds_at_115_wpm": 58.4
+    },
+    {
+      "id": "07",
+      "file_stem": "07_de_review",
+      "title": "The second human decision",
+      "screen_cue_ja": "本人がHuman reviewで内容を確認し、承認または修正を判断する。Downloadの画面は実際の承認後にだけ見せる。",
+      "lines": [
+        {
+          "text": "The second human decision reviews the proposed change.",
+          "verb_phrase": "reviews",
+          "verb_start": 26,
+          "verb_end": 33
+        },
+        {
+          "text": "The first decision allowed work to start.",
+          "verb_phrase": "allowed",
+          "verb_start": 19,
+          "verb_end": 26
+        },
+        {
+          "text": "This decision checks the result of that work.",
+          "verb_phrase": "checks",
+          "verb_start": 14,
+          "verb_end": 20
+        },
+        {
+          "text": "I review the evidence, the file changes, and the tests.",
+          "verb_phrase": "review",
+          "verb_start": 2,
+          "verb_end": 8
+        },
+        {
+          "text": "I approve only when the result meets the agreed rule.",
+          "verb_phrase": "approve",
+          "verb_start": 2,
+          "verb_end": 9
+        },
+        {
+          "text": "Otherwise, I ask for a revision.",
+          "verb_phrase": "ask",
+          "verb_start": 13,
+          "verb_end": 16
+        },
+        {
+          "text": "The app offers a patch package after approval.",
+          "verb_phrase": "offers",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "The package includes files, test results, and the decision record.",
+          "verb_phrase": "includes",
+          "verb_start": 12,
+          "verb_end": 20
+        },
+        {
+          "text": "The app checks that the package matches the reviewed result.",
+          "verb_phrase": "checks",
+          "verb_start": 8,
+          "verb_end": 14
+        },
+        {
+          "text": "It does not merge code or release the change.",
+          "verb_phrase": "does not merge",
+          "verb_start": 3,
+          "verb_end": 17
+        },
+        {
+          "text": "The reviewer types a name into this local demo.",
+          "verb_phrase": "types",
+          "verb_start": 13,
+          "verb_end": 18
+        },
+        {
+          "text": "That name does not prove that two people reviewed it.",
+          "verb_phrase": "does not prove",
+          "verb_start": 10,
+          "verb_end": 24
+        }
+      ],
+      "word_count": 105,
+      "rough_voice_seconds_at_115_wpm": 54.8
+    },
+    {
+      "id": "08",
+      "file_stem": "08_exception",
+      "title": "A request that needs more work",
+      "screen_cue_ja": "BA intakeに戻り、未準備のREQ-009を見せる。実際のHoldまたはClarifyと不足情報を示す。",
+      "lines": [
+        {
+          "text": "Now I show a request that is not ready.",
+          "verb_phrase": "show",
+          "verb_start": 6,
+          "verb_end": 10
+        },
+        {
+          "text": "This mobile-push request has an urgent date.",
+          "verb_phrase": "has",
+          "verb_start": 25,
+          "verb_end": 28
+        },
+        {
+          "text": "But the BA still needs example events and an agreed time rule.",
+          "verb_phrase": "needs",
+          "verb_start": 17,
+          "verb_end": 22
+        },
+        {
+          "text": "An urgent date does not fill those gaps.",
+          "verb_phrase": "does not fill",
+          "verb_start": 15,
+          "verb_end": 28
+        },
+        {
+          "text": "The app keeps the missing facts visible.",
+          "verb_phrase": "keeps",
+          "verb_start": 8,
+          "verb_end": 13
+        },
+        {
+          "text": "The BA can choose Hold or Clarify.",
+          "verb_phrase": "can choose",
+          "verb_start": 7,
+          "verb_end": 17
+        },
+        {
+          "text": "A high rank does not make the request ready.",
+          "verb_phrase": "does not make",
+          "verb_start": 12,
+          "verb_end": 25
+        },
+        {
+          "text": "A new dashboard or data source also needs more scope work.",
+          "verb_phrase": "needs",
+          "verb_start": 36,
+          "verb_end": 41
+        },
+        {
+          "text": "This demo only prepares changes to the existing revenue rule.",
+          "verb_phrase": "prepares",
+          "verb_start": 15,
+          "verb_end": 23
+        },
+        {
+          "text": "The safety checks also have limits.",
+          "verb_phrase": "have",
+          "verb_start": 23,
+          "verb_end": 27
+        },
+        {
+          "text": "They block known unsafe patterns.",
+          "verb_phrase": "block",
+          "verb_start": 5,
+          "verb_end": 10
+        },
+        {
+          "text": "They may miss new attacks.",
+          "verb_phrase": "may miss",
+          "verb_start": 5,
+          "verb_end": 13
+        }
+      ],
+      "word_count": 96,
+      "rough_voice_seconds_at_115_wpm": 50.1
+    },
+    {
+      "id": "09",
+      "file_stem": "09_results",
+      "title": "Results and next steps",
+      "screen_cue_ja": "レポートの結果表、READMEのセットアップ、GitHubを見せる。過去の個別検証と今回の録画を区別する。",
+      "lines": [
+        {
+          "text": "The results cover different kinds of tests.",
+          "verb_phrase": "cover",
+          "verb_start": 12,
+          "verb_end": 17
+        },
+        {
+          "text": "The automated suite passed one hundred and three tests.",
+          "verb_phrase": "passed",
+          "verb_start": 20,
+          "verb_end": 26
+        },
+        {
+          "text": "The fixed sample tests covered six normal requests.",
+          "verb_phrase": "covered",
+          "verb_start": 23,
+          "verb_end": 30
+        },
+        {
+          "text": "They blocked three attack examples and paused one unclear request.",
+          "verb_phrase": "blocked",
+          "verb_start": 5,
+          "verb_end": 12
+        },
+        {
+          "text": "These sample results do not measure general AI accuracy.",
+          "verb_phrase": "do not measure",
+          "verb_start": 21,
+          "verb_end": 35
+        },
+        {
+          "text": "One separate live OpenAI check passed all six delivery checks.",
+          "verb_phrase": "passed",
+          "verb_start": 31,
+          "verb_end": 37
+        },
+        {
+          "text": "It covered one request and stopped before human approval.",
+          "verb_phrase": "covered",
+          "verb_start": 3,
+          "verb_end": 10
+        },
+        {
+          "text": "A separate Google check read ten request rows.",
+          "verb_phrase": "read",
+          "verb_start": 24,
+          "verb_end": 28
+        },
+        {
+          "text": "Those connection checks were separate tests.",
+          "verb_phrase": "were",
+          "verb_start": 24,
+          "verb_end": 28
+        },
+        {
+          "text": "The source code includes setup steps, sample data, and tests.",
+          "verb_phrase": "includes",
+          "verb_start": 16,
+          "verb_end": 24
+        },
+        {
+          "text": "It includes no API keys or Google tokens.",
+          "verb_phrase": "includes",
+          "verb_start": 3,
+          "verb_end": 11
+        },
+        {
+          "text": "Future work includes more data models, stronger user roles, and Jira.",
+          "verb_phrase": "includes",
+          "verb_start": 12,
+          "verb_end": 20
+        },
+        {
+          "text": "The goal is a useful change that people can check.",
+          "verb_phrase": "is",
+          "verb_start": 9,
+          "verb_end": 11
+        },
+        {
+          "text": "Thank you for watching.",
+          "verb_phrase": "Thank",
+          "verb_start": 0,
+          "verb_end": 5
+        }
+      ],
+      "word_count": 119,
+      "rough_voice_seconds_at_115_wpm": 62.1
+    }
+  ],
+  "pronunciation_guide": [
+    {
+      "term": "BA",
+      "say": "B A",
+      "meaning_ja": "Business Analyst。1文字ずつ読む。"
+    },
+    {
+      "term": "BI",
+      "say": "B I",
+      "meaning_ja": "Business Intelligence。1文字ずつ読む。"
+    },
+    {
+      "term": "AI",
+      "say": "A I",
+      "meaning_ja": "1文字ずつ読む。"
+    },
+    {
+      "term": "API",
+      "say": "A P I",
+      "meaning_ja": "1文字ずつ読む。"
+    },
+    {
+      "term": "SQL",
+      "say": "S Q L",
+      "meaning_ja": "この台本では1文字ずつでよい。"
+    },
+    {
+      "term": "dbt",
+      "say": "D B T",
+      "meaning_ja": "1文字ずつ読む。"
+    },
+    {
+      "term": "RAG",
+      "say": "rag",
+      "meaning_ja": "1語として短く読む。"
+    },
+    {
+      "term": "LangGraph",
+      "say": "Lang Graph",
+      "meaning_ja": "2つのまとまりとして読む。"
+    },
+    {
+      "term": "CSV",
+      "say": "C S V",
+      "meaning_ja": "1文字ずつ読む。"
+    },
+    {
+      "term": "DADS5250",
+      "say": "DADS five two five zero",
+      "meaning_ja": "コース番号は数字を1つずつ読む。"
+    },
+    {
+      "term": "OpenAI",
+      "say": "Open A I",
+      "meaning_ja": "AIを1文字ずつ読む。"
+    },
+    {
+      "term": "Structured Output",
+      "say": "STRUK cherd  OUT put",
+      "meaning_ja": "太い大文字の音節を少し強く読む目安。"
+    },
+    {
+      "term": "retrieval",
+      "say": "ri TREE vuhl",
+      "meaning_ja": "RAGの正式名称で1度だけ使う。"
+    },
+    {
+      "term": "augmented",
+      "say": "awg MEN tid",
+      "meaning_ja": "retrievalの後でひと呼吸してもよい。"
+    },
+    {
+      "term": "generation",
+      "say": "jen uh RAY shun",
+      "meaning_ja": "RAYを少し強く読む。"
+    },
+    {
+      "term": "revenue",
+      "say": "REV uh noo",
+      "meaning_ja": "売上。数字の前後をゆっくり読む。"
+    },
+    {
+      "term": "evidence",
+      "say": "EV ih dens",
+      "meaning_ja": "根拠。EVを少し強く読む。"
+    },
+    {
+      "term": "untrusted",
+      "say": "un TRUS tid",
+      "meaning_ja": "入力を、そのまま指示として信用しないという意味。"
+    }
+  ],
+  "do_not_need_to_say": [
+    "The exact configured model ID can appear on screen instead of being read aloud.",
+    "The local retrieval implementation is TF-IDF cosine ranking with fixed revenue dependency expansion. The spoken version describes it as word matches and known revenue links.",
+    "The dashboard artifact is a custom YAML definition. The spoken version calls it dashboard rules in a text file."
+  ],
+  "accuracy_notes": [
+    "Private Google input and live OpenAI generation must be visible in their actual modes. Any sample fallback needs its own spoken label.",
+    "Section 06 numbered results require matching actual passing REQ-001 footage; otherwise use a revised failure clip.",
+    "Section 07 states an approval rule and the behavior after approval; the video must show the presenter making the real decision before showing an export.",
+    "The prior live OpenAI and Google checks were separate. No combined earlier human-approved run is claimed."
+  ],
+  "reading_notes_ja": "1行を1つの文として読む。太字は主な動詞または動詞句。強く読み上げる指示ではない。録音時間は実音声で確認する。",
+  "source_version": "Reviewed section narration version 2",
+  "caption_status": "Text draft only; timestamps will be aligned to actual supplied audio."
+}

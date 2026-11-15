@@ -1,0 +1,19 @@
+Next, I prepare and check the change.
+The app combines three course techniques.
+The first technique is Structured Output.
+The model creates a ticket with a fixed format.
+The app checks that format and the business rule.
+The app pauses when the rule is unclear.
+The second technique is RAG.
+RAG means retrieval augmented generation.
+The app searches approved project files for useful text.
+It uses word matches and known revenue links.
+The screen shows the source file paths.
+I can compare the plan with that evidence.
+The third technique is an agent workflow with LangGraph.
+LangGraph controls the ticket, plan, and check stages.
+The app treats request text as untrusted data.
+The model proposes changes within a small, fixed scope.
+The app allows changes to four files only.
+A request cannot add a new file or a new command.
+The model cannot run its own commands.

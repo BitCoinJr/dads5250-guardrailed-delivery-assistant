@@ -1,0 +1,12 @@
+I choose the campaign revenue request.
+The agreed rule excludes canceled orders from revenue.
+Here, revenue means the sum of order amounts.
+The BA notes explain why the change matters.
+I check those notes and the project evidence.
+Then I enter a reason for the BA decision.
+The BA can choose Go, Hold, or Clarify.
+The app checks the latest source again before Go.
+It rejects a review if the source has changed.
+A valid Go saves the agreed request as a fixed ticket.
+The ticket follows a Jira-style flow.
+The app does not create a real Jira issue.

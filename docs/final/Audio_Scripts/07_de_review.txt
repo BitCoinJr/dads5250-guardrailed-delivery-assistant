@@ -1,0 +1,12 @@
+The second human decision reviews the proposed change.
+The first decision allowed work to start.
+This decision checks the result of that work.
+I review the evidence, the file changes, and the tests.
+I approve only when the result meets the agreed rule.
+Otherwise, I ask for a revision.
+The app offers a patch package after approval.
+The package includes files, test results, and the decision record.
+The app checks that the package matches the reviewed result.
+It does not merge code or release the change.
+The reviewer types a name into this local demo.
+That name does not prove that two people reviewed it.

@@ -1,0 +1,17 @@
+I select OpenAI API mode for real AI estimates.
+The other mode uses fixed sample rules.
+The screen labels each mode.
+I choose the review list and ask for estimates.
+The app compares business impact with change size.
+Impact comes from the request and the BA notes.
+Change size comes from the sample project files.
+A high-impact, small change can come first.
+A larger change may need smaller phases.
+Missing facts stay visible as unknowns.
+The app compares fixed templates with current project files.
+For a supported revenue rule, the app counts files and changed lines.
+These counts give a rough scope.
+They do not show exact working hours.
+The BA still checks readiness, priority, and timing.
+The AI suggests a choice.
+A person makes the decision.

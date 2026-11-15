@@ -1,0 +1,147 @@
+01 The problem and the project
+Hello, I am Satoshi Nakamura.
+This is my solo final project for DADS five two five zero.
+I built an AI assistant for data engineering requests.
+Business users often prefer a spreadsheet.
+They ask for a report, a data extract, or a BI change.
+A business analyst checks the need, value, and timing.
+BA means business analyst.
+A data engineer then plans and tests the change.
+My app supports this flow, with two human decisions.
+The demo ends with a reviewed patch package.
+It does not merge code or release a production change.
+
+
+02 The request sheet
+This is our private demo sheet.
+All requests use made-up business data.
+Users write the need and the expected result.
+The BA adds notes about impact, priority, and dates.
+These fields keep the discussion together.
+A new row does not start development on its own.
+I select Google Sheets and click Refresh in the app.
+The app reads the private sheet through my Google login.
+This path needs no CSV download or upload.
+The app has read-only access.
+It does not change the sheet or its sharing settings.
+The screen shows the rows and refresh time.
+
+
+03 Impact and change size
+I select OpenAI API mode for real AI estimates.
+The other mode uses fixed sample rules.
+The screen labels each mode.
+I choose the review list and ask for estimates.
+The app compares business impact with change size.
+Impact comes from the request and the BA notes.
+Change size comes from the sample project files.
+A high-impact, small change can come first.
+A larger change may need smaller phases.
+Missing facts stay visible as unknowns.
+The app compares fixed templates with current project files.
+For a supported revenue rule, the app counts files and changed lines.
+These counts give a rough scope.
+They do not show exact working hours.
+The BA still checks readiness, priority, and timing.
+The AI suggests a choice.
+A person makes the decision.
+
+
+04 The first human decision
+I choose the campaign revenue request.
+The agreed rule excludes canceled orders from revenue.
+Here, revenue means the sum of order amounts.
+The BA notes explain why the change matters.
+I check those notes and the project evidence.
+Then I enter a reason for the BA decision.
+The BA can choose Go, Hold, or Clarify.
+The app checks the latest source again before Go.
+It rejects a review if the source has changed.
+A valid Go saves the agreed request as a fixed ticket.
+The ticket follows a Jira-style flow.
+The app does not create a real Jira issue.
+
+
+05 The three course techniques
+Next, I prepare and check the change.
+The app combines three course techniques.
+The first technique is Structured Output.
+The model creates a ticket with a fixed format.
+The app checks that format and the business rule.
+The app pauses when the rule is unclear.
+The second technique is RAG.
+RAG means retrieval augmented generation.
+The app searches approved project files for useful text.
+It uses word matches and known revenue links.
+The screen shows the source file paths.
+I can compare the plan with that evidence.
+The third technique is an agent workflow with LangGraph.
+LangGraph controls the ticket, plan, and check stages.
+The app treats request text as untrusted data.
+The model proposes changes within a small, fixed scope.
+The app allows changes to four files only.
+A request cannot add a new file or a new command.
+The model cannot run its own commands.
+
+
+06 The changes and real checks
+The screen shows the changes and test results.
+The original total is nine hundred twenty in this checked example.
+The expected total is seven hundred seventy.
+The proposed total is also seven hundred seventy.
+The app runs real checks, not an AI opinion about the code.
+It checks file scope and the separate work folder.
+It loads trusted sample data and runs dbt tests.
+An independent check calculates the expected revenue.
+Python tests compare the daily results with the sample orders.
+The four files contain SQL, a test, project notes, and dashboard rules.
+The dashboard rules stay in a text file.
+They do not update Looker Studio.
+A failed check blocks approval.
+
+
+07 The second human decision
+The second human decision reviews the proposed change.
+The first decision allowed work to start.
+This decision checks the result of that work.
+I review the evidence, the file changes, and the tests.
+I approve only when the result meets the agreed rule.
+Otherwise, I ask for a revision.
+The app offers a patch package after approval.
+The package includes files, test results, and the decision record.
+The app checks that the package matches the reviewed result.
+It does not merge code or release the change.
+The reviewer types a name into this local demo.
+That name does not prove that two people reviewed it.
+
+
+08 A request that needs more work
+Now I show a request that is not ready.
+This mobile-push request has an urgent date.
+But the BA still needs example events and an agreed time rule.
+An urgent date does not fill those gaps.
+The app keeps the missing facts visible.
+The BA can choose Hold or Clarify.
+A high rank does not make the request ready.
+A new dashboard or data source also needs more scope work.
+This demo only prepares changes to the existing revenue rule.
+The safety checks also have limits.
+They block known unsafe patterns.
+They may miss new attacks.
+
+
+09 Results and next steps
+The results cover different kinds of tests.
+The automated suite passed one hundred and three tests.
+The fixed sample tests covered six normal requests.
+They blocked three attack examples and paused one unclear request.
+These sample results do not measure general AI accuracy.
+One separate live OpenAI check passed all six delivery checks.
+It covered one request and stopped before human approval.
+A separate Google check read ten request rows.
+Those connection checks were separate tests.
+The source code includes setup steps, sample data, and tests.
+It includes no API keys or Google tokens.
+Future work includes more data models, stronger user roles, and Jira.
+The goal is a useful change that people can check.
+Thank you for watching.

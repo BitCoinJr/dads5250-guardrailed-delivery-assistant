@@ -52,6 +52,8 @@ Final deliverables:
 - [Demo recording guide PDF](docs/final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.pdf)
 - [Editable demo recording guide](docs/final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.docx)
 - [Selected verification summary](docs/final/evidence/verification_summary.json)
+- [Section recording scripts and pronunciation notes](docs/final/Audio_Scripts/00_START_HERE_JA.txt)
+- [First recording section](docs/final/Audio_Scripts/01_intro.txt)
 
 **Preparation status:** the required actual 8-10 minute MP4/MPEG screen recording has not yet been included. The repository remains private during preparation. Before final submission, record and review the functional demonstration, check the attached course rubric, and make the repository public or confirm instructor access. Documentation and a draft ZIP do not replace the recorded demo.
 
@@ -256,7 +258,7 @@ The `Request backlog` sheet uses grouped business-request, BA-review and deliver
 
 The course requires a functional system, an 8–10 minute MP4/MPEG recording, a 4–6 page technical report and a reproducible GitHub repository. Submit the requested material in one ZIP with the repository URL and a clean source snapshot. Include selected redacted evidence when it supports the report; exclude `.env`, `.secrets`, `.venv`, caches, tokens and incidental runtime files.
 
-The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The recording guide provides a timed explanation and actual UI path; it is preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
+The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The version 2 recording guide uses nine sections, short sentences and bold main verbs. Record the presenter narration in separate Sound Recorder clips, then align the actual screen footage and English captions to those recordings. The script has 994 words; final timing depends on the supplied audio. The guide and untimed caption text are preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
 
 ## Reference documentation
 
