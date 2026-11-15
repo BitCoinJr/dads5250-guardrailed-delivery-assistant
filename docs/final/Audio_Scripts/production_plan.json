@@ -2,7 +2,7 @@
   "project": "DADS5250 Final Project",
   "presenter": "Satoshi Nakamura",
   "participation": "Solo",
-  "version": 2,
+  "version": 3,
   "status": "Ready for section audio collection; no audio or final video exists in this plan",
   "language": {
     "narration": "English",
@@ -174,6 +174,19 @@
     "complete_playback_review_passed": false,
     "submission_zip_rebuilt_with_video": false
   },
-  "script_word_count": 994,
-  "script_sentences": 122
+  "script_word_count": 1019,
+  "script_sentences": 125,
+  "spoken_revision_sections": [
+    "01_intro"
+  ],
+  "unchanged_spoken_sections_from_v2": [
+    "02_google_sheet",
+    "03_triage",
+    "04_ba_go",
+    "05_ai_workflow",
+    "06_validation",
+    "07_de_review",
+    "08_exception",
+    "09_results"
+  ]
 }

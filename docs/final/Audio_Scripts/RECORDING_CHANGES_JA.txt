@@ -1,0 +1,33 @@
+録音台本 v3：今回の変更箇所
+
+英語音声を変更したのは 01_intro のみです。
+02_google_sheet、03_triage、04_ba_go、05_ai_workflow、06_validation、
+07_de_review、08_exception、09_results の英語本文は、v2と完全に同じです。
+これら8セクションは録り直す必要はありません。
+
+01_intro は、最初の7文と最後の2文を維持しています。
+途中の次の2文を削除しました。
+- A data engineer then plans and tests the change.
+- My app supports this flow, with two human decisions.
+
+代わりに、次の5文を入れました。
+- Requests can lose context when people copy between tools.
+- My goal is to keep the agreed business need clear.
+- The ticket, changes, tests, and decision stay linked.
+- This supports a single source of truth for each request.
+- My app includes two human decisions.
+
+すでに01を録音している場合は、この変更部分だけ追加録音しても構いません。
+声の調子や音量をそろえやすければ、01全体を録り直してください。
+読み上げる英語は 01_intro.txt または新しいWord/PDFの01を使ってください。
+旧音声は残し、録り直しは 01_intro_take2.m4a などにしてください。
+
+05_ai_workflow は、英語音声を変えず、図を見せるタイミングのみ変更しました。
+Structured Output の説明時は図のT1、RAGはT2、LangGraphはT3を示します。
+図のラベルや日本語の画面指示は読み上げません。
+
+SSOTは、すべてを1つのデータベースに格納したという意味ではありません。
+合意した依頼を、凍結した引き継ぎ・根拠・変更案・検証・承認につなぎ、
+何をなぜ変更したか追えるようにする設計方針として説明しています。
+実装範囲は承認済みパッチの出力までです。
+本番リリースとリリース後のフィードバック循環は、将来の範囲です。

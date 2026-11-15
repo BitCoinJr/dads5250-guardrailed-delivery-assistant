@@ -1,72 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
-<title>Business request to reviewed patch and future release</title>
-<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12Z" fill="#235A78"/></marker><marker id="audit" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758A96"/></marker></defs>
-<rect width="1600" height="700" fill="white"/>
-<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#172B3A}.title{font-size:38px;font-weight:700}.head{font-size:31px;font-weight:700}.body{font-size:28px}.note{font-size:28px}.arrow{stroke:#235A78;stroke-width:3;fill:none;marker-end:url(#arrow)}.audit{stroke:#758A96;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#audit)}</style>
-<text x="40" y="52" class="title" text-anchor="start">Business request to reviewed data change</text>
-<text x="40" y="96" class="note" text-anchor="start">Solid arrows show the demo workflow. Green cards are human decisions.</text>
-<rect x="40" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="180.0" y="168" class="head" text-anchor="middle">User request</text>
-<text x="180.0" y="210" class="body" text-anchor="middle">Google Sheets</text>
-<text x="180.0" y="245" class="body" text-anchor="middle">BI or data need</text>
-<text x="180.0" y="280" class="body" text-anchor="middle">Private input</text>
-<rect x="350" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="490.0" y="168" class="head" text-anchor="middle">BA discussion</text>
-<text x="490.0" y="210" class="body" text-anchor="middle">Impact and timing</text>
-<text x="490.0" y="245" class="body" text-anchor="middle">Priority and</text>
-<text x="490.0" y="280" class="body" text-anchor="middle">acceptance criteria</text>
-<rect x="660" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="800.0" y="168" class="head" text-anchor="middle">AI triage</text>
-<text x="800.0" y="210" class="body" text-anchor="middle">Impact × volume</text>
-<text x="800.0" y="245" class="body" text-anchor="middle">Repository evidence</text>
-<text x="800.0" y="280" class="body" text-anchor="middle">Uncertainty visible</text>
-<rect x="970" y="125" width="280" height="185" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
-<text x="1110.0" y="168" class="head" text-anchor="middle">BA decision</text>
-<text x="1110.0" y="210" class="body" text-anchor="middle">Go  Hold  Clarify</text>
-<text x="1110.0" y="245" class="body" text-anchor="middle">Human confirmation</text>
-<text x="1110.0" y="280" class="body" text-anchor="middle">Source freshness</text>
-<rect x="1280" y="125" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="1420.0" y="168" class="head" text-anchor="middle">Frozen ticket</text>
-<text x="1420.0" y="210" class="body" text-anchor="middle">Jira-style record</text>
-<text x="1420.0" y="245" class="body" text-anchor="middle">Agreed requirement</text>
-<text x="1420.0" y="280" class="body" text-anchor="middle">Local receipt</text>
-<rect x="40" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="180.0" y="463" class="head" text-anchor="middle">Prepare change</text>
-<text x="180.0" y="505" class="body" text-anchor="middle">LangGraph stages</text>
-<text x="180.0" y="540" class="body" text-anchor="middle">Structured ticket</text>
-<text x="180.0" y="575" class="body" text-anchor="middle">Cited change plan</text>
-<rect x="350" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="490.0" y="463" class="head" text-anchor="middle">Propose patch</text>
-<text x="490.0" y="505" class="body" text-anchor="middle">SQL and dbt test</text>
-<text x="490.0" y="540" class="body" text-anchor="middle">Docs and BI YAML</text>
-<text x="490.0" y="575" class="body" text-anchor="middle">Four files only</text>
-<rect x="660" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="800.0" y="463" class="head" text-anchor="middle">Validate</text>
-<text x="800.0" y="505" class="body" text-anchor="middle">dbt and pytest</text>
-<text x="800.0" y="540" class="body" text-anchor="middle">CSV-derived oracle</text>
-<text x="800.0" y="575" class="body" text-anchor="middle">Separate workspace</text>
-<rect x="970" y="420" width="280" height="185" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
-<text x="1110.0" y="463" class="head" text-anchor="middle">DE review</text>
-<text x="1110.0" y="505" class="body" text-anchor="middle">Inspect diff/checks</text>
-<text x="1110.0" y="540" class="body" text-anchor="middle">Approve or revise</text>
-<text x="1110.0" y="575" class="body" text-anchor="middle">Human decision</text>
-<rect x="1280" y="420" width="280" height="185" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="1420.0" y="463" class="head" text-anchor="middle">Export package</text>
-<text x="1420.0" y="505" class="body" text-anchor="middle">Reviewed patch</text>
-<text x="1420.0" y="540" class="body" text-anchor="middle">Audit and receipts</text>
-<text x="1420.0" y="575" class="body" text-anchor="middle">No production write</text>
-<path d="M 320 218 H 342" class="arrow"/>
-<path d="M 320 513 H 342" class="arrow"/>
-<path d="M 630 218 H 652" class="arrow"/>
-<path d="M 630 513 H 652" class="arrow"/>
-<path d="M 940 218 H 962" class="arrow"/>
-<path d="M 940 513 H 962" class="arrow"/>
-<path d="M 1250 218 H 1272" class="arrow"/>
-<path d="M 1250 513 H 1272" class="arrow"/>
-<path d="M 1420 310 V 355 H 180 V 412" class="arrow"/>
-<text x="800" y="390" class="note" text-anchor="middle">Only Go enters delivery. Hold and Clarify return to BA discussion.</text>
-<rect x="790" y="633" width="770" height="50" rx="10" fill="#FAFAFA" stroke="#758A96" stroke-width="2" stroke-dasharray="9 7"/>
-<path d="M1420 605 V625" class="arrow" stroke-dasharray="7 5"/>
-<text x="1175" y="667" class="note" text-anchor="middle">Future connections   Jira   approved merge and release</text>
-<text x="40" y="667" class="note" text-anchor="start">The MVP stops after approved patch export</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="810" viewBox="0 0 1800 810">
+<title>From business request to reviewed change</title><desc>User and BA clarify the need. The app connects intake, evidence, AI proposals and real checks.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#185F91"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758493"/></marker></defs>
+<rect width="1800" height="810" fill="white"/>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#173449}.title{font-size:39px;font-weight:700}.subtitle{font-size:28px;fill:#496174}.head{font-size:30px;font-weight:700}.body{font-size:28px}.small{font-size:26px}.note{font-size:26px;fill:#496174}.arrow{stroke:#185F91;stroke-width:3;fill:none;marker-end:url(#a)}.future{stroke:#758493;stroke-width:2.5;fill:none;stroke-dasharray:8 6;marker-end:url(#g)}</style>
+<text x="40" y="50" class="title" text-anchor="start">From business request to reviewed change</text>
+<text x="40" y="94" class="subtitle" text-anchor="start">User and BA clarify the need. The app connects intake, evidence, AI proposals and real checks.</text>
+<text x="172.5" y="153" class="head" text-anchor="middle">Business user</text>
+<text x="172.5" y="191" class="small" text-anchor="middle">Uses Google Sheets</text>
+<text x="502.5" y="153" class="head" text-anchor="middle">Business analyst</text>
+<text x="502.5" y="191" class="small" text-anchor="middle">Uses Sheet + Streamlit</text>
+<text x="905.0" y="153" class="head" text-anchor="middle">Local backend</text>
+<text x="905.0" y="191" class="small" text-anchor="middle">Python services</text>
+<text x="1305.0" y="153" class="head" text-anchor="middle">Data engineer</text>
+<text x="1305.0" y="191" class="small" text-anchor="middle">Uses same app</text>
+<text x="1630.0" y="153" class="head" text-anchor="middle">Reviewed result</text>
+<text x="1630.0" y="191" class="small" text-anchor="middle">MVP ends here</text>
+<rect x="40" y="230" width="265" height="245" rx="14" fill="#F2F7FB" stroke="#9DB7CA" stroke-width="2"/>
+<text x="172.5" y="272" class="head" text-anchor="middle">Private sheet</text>
+<text x="172.5" y="318" class="small" text-anchor="middle">Business need</text>
+<text x="172.5" y="355" class="small" text-anchor="middle">Expected value</text>
+<text x="172.5" y="392" class="small" text-anchor="middle">Priority and dates</text>
+<text x="172.5" y="429" class="small" text-anchor="middle">BA context / notes</text>
+<rect x="345" y="230" width="315" height="245" rx="14" fill="#EFF8F5" stroke="#51988D" stroke-width="2"/>
+<text x="502.5" y="272" class="head" text-anchor="middle">Triage + BA Go</text>
+<text x="502.5" y="318" class="small" text-anchor="middle">Impact × change size</text>
+<text x="502.5" y="355" class="small" text-anchor="middle">Evidence + unknowns</text>
+<text x="502.5" y="392" class="small" text-anchor="middle">BA: Go / Hold / Clarify</text>
+<text x="502.5" y="429" class="small" text-anchor="middle">Go freezes the intent</text>
+<rect x="700" y="230" width="410" height="245" rx="14" fill="#F2F7FB" stroke="#9DB7CA" stroke-width="2"/>
+<text x="905.0" y="272" class="head" text-anchor="middle">Prepare + validate</text>
+<text x="905.0" y="318" class="small" text-anchor="middle">LangGraph coordinates stages</text>
+<text x="905.0" y="355" class="small" text-anchor="middle">Retrieve → plan → propose</text>
+<text x="905.0" y="392" class="small" text-anchor="middle">Allowlisted four-file change</text>
+<text x="905.0" y="429" class="small" text-anchor="middle">dbt + independent tests</text>
+<rect x="1150" y="230" width="310" height="245" rx="14" fill="#EFF8F5" stroke="#51988D" stroke-width="2"/>
+<text x="1305.0" y="272" class="head" text-anchor="middle">Engineering review</text>
+<text x="1305.0" y="318" class="small" text-anchor="middle">Read evidence and diff</text>
+<text x="1305.0" y="355" class="small" text-anchor="middle">Inspect test results</text>
+<text x="1305.0" y="392" class="small" text-anchor="middle">Approve / revise / reject</text>
+<text x="1305.0" y="429" class="small" text-anchor="middle">Export requires approval</text>
+<rect x="1500" y="230" width="260" height="245" rx="14" fill="#F2F7FB" stroke="#9DB7CA" stroke-width="2"/>
+<text x="1630.0" y="272" class="head" text-anchor="middle">Patch package</text>
+<text x="1630.0" y="318" class="small" text-anchor="middle">SQL + test</text>
+<text x="1630.0" y="355" class="small" text-anchor="middle">Docs + BI YAML</text>
+<text x="1630.0" y="392" class="small" text-anchor="middle">Checks + decisions</text>
+<text x="1630.0" y="429" class="small" text-anchor="middle">No production release</text>
+<path d="M308 352 H337" class="arrow"/>
+<path d="M663 352 H692" class="arrow"/>
+<path d="M1113 352 H1142" class="arrow"/>
+<path d="M1463 352 H1492" class="arrow"/>
+<rect x="345" y="545" width="315" height="135" rx="14" fill="#F7F0FC" stroke="#B69DC9" stroke-width="2"/>
+<text x="502.5" y="583" class="head" text-anchor="middle">OpenAI API</text>
+<text x="502.5" y="623" class="small" text-anchor="middle">Triage, ticket, proposal</text>
+<text x="502.5" y="658" class="small" text-anchor="middle">No execution tools</text>
+<rect x="700" y="545" width="410" height="135" rx="14" fill="#EFF7FC" stroke="#9DB7CA" stroke-width="2"/>
+<text x="905" y="583" class="head" text-anchor="middle">Allowlisted dbt repository</text>
+<text x="905" y="623" class="small" text-anchor="middle">SQL, tests, docs, BI definitions</text>
+<text x="905" y="658" class="small" text-anchor="middle">Evidence + template comparison</text>
+<rect x="1150" y="545" width="310" height="135" rx="14" fill="#FBF5EA" stroke="#CFB58A" stroke-width="2"/>
+<text x="1305" y="583" class="head" text-anchor="middle">Trusted validation</text>
+<text x="1305" y="623" class="small" text-anchor="middle">Order seeds + DuckDB</text>
+<text x="1305" y="658" class="small" text-anchor="middle">dbt + independent pytest</text>
+<path d="M502 545 V515 H560 V483" class="arrow"/>
+<path d="M620 545 V529 H800 V483" class="arrow"/>
+<path d="M905 545 V483" class="arrow"/>
+<path d="M1305 545 V520 H1035 V483" class="arrow"/>
+<rect x="1500" y="545" width="260" height="135" rx="14" fill="#FAFBFC" stroke="#8C9BA8" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="1630" y="583" class="head" text-anchor="middle">Future work</text>
+<text x="1630" y="623" class="small" text-anchor="middle">Jira, merge, release</text>
+<text x="1630" y="658" class="small" text-anchor="middle">Release feedback</text>
+<path d="M1630 475 V537" class="future"/>
+<path d="M1500 663 H1480 V695 H172 V483" class="future"/>
+<rect x="55" y="577" width="235" height="79" rx="14" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2"/>
+<text x="172" y="608" class="small" text-anchor="middle">Future feedback</text>
+<text x="172" y="641" class="small" text-anchor="middle">to intake</text>
+<rect x="40" y="710" width="1720" height="75" rx="14" fill="#F5F8FA" stroke="#C5D2DB" stroke-width="2"/>
+<text x="65" y="742" class="small" text-anchor="start">Continuity of intent: request → frozen Go receipt → cited changes → checks → review decision → export</text>
+<text x="65" y="772" class="small" text-anchor="start">Read-only sheet access. Versioned handoffs reduce retyping and drift; a production feedback loop remains future work.</text>
 </svg>

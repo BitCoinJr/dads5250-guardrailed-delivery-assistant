@@ -2,9 +2,15 @@
 
 DADS5250 Final Project — **Satoshi Nakamura, Solo**
 
-Business users record BI, data-extraction and reporting requests in a familiar Google Sheet. They discuss the need with a Business Analyst (BA) in meetings, Slack or other channels, then agree on business impact, priority and desired timing. This demo supports that intake process and helps a human choose which request should proceed.
+## Executive summary
 
-The app estimates **business impact versus change volume**, shows the supporting business and dbt repository evidence, and records a separate human BA **Go / Hold / Clarify** decision. A valid Go creates a frozen Jira-style handoff inside the demo. The Data Engineer can then prepare a structured ticket, proposed changes and automated validation results, followed by a second human approval before patch export.
+Business users need reliable BI, reporting and data changes, but their preferred starting point is often a spreadsheet. They discuss a request with a Business Analyst (BA), who clarifies its purpose, impact and timing before a Data Engineer (DE) begins work. Re-entering that request across tools can separate the implementation from the agreed business need.
+
+This project follows a **Single Source of Truth (SSOT)** principle: preserve the agreed intent and its traceable handoffs throughout delivery. The private Google Sheet remains the intake record. After human BA Go, the app freezes the reviewed request in a Jira-style handoff and links it to the ticket, repository evidence, proposed changes, validation results and final review. These are linked, versioned artifacts, rather than one shared mutable database. A changed requirement needs a fresh review; it does not silently rewrite an accepted ticket.
+
+The MVP combines **Structured Output**, **repository RAG** and **an agent workflow with LangGraph**. It helps the BA compare business impact with estimated change volume, then prepares a bounded four-file revenue-policy change for DE review. Actual automated checks support a separate human approval before patch export.
+
+The longer-term aim is a clearer **Plan–Do–Check–Act (PDCA)** cycle: carry the request into a reviewed change, then use release outcomes and user feedback to inform the next request. The implemented boundary ends at an approved patch package. Production merge, release and the subsequent feedback loop remain future work.
 
 - [Project repository](https://github.com/BitCoinJr/dads5250-guardrailed-delivery-assistant)
 - [Google Sheets business request backlog](https://docs.google.com/spreadsheets/d/1xivPgl4mOwksttv2ScvZpMD3bpLRyNZPKVMjuRt4byY/edit#gid=20261115)
@@ -106,52 +112,25 @@ Only clarified, supported requests with the required BA readiness and business a
 
 ## Workflow and architecture
 
-Standalone diagrams: [request to release](docs/figures/01_Request_to_Release.svg) and [system architecture](docs/figures/02_MVP_Architecture.svg).
+Read Figure 1 from left to right: the business user and BA use Google Sheets, the BA uses Streamlit intake, the local backend prepares and checks the change, and the DE reviews it in the same app. Google Sheets and OpenAI are external services; the app and validation workspace run locally. Dashed release and feedback steps show the future PDCA loop.
 
-```mermaid
-flowchart TD
-    A[User records a request in Google Sheets] --> B[User and BA clarify need and timing]
-    B --> C[Refresh the private backlog in the app]
-    C --> D[Estimate impact and change volume using repository evidence]
-    D --> E{Human BA decision}
-    E -->|Clarify| B
-    E -->|Hold| F[Keep the request in the backlog]
-    E -->|Go| G[Freeze a Jira-style delivery handoff]
-    G --> H[Propose SQL tests documentation and BI changes]
-    H --> I[Validate in a separate workspace]
-    I --> J{Human Data Engineer review}
-    J -->|Revise requirement| B
-    J -->|Approve| K[Export reviewed patch and audit records]
-    K -. Future approval-controlled steps .-> L[Merge and release]
-```
+![Figure 1 People interfaces and processing](docs/final/figures/01_Business_Workflow.png)
 
-```mermaid
-flowchart TD
-    S[Private Google Sheet] -->|Read-only OAuth| R[Allowlisted backlog reader]
-    D[Synthetic demo backlog] --> T[BA triage service]
-    R --> T
-    P[Read-only dbt repository] -->|RAG evidence| T
-    M[OpenAI structured outputs] -. Actual AI mode .-> T
-    T --> B[Human BA Go and frozen receipt]
-    B --> G[LangGraph delivery workflow]
-    P -->|RAG evidence| G
-    M -. Actual AI mode .-> G
-    G --> V[Isolated dbt DuckDB and pytest validation]
-    V --> H[Human Data Engineer approval]
-    H --> X[Approved patch package]
-    T -. Events .-> A[Local audit records]
-    B -. Decision .-> A
-    G -. Events .-> A
-    H -. Decision .-> A
-```
+[Figure 1 scalable SVG](docs/final/figures/01_Business_Workflow.svg)
+
+Figure 2 uses the same **T1 / T2 / T3** labels as the report and table below. **T1 Structured Output** appears at triage, request parsing and proposal generation. **T2 RAG** supplies evidence to triage and planning. **T3 Agents / LangGraph** surrounds the four delivery nodes; human Go and approval remain outside it.
+
+![Figure 2 Three course techniques in the workflow](docs/final/figures/02_System_Architecture.png)
+
+[Figure 2 scalable SVG](docs/final/figures/02_System_Architecture.svg)
 
 The three course techniques have separate responsibilities:
 
 | Technique | Role |
 | --- | --- |
-| Structured Output | Pydantic schemas define AI triage recommendations, requirement extraction and implementation proposals; business checks run after schema validation |
-| RAG | A local TF-IDF vector index and dependency expansion retrieve allowlisted dbt/repository evidence for scope estimates and delivery plans; citations must match retrieved paths |
-| Agents / LangGraph | Explicit delivery stages coordinate parsing, retrieval, planning/generation and validation, with clarification and safety branches |
+| T1 Structured Output | Pydantic schemas define AI triage recommendations, requirement extraction and implementation proposals; business checks run after schema validation |
+| T2 RAG | Local lexical TF-IDF retrieval and fixed revenue dependency expansion retrieve allowlisted dbt/repository evidence for scope estimates and delivery plans; citations must match retrieved paths |
+| T3 Agents / LangGraph | Explicit delivery stages coordinate parsing, retrieval, planning/generation and validation, with clarification and safety branches |
 
 Role-specific prompts support the AI stages. Human BA decisions and final approvals are explicit service operations outside model generation.
 
@@ -258,7 +237,7 @@ The `Request backlog` sheet uses grouped business-request, BA-review and deliver
 
 The course requires a functional system, an 8–10 minute MP4/MPEG recording, a 4–6 page technical report and a reproducible GitHub repository. Submit the requested material in one ZIP with the repository URL and a clean source snapshot. Include selected redacted evidence when it supports the report; exclude `.env`, `.secrets`, `.venv`, caches, tokens and incidental runtime files.
 
-The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The version 2 recording guide uses nine sections, short sentences and bold main verbs. Record the presenter narration in separate Sound Recorder clips, then align the actual screen footage and English captions to those recordings. The script has 994 words; final timing depends on the supplied audio. The guide and untimed caption text are preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
+The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The version 3 recording guide uses nine sections, short sentences and bold main verbs. Record the presenter narration in separate Sound Recorder clips, then align the actual screen footage and English captions to those recordings. The script has 1,019 words; final timing depends on the supplied audio. Only section 01 spoken text changed from version 2; sections 02-09 need no rerecording. The guide and untimed caption text are preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
 
 ## Reference documentation
 

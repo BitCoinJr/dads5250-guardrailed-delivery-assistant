@@ -5,7 +5,10 @@ Business users often prefer a spreadsheet.
 They ask for a report, a data extract, or a BI change.
 A business analyst checks the need, value, and timing.
 BA means business analyst.
-A data engineer then plans and tests the change.
-My app supports this flow, with two human decisions.
+Requests can lose context when people copy between tools.
+My goal is to keep the agreed business need clear.
+The ticket, changes, tests, and decision stay linked.
+This supports a single source of truth for each request.
+My app includes two human decisions.
 The demo ends with a reviewed patch package.
 It does not merge code or release a production change.

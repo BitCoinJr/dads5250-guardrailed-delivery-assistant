@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "title": "DADS5250 Section Recording Script",
   "presenter": "Satoshi Nakamura",
   "participation": "Solo",
@@ -10,7 +10,7 @@
     110,
     120
   ],
-  "total_word_count": 994,
+  "total_word_count": 1019,
   "editing_note": "Final timing must use the actual supplied audio. Keep natural pauses and screen interaction time. Do not force an eight-to-ten-minute result by unnatural voice speed changes or fabricate approval footage.",
   "formats": [
     "wav",
@@ -21,7 +21,7 @@
       "id": "01",
       "file_stem": "01_intro",
       "title": "The problem and the project",
-      "screen_cue_ja": "氏名とSoloを表示し、業務フロー図からアプリへ切り替える。",
+      "screen_cue_ja": "氏名とSoloを表示し、概要図を左から右へ示す。ユーザー→Google Sheets→BA→アプリ処理→DE承認までを紹介する。点線のリリース・フィードバックは将来範囲で、実装済みには見せない。",
       "lines": [
         {
           "text": "Hello, I am Satoshi Nakamura.",
@@ -66,14 +66,32 @@
           "verb_end": 8
         },
         {
-          "text": "A data engineer then plans and tests the change.",
-          "verb_phrase": "plans",
-          "verb_start": 21,
-          "verb_end": 26
+          "text": "Requests can lose context when people copy between tools.",
+          "verb_phrase": "can lose",
+          "verb_start": 9,
+          "verb_end": 17
         },
         {
-          "text": "My app supports this flow, with two human decisions.",
+          "text": "My goal is to keep the agreed business need clear.",
+          "verb_phrase": "is",
+          "verb_start": 8,
+          "verb_end": 10
+        },
+        {
+          "text": "The ticket, changes, tests, and decision stay linked.",
+          "verb_phrase": "stay",
+          "verb_start": 41,
+          "verb_end": 45
+        },
+        {
+          "text": "This supports a single source of truth for each request.",
           "verb_phrase": "supports",
+          "verb_start": 5,
+          "verb_end": 13
+        },
+        {
+          "text": "My app includes two human decisions.",
+          "verb_phrase": "includes",
           "verb_start": 7,
           "verb_end": 15
         },
@@ -90,8 +108,8 @@
           "verb_end": 17
         }
       ],
-      "word_count": 93,
-      "rough_voice_seconds_at_115_wpm": 48.5
+      "word_count": 118,
+      "rough_voice_seconds_at_115_wpm": 61.6
     },
     {
       "id": "02",
@@ -373,7 +391,7 @@
       "id": "05",
       "file_stem": "05_ai_workflow",
       "title": "The three course techniques",
-      "screen_cue_ja": "Prepare and validate、Ticket JSON、根拠ファイル、変更計画を見せる。待ち時間にはアーキテクチャ図を使える。",
+      "screen_cue_ja": "Prepare and validate、Ticket JSON、根拠ファイル、変更計画を見せる。待ち時間には技法マップを表示し、発話に合わせてT1 Structured Output、T2 RAG、T3 Agents / LangGraphを指す。英語本文はv2から変更なし。",
       "lines": [
         {
           "text": "Next, I prepare and check the change.",
@@ -953,6 +971,6 @@
     "The prior live OpenAI and Google checks were separate. No combined earlier human-approved run is claimed."
   ],
   "reading_notes_ja": "1行を1つの文として読む。太字は主な動詞または動詞句。強く読み上げる指示ではない。録音時間は実音声で確認する。",
-  "source_version": "Reviewed section narration version 2",
+  "source_version": "v3: SSOT motivation and explicit technique-map cues; spoken text changes only in section 01. Other eight spoken sections match v2.",
   "caption_status": "Text draft only; timestamps will be aligned to actual supplied audio."
 }

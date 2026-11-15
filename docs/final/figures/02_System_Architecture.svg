@@ -1,65 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780">
-<title>Local application architecture and bounded external connections</title>
-<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12Z" fill="#235A78"/></marker><marker id="audit" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758A96"/></marker></defs>
-<rect width="1600" height="780" fill="white"/>
-<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#172B3A}.title{font-size:38px;font-weight:700}.head{font-size:31px;font-weight:700}.body{font-size:28px}.note{font-size:28px}.arrow{stroke:#235A78;stroke-width:3;fill:none;marker-end:url(#arrow)}.audit{stroke:#758A96;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#audit)}</style>
-<text x="40" y="52" class="title" text-anchor="start">Local application architecture</text>
-<text x="40" y="94" class="note" text-anchor="start">External connections provide input and AI output. Approval and validation remain local.</text>
-<rect x="40" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="255.0" y="158" class="head" text-anchor="middle">Private Google Sheet</text>
-<text x="255.0" y="200" class="body" text-anchor="middle">Read-only OAuth</text>
-<text x="255.0" y="235" class="body" text-anchor="middle">Fixed sheet and range</text>
-<text x="255.0" y="270" class="body" text-anchor="middle">Connected with 10 rows</text>
-<rect x="585" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="800.0" y="158" class="head" text-anchor="middle">OpenAI Responses API</text>
-<text x="800.0" y="200" class="body" text-anchor="middle">Structured outputs</text>
-<text x="800.0" y="235" class="body" text-anchor="middle">Triage ticket and proposal</text>
-<text x="800.0" y="270" class="body" text-anchor="middle">No model execution tools</text>
-<rect x="1130" y="115" width="430" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="1345.0" y="158" class="head" text-anchor="middle">Read-only sample repo</text>
-<text x="1345.0" y="200" class="body" text-anchor="middle">dbt SQL tests docs BI</text>
-<text x="1345.0" y="235" class="body" text-anchor="middle">TF-IDF and known paths</text>
-<text x="1345.0" y="270" class="body" text-anchor="middle">Evidence for both stages</text>
-<rect x="40" y="325" width="1520" height="250" rx="15" fill="#FCFDFE" stroke="#A5B8C5" stroke-width="2"/>
-<text x="65" y="361" class="head" text-anchor="start">Local review app</text>
-<rect x="70" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="230.0" y="425" class="head" text-anchor="middle">Intake and triage</text>
-<text x="230.0" y="467" class="body" text-anchor="middle">Impact × change volume</text>
-<text x="230.0" y="502" class="body" text-anchor="middle">Cited evidence</text>
-<text x="230.0" y="537" class="body" text-anchor="middle">Unknowns preserved</text>
-<rect x="450" y="382" width="320" height="175" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
-<text x="610.0" y="425" class="head" text-anchor="middle">Human BA Go</text>
-<text x="610.0" y="467" class="body" text-anchor="middle">Reread source</text>
-<text x="610.0" y="502" class="body" text-anchor="middle">Frozen requirement</text>
-<text x="610.0" y="537" class="body" text-anchor="middle">Local handoff receipt</text>
-<rect x="830" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="990.0" y="425" class="head" text-anchor="middle">LangGraph delivery</text>
-<text x="990.0" y="467" class="body" text-anchor="middle">Parse and retrieve</text>
-<text x="990.0" y="502" class="body" text-anchor="middle">Plan and propose</text>
-<text x="990.0" y="537" class="body" text-anchor="middle">Four-file allowlist</text>
-<rect x="1210" y="382" width="320" height="175" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="1370.0" y="425" class="head" text-anchor="middle">Validation</text>
-<text x="1370.0" y="467" class="body" text-anchor="middle">Separate run workspace</text>
-<text x="1370.0" y="502" class="body" text-anchor="middle">dbt DuckDB pytest</text>
-<text x="1370.0" y="537" class="body" text-anchor="middle">CSV-derived oracle</text>
-<path d="M 390 470 H 442" class="arrow"/>
-<path d="M 770 470 H 822" class="arrow"/>
-<path d="M 1150 470 H 1202" class="arrow"/>
-<path d="M 255 290 V 310 H 20 V 470 H 62" class="arrow"/>
-<path d="M 800 290 V 310 H 990 V 374" class="arrow"/>
-<path d="M 800 290 V 300 H 410 V 440 H 398" class="arrow"/>
-<path d="M 1345 290 V 310 H 1167 V 420 H 1158" class="arrow"/>
-<rect x="40" y="648" width="480" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="280.0" y="691" class="head" text-anchor="middle">Local audit and integrity</text>
-<text x="280.0" y="733" class="body" text-anchor="middle">JSONL events and SHA manifests</text>
-<rect x="620" y="648" width="360" height="106" rx="12" fill="#EDF6F3" stroke="#17645D" stroke-width="2.5"/>
-<text x="800.0" y="691" class="head" text-anchor="middle">Human DE approval</text>
-<text x="800.0" y="733" class="body" text-anchor="middle">Diff evidence and checks</text>
-<rect x="1130" y="648" width="430" height="106" rx="12" fill="#F1F6FA" stroke="#235A78" stroke-width="2.5"/>
-<text x="1345.0" y="691" class="head" text-anchor="middle">Approved patch ZIP</text>
-<text x="1345.0" y="733" class="body" text-anchor="middle">Files evidence and receipts</text>
-<path d="M230 557 V640" class="audit"/>
-<path d="M610 557 V600 H400 V640" class="audit"/>
-<path d="M 1370 557 V 608 H 800 V 640" class="arrow"/>
-<path d="M 980 701 H 1122" class="arrow"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="730" viewBox="0 0 1800 730">
+<title>Three course techniques, connected in a controlled workflow</title><desc>T1 defines the AI output. T2 supplies project evidence. T3 controls the stages and stopping points.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#185F91"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10Z" fill="#758493"/></marker></defs>
+<rect width="1800" height="730" fill="white"/>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#173449}.title{font-size:39px;font-weight:700}.subtitle{font-size:28px;fill:#496174}.head{font-size:30px;font-weight:700}.body{font-size:28px}.small{font-size:26px}.note{font-size:26px;fill:#496174}.arrow{stroke:#185F91;stroke-width:3;fill:none;marker-end:url(#a)}.future{stroke:#758493;stroke-width:2.5;fill:none;stroke-dasharray:8 6;marker-end:url(#g)}</style>
+<text x="40" y="50" class="title" text-anchor="start">Three course techniques, connected in a controlled workflow</text>
+<text x="40" y="94" class="subtitle" text-anchor="start">T1 defines the AI output. T2 supplies project evidence. T3 controls the stages and stopping points.</text>
+<rect x="40" y="122" width="440" height="42" rx="14" fill="#7445A0" stroke="#7445A0" stroke-width="2"/><text x="260.0" y="151" class="small" text-anchor="middle" style="fill:white">T1   STRUCTURED OUTPUT</text>
+<rect x="505" y="122" width="320" height="42" rx="14" fill="#185F91" stroke="#185F91" stroke-width="2"/><text x="665.0" y="151" class="small" text-anchor="middle" style="fill:white">T2   RAG</text>
+<rect x="850" y="122" width="470" height="42" rx="14" fill="#08776D" stroke="#08776D" stroke-width="2"/><text x="1085.0" y="151" class="small" text-anchor="middle" style="fill:white">T3   AGENTS / LANGGRAPH</text>
+<text x="40" y="207" class="body" text-anchor="start">Before the graph: BA triage reuses T1 typed estimates + T2 repository evidence; a human chooses Go.</text>
+<rect x="40" y="239" width="1720" height="376" rx="14" fill="#F5FAF8" stroke="#7EAFA6" stroke-width="2"/>
+<rect x="65" y="256" width="435" height="42" rx="14" fill="#08776D" stroke="#08776D" stroke-width="2"/><text x="282.5" y="285" class="small" text-anchor="middle" style="fill:white">T3   LangGraph state workflow</text>
+<text x="530" y="285" class="small" text-anchor="start" style="fill:#08776D">Fixed stages + conditional stops for unsafe or unclear work</text>
+<rect x="65" y="326" width="386" height="216" rx="14" fill="#FFFFFF" stroke="#A2B8C4" stroke-width="2"/>
+<text x="258" y="366" class="head" text-anchor="middle">1  Parse request</text>
+<text x="258" y="410" class="small" text-anchor="middle">OpenAI → typed ticket</text>
+<text x="258" y="447" class="small" text-anchor="middle">Pydantic + business rules</text>
+<text x="258" y="484" class="small" text-anchor="middle">Clarify if policy is unclear</text>
+<text x="258" y="571" class="small" text-anchor="middle" style="fill:#496174">parse_request</text>
+<path d="M454 437 H485" class="arrow"/>
+<rect x="77" y="303" width="74" height="42" rx="14" fill="#7445A0" stroke="#7445A0" stroke-width="2"/><text x="114.0" y="332" class="small" text-anchor="middle" style="fill:white">T1</text>
+<rect x="493" y="326" width="386" height="216" rx="14" fill="#FFFFFF" stroke="#A2B8C4" stroke-width="2"/>
+<text x="686" y="366" class="head" text-anchor="middle">2  Retrieve evidence</text>
+<text x="686" y="410" class="small" text-anchor="middle">Local lexical TF-IDF</text>
+<text x="686" y="447" class="small" text-anchor="middle">Known revenue file links</text>
+<text x="686" y="484" class="small" text-anchor="middle">Cited, allowlisted excerpts</text>
+<text x="686" y="571" class="small" text-anchor="middle" style="fill:#496174">retrieve_evidence</text>
+<path d="M882 437 H913" class="arrow"/>
+<rect x="505" y="303" width="74" height="42" rx="14" fill="#185F91" stroke="#185F91" stroke-width="2"/><text x="542.0" y="332" class="small" text-anchor="middle" style="fill:white">T2</text>
+<rect x="921" y="326" width="386" height="216" rx="14" fill="#FFFFFF" stroke="#A2B8C4" stroke-width="2"/>
+<text x="1114" y="366" class="head" text-anchor="middle">3  Plan + generate</text>
+<text x="1114" y="410" class="small" text-anchor="middle">OpenAI → typed proposal</text>
+<text x="1114" y="447" class="small" text-anchor="middle">Plan, risks and four files</text>
+<text x="1114" y="484" class="small" text-anchor="middle">Canonical policy checks</text>
+<text x="1114" y="571" class="small" text-anchor="middle" style="fill:#496174">plan_and_generate</text>
+<path d="M1310 437 H1341" class="arrow"/>
+<rect x="933" y="303" width="74" height="42" rx="14" fill="#7445A0" stroke="#7445A0" stroke-width="2"/><text x="970.0" y="332" class="small" text-anchor="middle" style="fill:white">T1</text>
+<rect x="1349" y="326" width="386" height="216" rx="14" fill="#FFFFFF" stroke="#A2B8C4" stroke-width="2"/>
+<text x="1542" y="366" class="head" text-anchor="middle">4  Validate changes</text>
+<text x="1542" y="410" class="small" text-anchor="middle">Separate run workspace</text>
+<text x="1542" y="447" class="small" text-anchor="middle">dbt + trusted pytest</text>
+<text x="1542" y="484" class="small" text-anchor="middle">Independent revenue total</text>
+<text x="1542" y="571" class="small" text-anchor="middle" style="fill:#496174">validate_changes</text>
+<text x="66" y="601" class="small" text-anchor="start">Only predefined commands and allowlisted file paths can reach execution. The model has no unrestricted tools.</text>
+<rect x="40" y="643" width="1720" height="65" rx="14" fill="#EFF8F5" stroke="#7EAFA6" stroke-width="2"/>
+<text x="65" y="684" class="body" text-anchor="start">Human gates sit outside the graph: BA Go → controlled workflow → DE review → approved patch export.</text>
 </svg>

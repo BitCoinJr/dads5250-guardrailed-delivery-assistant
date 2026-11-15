@@ -6,8 +6,8 @@ Prepared deliverables
 [x] Actual Google read and one-request OpenAI integration verified separately
 [x] Six-page technical report, including title page and Solo author
 [x] Editable Word report and PDF version
-[x] Workflow and system architecture diagrams
-[x] Timed nine-minute English narration and Japanese recording checklist
+[x] People and system overview plus explicit T1/T2/T3 technique map
+[x] Nine-section English narration and Japanese recording checklist; target 8-10 minutes
 [x] Clean source snapshot with setup instructions and pinned dependencies
 [x] Curated evaluation evidence distinguishing deterministic and live results
 [x] Draft ZIP with file hashes and content exclusion checks

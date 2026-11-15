@@ -1,6 +1,6 @@
 # Recorded demonstration guide
 
-The completed [timed English narration and Japanese recording checklist](final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.pdf) accompanies the [six-page technical report](final/DADS5250_Final_Report_Satoshi_Nakamura_Solo.pdf). The actual MP4/MPEG recording remains to be produced.
+The [section English narration and Japanese recording checklist](final/DADS5250_Demo_Recording_Guide_Satoshi_Nakamura_Solo.pdf) accompanies the [six-page technical report](final/DADS5250_Final_Report_Satoshi_Nakamura_Solo.pdf). The actual MP4/MPEG recording remains to be produced.
 
 Target **nine minutes**, within the course's 8–10 minute requirement. Presenter: **Satoshi Nakamura, Solo**.
 
@@ -9,7 +9,15 @@ The main story is a business request becoming a reviewed data change. Show the u
 
 ## Section audio recording
 
-Use the version 2 PDF or Word script linked above. Its nine recording sections use short sentences and bold main verbs. Record your own voice with Sound Recorder and start with `01_intro` so speaking pace can be checked before the remaining clips. Keep the original audio format. [Plain text scripts, pronunciation notes and instructions](final/Audio_Scripts/00_START_HERE_JA.txt) accompany the reading copy. Screen footage and English captions will be aligned to the actual supplied recordings; no final subtitle timestamps are claimed yet. The timeline below is a planning aid. Actual recorded speech determines the edit.
+Use the version 3 PDF or Word script linked above. Its nine recording sections use short sentences and bold main verbs. Record your own voice with Sound Recorder and start with `01_intro` so speaking pace can be checked before the remaining clips. Keep the original audio format. [Plain text scripts, pronunciation notes and instructions](final/Audio_Scripts/00_START_HERE_JA.txt) accompany the reading copy. Screen footage and English captions will be aligned to the actual supplied recordings; no final subtitle timestamps are claimed yet. The timeline below is a planning aid. Actual recorded speech determines the edit.
+
+## Opening motivation and diagrams
+
+Explain the goal as keeping the agreed business need linked to the ticket, evidence, proposed change, checks and decision. The private sheet is the intake record; BA Go freezes the reviewed intent. This follows a Single Source of Truth principle across versioned artifacts. The implemented demo ends at approved patch export; release outcomes and the full PDCA feedback cycle are future work.
+
+Show [Figure 1](final/figures/01_Business_Workflow.png) briefly to identify the business user, BA and DE and their access points. At section 05, point to **T1 Structured Output**, **T2 RAG** and the **T3 LangGraph** boundary in [Figure 2](final/figures/02_System_Architecture.png). T1 and T2 recur at several stages. The human decisions sit outside model generation.
+
+Only section **01_intro** has revised spoken text in version 3. Sections **02-09** are identical to version 2 and do not need rerecording. Section 05 changes only the unspoken screen cue. See [the recording change note](final/Audio_Scripts/RECORDING_CHANGES_JA.txt).
 
 ## Prepare before capturing the screen
 
