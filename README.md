@@ -297,5 +297,5 @@ The linked technical report identifies **Satoshi Nakamura — Solo** and covers 
 
 ## AI-use Disclosure
 
-AI-generated initial drafts, reviewed by the author, include application and test code, prompts, all report sections and Figures 1–2, README/setup documentation, and the demo script, captions and presentation graphics. AI also supported debugging and video editing; the author supplied the business workflow and scope, recorded the narration, reviewed the demonstrated results and final materials, and is responsible for the submission.
+AI assisted with code development, debugging, and drafting the report, diagrams, documentation and demo materials. The author reviewed the implementation, numerical outputs and final deliverables and is responsible for the submission.
 
