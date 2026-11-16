@@ -2,6 +2,8 @@
 
 DADS5250 Final Project — **Satoshi Nakamura, Solo**
 
+**For reviewers:** start with [How to setup & run](#how-to-setup--run) for a credential-free walkthrough.
+
 ## Executive summary
 
 Business users need reliable BI, reporting and data changes, but their preferred starting point is often a spreadsheet. They discuss a request with a Business Analyst (BA), who clarifies its purpose, impact and timing before a Data Engineer (DE) begins work. Re-entering that request across tools can separate the implementation from the agreed business need.
@@ -134,24 +136,60 @@ The three course techniques have separate responsibilities:
 
 Role-specific prompts support the AI stages. Human BA decisions and final approvals are explicit service operations outside model generation.
 
-## Reproduce on another machine
+## How to setup & run
 
-Use Python 3.12 and a separate environment. From this repository:
+### 1. Get the source and prerequisites
+
+The verified reviewer path is **Windows x64 with Python 3.12**. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on PATH (recommended; the setup script obtains Python 3.12), or provide Python 3.12 through the Windows `py` launcher. Dependency installation needs internet access.
+
+Download and extract this repository, or use **`03_Code` from the submission ZIP**. Open PowerShell in the folder containing `app.py`, `Setup.ps1` and `requirements.lock.txt`. GitHub access is required while the repository is private.
+
+### 2. Install and start
+
+Run these commands from that folder:
 
 ```powershell
-.\Setup.ps1
-.\Start_Demo.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Setup.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start_Demo.ps1 -NoBrowser
 ```
 
-The setup script uses installed `uv` when available, or the Python launcher. Manual setup is also supported:
+Wait until the terminal displays the app URL, then open **http://127.0.0.1:8501** in your browser. Keep the launch terminal open. The execution-policy option applies to these processes; it does not change the machine's policy. Setup creates the project's own `.venv` and installs `requirements.lock.txt`.
+
+If port 8501 is occupied, run the launcher with a different port, then open that port in the browser:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start_Demo.ps1 -Port 18501 -NoBrowser
+```
+
+### 3. Walk through the sample without credentials
+
+The following path uses local synthetic requests and deterministic sample generation. It needs no OpenAI API key or Google sign-in and makes no Google/OpenAI API calls.
+
+1. Keep **Generation mode = Sample walkthrough** and **Backlog source = Demo backlog** in **0 BA intake**. Ten requests load automatically.
+2. Set **Planning date = 2026-11-16**, then select **Estimate impact and change volume**. This fixed date makes the planning context repeatable.
+3. Select **REQ-001** under **Request for BA decision**. Enter a BA reviewer name and a decision rationale, select **Go**, check the business-review acknowledgment, and select **Record BA decision**.
+4. In **1 Request**, inspect the frozen handoff, then select **Prepare and validate**.
+5. Inspect **2 Evidence and plan**, then select **Review changes and checks**. In **3 Changes and checks**, expect **six PASS checks**, original revenue **920.00**, proposed revenue **770.00** and expected revenue **770.00**.
+6. Select **Continue to human review**. Enter a reviewer name, check **I reviewed the evidence, diff and validation results**, and select **Approve patch**. Approval stays disabled until that separate acknowledgment is checked.
+7. Select **Download approved patch package**. The ZIP contains the four-file proposal, validation and review records. Approval exports a reviewed patch; it does not merge or release it.
+
+To stop the app, press **Ctrl+C** in the launch terminal. You can restart it with the same launch command.
+
+### 4. Verification and optional live services
+
+This path was checked on Windows using a fresh copy of tracked source, a new Python 3.12 environment and the locked dependencies: installation, local server startup and the sample BA Go → validation → review → export workflow. The reproduction record is `04_Evidence/reviewer_setup_verification.json` in the submission ZIP. This credential-free check does not measure live AI quality.
+
+Google Sheets and OpenAI are optional modes with separate local setup, permissions and credentials; follow the two guides below when using them. Keep credentials outside Git. The author's private Google Sheet is not automatically shared with reviewers.
+
+For a manual Python environment, the equivalent installation is below. The automated reproduction used the Windows `uv` route above; macOS/Linux have not been verified.
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
-.\.venv\Scripts\python.exe -m streamlit run app.py
+.\.venv\Scripts\python.exe -m streamlit run app.py --server.address=127.0.0.1
 ```
 
-`requirements.lock.txt` pins the environment; `requirements.txt` lists direct dependencies. On macOS/Linux, use `python3` and `.venv/bin/python`. Installing dependencies requires network access.
+`requirements.lock.txt` pins the environment; `requirements.txt` lists direct dependencies.
 
 ### Connect the private Google Sheet
 
