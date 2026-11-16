@@ -61,7 +61,7 @@ Final deliverables:
 - [Section recording scripts and pronunciation notes](docs/final/Audio_Scripts/00_START_HERE_JA.txt)
 - [First recording section](docs/final/Audio_Scripts/01_intro.txt)
 
-**Preparation status:** the required actual 8-10 minute MP4/MPEG screen recording has not yet been included. The repository remains private during preparation. Before final submission, record and review the functional demonstration, check the attached course rubric, and make the repository public or confirm instructor access. Documentation and a draft ZIP do not replace the recorded demo.
+**Completed demonstration:** A later end-to-end recording uses the private Google Sheet and actual OpenAI mode, passes all six delivery checks, records the author's approval and exports the reviewed patch. Satoshi Nakamura reviewed the complete **9-minute 48-second** video and confirmed it on November 16, 2026. The MP4 and timed English subtitles are included in the submission ZIP; media files are kept outside the source repository. This recorded run is separate from the earlier checks above. GitHub remains private during preparation; make it public or confirm instructor access at final submission.
 
 Reviewers can reproduce the synthetic workflow with **Demo backlog + Sample walkthrough** without credentials. Publishing the source does not share the author's private Google Sheet or OAuth access. Actual Google mode needs separately permitted access to the fixed demonstration sheet, or a deliberate adaptation of the sheet allowlist; actual OpenAI mode needs the reviewer's own local API configuration.
 
@@ -237,12 +237,26 @@ The `Request backlog` sheet uses grouped business-request, BA-review and deliver
 
 The course requires a functional system, an 8–10 minute MP4/MPEG recording, a 4–6 page technical report and a reproducible GitHub repository. Submit the requested material in one ZIP with the repository URL and a clean source snapshot. Include selected redacted evidence when it supports the report; exclude `.env`, `.secrets`, `.venv`, caches, tokens and incidental runtime files.
 
-The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The version 3 recording guide uses nine sections, short sentences and bold main verbs. Record the presenter narration in separate Sound Recorder clips, then align the actual screen footage and English captions to those recordings. The script has 1,019 words; final timing depends on the supplied audio. Only section 01 spoken text changed from version 2; sections 02-09 need no rerecording. The guide and untimed caption text are preparation material, not the required video. Include the final 8-10 minute MP4/MPEG screen recording before calling the ZIP complete. Review the detailed attached rubric and confirm repository access at final submission.
+The linked technical report identifies **Satoshi Nakamura — Solo** and covers the problem and workflow, architecture and course techniques, engineering decisions and guardrails, recorded results, limitations and reproducibility. The completed video presents the functional workflow with the author's narration and timed English captions. The recording guide and scripts are preparation material; the final MP4 and SRT are included in the submission ZIP. Review the attached course rubric and confirm repository access before submitting.
 
-## Reference documentation
+## Team Contributions
 
-- [Google Sheets Python quickstart](https://developers.google.com/workspace/sheets/api/quickstart/python)
-- [Google Sheets read API](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/get)
-- [OpenAI structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)
-- [LangGraph Graph API](https://docs.langchain.com/oss/python/langgraph/graph-api)
-- [Streamlit app testing](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest)
+| **Member** | **Implemented work** | **Review and integration** |
+| --- | --- | --- |
+| Satoshi Nakamura (Solo) | Project scope and requirements, application development with AI assistance, evaluation, documentation, and presenter narration | Reviewed the integrated workflow and results, approved the demo change, and reviewed the completed report and recording |
+
+## References
+
+- OpenAI. [Responses API — Python reference](https://developers.openai.com/api/reference/python/resources/responses).
+- OpenAI. [Structured model outputs](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses).
+- Google. [Google Sheets API — Python quickstart](https://developers.google.com/workspace/sheets/api/quickstart/python).
+- Google. [Google Sheets API — spreadsheets.values.get](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/get).
+- Google. [OAuth 2.0 for Desktop Apps](https://developers.google.com/identity/protocols/oauth2/native-app).
+- LangChain. [LangGraph Graph API overview](https://docs.langchain.com/oss/python/langgraph/graph-api).
+- Streamlit. [AppTest API reference](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest).
+- dbt Labs. [dbt build command](https://docs.getdbt.com/reference/commands/build).
+- OpenAI. [File transcription](https://developers.openai.com/api/docs/guides/speech-to-text) (demo caption preparation).
+
+## AI-use Disclosure
+
+AI tools assisted with application development, debugging, documentation, and demo preparation. The author reviewed the project outputs and demonstrated results and is responsible for the final submission.
