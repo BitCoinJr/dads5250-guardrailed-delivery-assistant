@@ -63,7 +63,7 @@ Final deliverables:
 - [Section recording scripts and pronunciation notes](docs/final/Audio_Scripts/00_START_HERE_JA.txt)
 - [First recording section](docs/final/Audio_Scripts/01_intro.txt)
 
-**Completed demonstration:** A later end-to-end recording uses the private Google Sheet and actual OpenAI mode, passes all six delivery checks, records the author's approval and exports the reviewed patch. Satoshi Nakamura reviewed the complete **9-minute 48-second** video and confirmed it on November 16, 2026. The MP4 and timed English subtitles are included in the submission ZIP; media files are kept outside the source repository. This recorded run is separate from the earlier checks above. GitHub remains private during preparation; make it public or confirm instructor access at final submission.
+**Completed demonstration:** A later end-to-end recording uses the private Google Sheet and actual OpenAI mode, passes all six delivery checks, records the author's approval and exports the reviewed patch. Satoshi Nakamura reviewed the complete **9-minute 48-second** video and confirmed it on November 16, 2026. The MP4 and timed English subtitles are included in the submission ZIP; media files are kept outside the source repository. This recorded run is separate from the earlier checks above. The repository is public for final submission; credentials and the private demonstration sheet are not shared.
 
 Reviewers can reproduce the synthetic workflow with **Demo backlog + Sample walkthrough** without credentials. Publishing the source does not share the author's private Google Sheet or OAuth access. Actual Google mode needs separately permitted access to the fixed demonstration sheet, or a deliberate adaptation of the sheet allowlist; actual OpenAI mode needs the reviewer's own local API configuration.
 
@@ -142,7 +142,7 @@ Role-specific prompts support the AI stages. Human BA decisions and final approv
 
 The verified reviewer path is **Windows x64 with Python 3.12**. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on PATH (recommended; the setup script obtains Python 3.12), or provide Python 3.12 through the Windows `py` launcher. Dependency installation needs internet access.
 
-Download and extract this repository, or use **`03_Code` from the submission ZIP**. Open PowerShell in the folder containing `app.py`, `Setup.ps1` and `requirements.lock.txt`. GitHub access is required while the repository is private.
+Download and extract this repository, or use **`03_Code` from the submission ZIP**. Open PowerShell in the folder containing `app.py`, `Setup.ps1` and `requirements.lock.txt`. The public repository and the submission ZIP provide the same clean source snapshot.
 
 ### 2. Install and start
 
@@ -297,4 +297,5 @@ The linked technical report identifies **Satoshi Nakamura — Solo** and covers 
 
 ## AI-use Disclosure
 
-AI tools assisted with application development, debugging, documentation, and demo preparation. The author reviewed the project outputs and demonstrated results and is responsible for the final submission.
+AI-generated initial drafts, reviewed by the author, include application and test code, prompts, all report sections and Figures 1–2, README/setup documentation, and the demo script, captions and presentation graphics. AI also supported debugging and video editing; the author supplied the business workflow and scope, recorded the narration, reviewed the demonstrated results and final materials, and is responsible for the submission.
+
